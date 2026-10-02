@@ -84,18 +84,16 @@ public class MainActivity extends AppCompatActivity {
             startActivity(Intent.createChooser(intent, "Share Via"));
         });
 
-        // 10. Logout
-        findViewById(R.id.btnLogout).setOnClickListener(v -> {
-            SharedPreferences.Editor editor = sharedPreferences.edit();
-            editor.clear();
-            editor.apply();
+       // 10. Logout
+findViewById(R.id.btnLogout).setOnClickListener(v -> {
+    SharedPreferences.Editor editor = sharedPreferences.edit();
+    editor.clear();
+    editor.apply();
 
-            Toast.On("Logged out successfully", Toast.LENGTH_SHORT).show(); // Fixed to Toast.makeText
-            Toast.makeText(this, "Logged out successfully", Toast.LENGTH_SHORT).show();
-            startActivity(new Intent(MainActivity.this, LoginActivity.java));
-            finish();
-        });
-    }
+    Toast.makeText(this, "Logged out successfully", Toast.LENGTH_SHORT).show();
+    startActivity(new Intent(MainActivity.this, LoginActivity.class));
+    finish();
+});
 
     // லாகின் செய்துள்ளாரா எனச் சரிபார்த்து திறக்கும் பொதுவான முறை (Method)
     private void checkLoginAndOpen(Class<?> targetActivityClass) {
