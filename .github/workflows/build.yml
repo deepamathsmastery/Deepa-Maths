@@ -21,8 +21,10 @@ jobs:
     - name: Create local.properties
       run: echo "sdk.dir=$ANDROID_SDK_ROOT" > local.properties
 
-    - name: Build APK with Gradle Wrapper
-      run: ./gradlew assembleDebug --stacktrace
+    - name: Generate Gradle Wrapper and Build APK
+      run: |
+        gradle wrapper --gradle-version 8.4
+        ./gradlew assembleDebug --stacktrace
 
     - name: Upload APK Artifact
       uses: actions/upload-artifact@v4
