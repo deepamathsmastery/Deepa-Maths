@@ -42,7 +42,7 @@ public class LoginActivity extends AppCompatActivity {
                 String name = etStudentName.getText().toString().trim();
                 String pass = etPassword.getText().toString().trim();
 
-                if(name.isEmpty() || pass.isEmpty()){
+                if (name.isEmpty() || pass.isEmpty()) {
                     Toast.makeText(LoginActivity.this, "பெயர் மற்றும் பாஸ்வேர்ட் உள்ளிடவும்", Toast.LENGTH_SHORT).show();
                 } else {
                     // லாகின் தகவலைச் சேமிக்க
