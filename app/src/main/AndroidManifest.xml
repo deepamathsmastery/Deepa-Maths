@@ -8,35 +8,36 @@
         android:label="Deepa Maths"
         android:usesCleartextTraffic="true"
         android:theme="@style/Theme.AppCompat.Light.NoActionBar">
-        
+
+        <!-- 1. Splash Activity (ஆப் ஓபன் ஆனதும் முதலில் வருவது) -->
         <activity
-            android:name=".MainActivity"
+            android:name=".SplashActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <!-- 2. Login Activity -->
+        <activity
+            android:name=".LoginActivity"
+            android:exported="true" />
+
+        <!-- 3. Main Activity (Home & Dashboard) -->
+        <activity
+            android:name=".MainActivity"
+            android:exported="true" />
+
+        <!-- 4. AI Teacher Activity -->
+        <activity
+            android:name=".AITeacherActivity"
+            android:exported="true" />
+
+        <!-- 5. Math Pad Activity -->
+        <activity
+            android:name=".MathPadActivity"
+            android:exported="true" />
+
     </application>
 </manifest>
-<activity
-    android:name=".MathPadActivity"
-    android:exported="true" />
-<activity
-    android:name=".LoginActivity"
-    android:exported="true">
-    <intent-filter>
-        <action android:name="android.intent.action.MAIN" />
-        <category android:name="android.intent.category.LAUNCHER" />
-    </intent-filter>
-</activity>
-<activity
-    android:name=".AITeacherActivity"
-    android:exported="true" />
-
-<activity
-    android:name=".MathPadActivity"
-    android:exported="true" />
-<activity
-    android:name=".MainActivity"
-    android:exported="true" />
