@@ -21,10 +21,11 @@ jobs:
     - name: Create local.properties
       run: echo "sdk.dir=$ANDROID_SDK_ROOT" > local.properties
 
+    - name: Grant execute permission for gradlew
+      run: chmod +x gradlew
+
     - name: Build APK with Gradle
-      run: |
-        gradle wrapper
-        ./gradlew assembleDebug
+      run: ./gradlew assembleDebug
 
     - name: Upload APK Artifact
       uses: actions/upload-artifact@v4
