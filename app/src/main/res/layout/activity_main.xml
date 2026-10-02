@@ -1,11 +1,34 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:padding="16dp"
+    android:background="#F5F5F5">
 
-    <WebView
-        android:id="@+id/webview"
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
 
-</RelativeLayout>
+        <TextView
+            android:id="@+id/tvWelcome"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Welcome, Student!"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:textColor="#3F51B5"
+            android:layout_marginBottom="16dp" />
+
+        <Button android:id="@+id/btnHome" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="Home" android:layout_marginBottom="8dp"/>
+        <Button android:id="@+id/btnDashboard" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="Dashboard" android:layout_marginBottom="8dp"/>
+        <Button android:id="@+id/btnMathPad" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="Student Math Pad" android:layout_marginBottom="8dp"/>
+        <Button android:id="@+id/btnAiTeacher" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="AI Lady Teacher" android:layout_marginBottom="8dp"/>
+        <Button android:id="@+id/btnQuiz" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="Quiz Game" android:layout_marginBottom="8dp"/>
+        <Button android:id="@+id/btnWhatsapp" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="WhatsApp Doubt" android:layout_marginBottom="8dp"/>
+        <Button android:id="@+id/btnCall" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="Call Teacher" android:layout_marginBottom="8dp"/>
+        <Button android:id="@+id/btnShare" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="Share App" android:layout_marginBottom="8dp"/>
+        <Button android:id="@+id/btnLogout" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="Logout" android:backgroundTint="#D32F2F" android:textColor="#FFFFFF"/>
+
+    </LinearLayout>
+</ScrollView>
