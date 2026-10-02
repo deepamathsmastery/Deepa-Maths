@@ -21,7 +21,7 @@ public class MainActivity extends AppCompatActivity {
         sharedPreferences = getSharedPreferences("MathsAppPrefs", Context.MODE_PRIVATE);
         boolean isLoggedIn = sharedPreferences.getBoolean("isLoggedIn", false);
         if (!isLoggedIn) {
-            startActivity(new Intent(MainActivity.this, LoginActivity.java));
+            startActivity(new Intent(MainActivity.this, LoginActivity.class));
             finish();
             return;
         }
