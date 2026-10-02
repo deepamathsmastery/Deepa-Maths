@@ -11,11 +11,11 @@ public class SplashActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash);
 
-        // 2 விநாடிகள் கழித்து லாகின் அல்லது மெயின் பக்கத்திற்குச் செல்ல
+        // 2 விநாடிகள் கழித்து நேராக MainActivity (Home)-க்குச் செல்ல
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
-                Intent intent = new Intent(SplashActivity.this, LoginActivity.java);
+                Intent intent = new Intent(SplashActivity.this, MainActivity.class);
                 startActivity(intent);
                 finish();
             }
