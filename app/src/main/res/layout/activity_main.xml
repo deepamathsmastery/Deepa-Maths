@@ -20,15 +20,69 @@
             android:textColor="#3F51B5"
             android:layout_marginBottom="16dp" />
 
-        <Button android:id="@+id/btnHome" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="Home" android:layout_marginBottom="8dp"/>
-        <Button android:id="@+id/btnDashboard" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="Dashboard" android:layout_marginBottom="8dp"/>
-        <Button android:id="@+id/btnMathPad" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="Student Math Pad" android:layout_marginBottom="8dp"/>
-        <Button android:id="@+id/btnAiTeacher" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="AI Lady Teacher" android:layout_marginBottom="8dp"/>
-        <Button android:id="@+id/btnQuiz" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="Quiz Game" android:layout_marginBottom="8dp"/>
-        <Button android:id="@+id/btnWhatsapp" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="WhatsApp Doubt" android:layout_marginBottom="8dp"/>
-        <Button android:id="@+id/btnCall" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="Call Teacher" android:layout_marginBottom="8dp"/>
-        <Button android:id="@+id/btnShare" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="Share App" android:layout_marginBottom="8dp"/>
-        <Button android:id="@+id/btnLogout" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="Logout" android:backgroundTint="#D32F2F" android:textColor="#FFFFFF"/>
+        <Button 
+            android:id="@+id/btnHome" 
+            android:layout_width="match_parent" 
+            android:layout_height="wrap_content" 
+            android:text="Home" 
+            android:layout_marginBottom="8dp"/>
+
+        <Button 
+            android:id="@+id/btnDashboard" 
+            android:layout_width="match_parent" 
+            android:layout_height="wrap_content" 
+            android:text="Dashboard" 
+            android:layout_marginBottom="8dp"/>
+
+        <Button 
+            android:id="@+id/btnMathPad" 
+            android:layout_width="match_parent" 
+            android:layout_height="wrap_content" 
+            android:text="Student Math Pad" 
+            android:layout_marginBottom="8dp"/>
+
+        <Button 
+            android:id="@+id/btnAiTeacher" 
+            android:layout_width="match_parent" 
+            android:layout_height="wrap_content" 
+            android:text="AI Lady Teacher" 
+            android:layout_marginBottom="8dp"/>
+
+        <Button 
+            android:id="@+id/btnQuiz" 
+            android:layout_width="match_parent" 
+            android:layout_height="wrap_content" 
+            android:text="Quiz Game" 
+            android:layout_marginBottom="8dp"/>
+
+        <Button 
+            android:id="@+id/btnWhatsapp" 
+            android:layout_width="match_parent" 
+            android:layout_height="wrap_content" 
+            android:text="WhatsApp Doubt" 
+            android:layout_marginBottom="8dp"/>
+
+        <Button 
+            android:id="@+id/btnCall" 
+            android:layout_width="match_parent" 
+            android:layout_height="wrap_content" 
+            android:text="Call Teacher" 
+            android:layout_marginBottom="8dp"/>
+
+        <Button 
+            android:id="@+id/btnShare" 
+            android:layout_width="match_parent" 
+            android:layout_height="wrap_content" 
+            android:text="Share App" 
+            android:layout_marginBottom="8dp"/>
+
+        <Button 
+            android:id="@+id/btnLogout" 
+            android:layout_width="match_parent" 
+            android:layout_height="wrap_content" 
+            android:text="Logout" 
+            android:backgroundTint="#D32F2F" 
+            android:textColor="#FFFFFF"/>
 
     </LinearLayout>
 </ScrollView>
