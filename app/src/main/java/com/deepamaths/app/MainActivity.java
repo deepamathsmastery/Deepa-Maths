@@ -110,11 +110,12 @@ public class MainActivity extends AppCompatActivity {
             startActivity(intent);
         });
 
+        // Homework Button -> Opens WebViewActivity with URL
         setupCardWithAnimation(R.id.btnHomework, v -> {
-    Intent intent = new Intent(MainActivity.this, WebViewActivity.class);
-    intent.putExtra("url", "https://deepamaths.com/homework");
-    startActivity(intent);
-});
+            Intent intent = new Intent(MainActivity.this, WebViewActivity.class);
+            intent.putExtra("url", "https://deepamaths.com/homework");
+            startActivity(intent);
+        });
 
         // Student Math Pad
         setupCardWithAnimation(R.id.btnMathPad, v -> checkLoginAndOpen(AITeacherActivity.class));
@@ -207,7 +208,6 @@ public class MainActivity extends AppCompatActivity {
             boolean isWebLoggedIn = cookies != null && !cookies.isEmpty();
 
             if (isWebLoggedIn) {
-                // லாகின் செய்திருந்தால் -> Logout செய்யும்
                 cookieManager.removeAllCookies(null);
                 cookieManager.flush();
 
@@ -221,7 +221,6 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intent);
                 finish();
             } else {
-                // லாகின் செய்யவில்லை என்றால் -> Login பக்கத்திற்கு (WebView) கொண்டு செல்லும்
                 Intent intent = new Intent(MainActivity.this, WebViewActivity.class);
                 intent.putExtra("url", "https://deepamaths.com/student-dashboard");
                 startActivity(intent);
@@ -243,18 +242,15 @@ public class MainActivity extends AppCompatActivity {
         Button btnLoginLogout = findViewById(R.id.btnLogout);
         if (btnLoginLogout != null) {
             if (isWebLoggedIn) {
-                // லாகின் செய்திருந்தால்: சிவப்பு நிறம் மற்றும் "Logout" டெக்ஸ்ட்
                 btnLoginLogout.setBackgroundColor(Color.parseColor("#D32F2F"));
                 btnLoginLogout.setText("Logout");
             } else {
-                // லாகின் செய்யவில்லை என்றால்: பச்சை நிறம் மற்றும் "Login" டெக்ஸ்ட்
                 btnLoginLogout.setBackgroundColor(Color.parseColor("#4CAF50"));
                 btnLoginLogout.setText("Login");
             }
         }
     }
 
-    // எளிதாக அனிமேஷனை இணைக்க உதவும் சிறிய முறை (Helper Method)
     private void setupCardWithAnimation(int viewId, View.OnClickListener actionListener) {
         View view = findViewById(viewId);
         if (view != null) {
