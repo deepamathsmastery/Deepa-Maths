@@ -80,19 +80,15 @@ public class MainActivity extends AppCompatActivity {
         // --- ALL CARD / BUTTON CLICK LISTENERS WITH BOUNCE ANIMATION ---
 
         // Home Button -> Opens Website (https://deepamaths.com)
-setupCardWithAnimation(R.id.btnHome, v -> {
-    Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://deepamaths.com"));
-    startActivity(browserIntent);
-});
+        setupCardWithAnimation(R.id.btnHome, v -> {
+            Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://deepamaths.com"));
+            startActivity(browserIntent);
+        });
 
-        // Dashboard -> Opens Web URL (student-dashboard)
+        // Dashboard / Login Button -> Opens StudentDashboardActivity (Inside App WebView)
         setupCardWithAnimation(R.id.btnDashboard, v -> {
-            if (sharedPreferences.getBoolean("isLoggedIn", false)) {
-                Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://deepamaths.com/student-dashboard/"));
-                startActivity(browserIntent);
-            } else {
-                redirectToLogin();
-            }
+            Intent intent = new Intent(MainActivity.this, StudentDashboardActivity.class);
+            startActivity(intent);
         });
 
         // Student Math Pad
@@ -187,8 +183,10 @@ setupCardWithAnimation(R.id.btnHome, v -> {
             editor.clear();
             editor.apply();
 
+            Toast.On("Logged out successfully", Toast.LENGTH_SHORT).show(); // Note: standard Toast usage below
             Toast.makeText(this, "Logged out successfully", Toast.LENGTH_SHORT).show();
-            Intent intent = new Intent(MainActivity.this, LoginActivity.class);
+            
+            Intent intent = new Intent(MainActivity.this, MainActivity.class);
             startActivity(intent);
             finish();
         });
@@ -215,7 +213,8 @@ setupCardWithAnimation(R.id.btnHome, v -> {
 
     private void redirectToLogin() {
         Toast.makeText(MainActivity.this, "தயவுசெய்து முதலில் Login செய்யவும்!", Toast.LENGTH_SHORT).show();
-        Intent intent = new Intent(MainActivity.this, LoginActivity.class);
+        // வெப்சைட்டின் லாகின்/டேஷ்போர்ட் பக்கத்திற்கு அனுப்ப StudentDashboardActivity-ஐத் திறக்கலாம்
+        Intent intent = new Intent(MainActivity.this, StudentDashboardActivity.class);
         startActivity(intent);
     }
 }
