@@ -55,7 +55,7 @@
             </LinearLayout>
         </LinearLayout>
 
-        <!-- 2 Columns Grid Layout for Cards -->
+        <!-- 2 Columns Grid Layout for Cards (ஒரே அளவு மற்றும் தனித்தனி நிறங்கள்) -->
         <GridLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -75,14 +75,14 @@
                 android:foreground="?attr/selectableItemBackground"
                 app:cardCornerRadius="12dp"
                 app:cardElevation="3dp"
-                app:cardBackgroundColor="#FFFFFF">
+                app:cardBackgroundColor="#3F51B5">
                 <LinearLayout android:layout_width="match_parent" android:layout_height="match_parent" android:gravity="center" android:orientation="vertical" android:padding="8dp">
-                    <ImageView android:layout_width="32dp" android:layout_height="32dp" android:src="@android:drawable/ic_menu_myplaces" app:tint="#3F51B5" />
-                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="6dp" android:text="Home" android:textStyle="bold" android:textColor="#333333" android:textSize="13sp"/>
+                    <ImageView android:layout_width="30dp" android:layout_height="30dp" android:src="@android:drawable/ic_menu_myplaces" app:tint="#FFFFFF" />
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="6dp" android:text="Home" android:textStyle="bold" android:textColor="#FFFFFF" android:textSize="13sp" android:singleLine="true"/>
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
 
-            <!-- 2. Dashboard -->
+            <!-- 2. Dashboard (Single Line) -->
             <androidx.cardview.widget.CardView
                 android:id="@+id/btnDashboard"
                 android:layout_width="0dp"
@@ -94,10 +94,10 @@
                 android:foreground="?attr/selectableItemBackground"
                 app:cardCornerRadius="12dp"
                 app:cardElevation="3dp"
-                app:cardBackgroundColor="#FFFFFF">
+                app:cardBackgroundColor="#009688">
                 <LinearLayout android:layout_width="match_parent" android:layout_height="match_parent" android:gravity="center" android:orientation="vertical" android:padding="8dp">
-                    <ImageView android:layout_width="32dp" android:layout_height="32dp" android:src="@android:drawable/ic_menu_agenda" app:tint="#3F51B5" />
-                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="6dp" android:text="Dashboard" android:textStyle="bold" android:textColor="#333333" android:textSize="13sp"/>
+                    <ImageView android:layout_width="30dp" android:layout_height="30dp" android:src="@android:drawable/ic_menu_agenda" app:tint="#FFFFFF" />
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="6dp" android:text="Dashboard" android:textStyle="bold" android:textColor="#FFFFFF" android:textSize="13sp" android:singleLine="true"/>
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
 
@@ -113,109 +113,109 @@
                 android:foreground="?attr/selectableItemBackground"
                 app:cardCornerRadius="12dp"
                 app:cardElevation="3dp"
-                app:cardBackgroundColor="#FFFFFF">
+                app:cardBackgroundColor="#E91E63">
                 <LinearLayout android:layout_width="match_parent" android:layout_height="match_parent" android:gravity="center" android:orientation="vertical" android:padding="8dp">
-                    <ImageView android:layout_width="32dp" android:layout_height="32dp" android:src="@android:drawable/ic_menu_edit" app:tint="#3F51B5" />
-                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="6dp" android:text="Student Math Pad" android:textStyle="bold" android:textColor="#333333" android:textSize="12sp" android:gravity="center"/>
+                    <ImageView android:layout_width="30dp" android:layout_height="30dp" android:src="@android:drawable/ic_menu_edit" app:tint="#FFFFFF" />
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="6dp" android:text="Student\nMath Pad" android:textStyle="bold" android:textColor="#FFFFFF" android:textSize="12sp" android:gravity="center" android:maxLines="2"/>
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
 
-            <!-- 1. Algebra & Complex Numbers -->
-<androidx.cardview.widget.CardView
-    android:id="@+id/btnAlgebra"
-    android:layout_width="0dp"
-    android:layout_height="100dp"
-    android:layout_columnWeight="1"
-    android:layout_margin="6dp"
-    android:clickable="true"
-    android:focusable="true"
-    android:foreground="?attr/selectableItemBackground"
-    app:cardCornerRadius="12dp"
-    app:cardElevation="3dp"
-    app:cardBackgroundColor="#FFFFFF">
-    <LinearLayout android:layout_width="match_parent" android:layout_height="match_parent" android:gravity="center" android:orientation="vertical" android:padding="8dp">
-        <ImageView android:layout_width="32dp" android:layout_height="32dp" android:src="@android:drawable/ic_menu_agenda" app:tint="#3F51B5" />
-        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="6dp" android:text="Algebra" android:textStyle="bold" android:textColor="#333333" android:textSize="12sp" android:gravity="center"/>
-    </LinearLayout>
-</androidx.cardview.widget.CardView>
+            <!-- 4. Algebra -->
+            <androidx.cardview.widget.CardView
+                android:id="@+id/btnAlgebra"
+                android:layout_width="0dp"
+                android:layout_height="100dp"
+                android:layout_columnWeight="1"
+                android:layout_margin="6dp"
+                android:clickable="true"
+                android:focusable="true"
+                android:foreground="?attr/selectableItemBackground"
+                app:cardCornerRadius="12dp"
+                app:cardElevation="3dp"
+                app:cardBackgroundColor="#9C27B0">
+                <LinearLayout android:layout_width="match_parent" android:layout_height="match_parent" android:gravity="center" android:orientation="vertical" android:padding="8dp">
+                    <ImageView android:layout_width="30dp" android:layout_height="30dp" android:src="@android:drawable/ic_menu_agenda" app:tint="#FFFFFF" />
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="6dp" android:text="Algebra" android:textStyle="bold" android:textColor="#FFFFFF" android:textSize="12sp" android:gravity="center" android:singleLine="true"/>
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
 
-<!-- 2. Trigonometry -->
-<androidx.cardview.widget.CardView
-    android:id="@+id/btnTrigonometry"
-    android:layout_width="0dp"
-    android:layout_height="100dp"
-    android:layout_columnWeight="1"
-    android:layout_margin="6dp"
-    android:clickable="true"
-    android:focusable="true"
-    android:foreground="?attr/selectableItemBackground"
-    app:cardCornerRadius="12dp"
-    app:cardElevation="3dp"
-    app:cardBackgroundColor="#FFFFFF">
-    <LinearLayout android:layout_width="match_parent" android:layout_height="match_parent" android:gravity="center" android:orientation="vertical" android:padding="8dp">
-        <ImageView android:layout_width="32dp" android:layout_height="32dp" android:src="@android:drawable/ic_menu_compass" app:tint="#3F51B5" />
-        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="6dp" android:text="Trigonometry" android:textStyle="bold" android:textColor="#333333" android:textSize="12sp" android:gravity="center"/>
-    </LinearLayout>
-</androidx.cardview.widget.CardView>
+            <!-- 5. Trigonometry -->
+            <androidx.cardview.widget.CardView
+                android:id="@+id/btnTrigonometry"
+                android:layout_width="0dp"
+                android:layout_height="100dp"
+                android:layout_columnWeight="1"
+                android:layout_margin="6dp"
+                android:clickable="true"
+                android:focusable="true"
+                android:foreground="?attr/selectableItemBackground"
+                app:cardCornerRadius="12dp"
+                app:cardElevation="3dp"
+                app:cardBackgroundColor="#673AB7">
+                <LinearLayout android:layout_width="match_parent" android:layout_height="match_parent" android:gravity="center" android:orientation="vertical" android:padding="8dp">
+                    <ImageView android:layout_width="30dp" android:layout_height="30dp" android:src="@android:drawable/ic_menu_compass" app:tint="#FFFFFF" />
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="6dp" android:text="Trigonometry" android:textStyle="bold" android:textColor="#FFFFFF" android:textSize="12sp" android:gravity="center" android:singleLine="true"/>
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
 
-<!-- 3. Calculus -->
-<androidx.cardview.widget.CardView
-    android:id="@+id/btnCalculus"
-    android:layout_width="0dp"
-    android:layout_height="100dp"
-    android:layout_columnWeight="1"
-    android:layout_margin="6dp"
-    android:clickable="true"
-    android:focusable="true"
-    android:foreground="?attr/selectableItemBackground"
-    app:cardCornerRadius="12dp"
-    app:cardElevation="3dp"
-    app:cardBackgroundColor="#FFFFFF">
-    <LinearLayout android:layout_width="match_parent" android:layout_height="match_parent" android:gravity="center" android:orientation="vertical" android:padding="8dp">
-        <ImageView android:layout_width="32dp" android:layout_height="32dp" android:src="@android:drawable/ic_menu_sort_by_size" app:tint="#3F51B5" />
-        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="6dp" android:text="Calculus" android:textStyle="bold" android:textColor="#333333" android:textSize="12sp" android:gravity="center"/>
-    </LinearLayout>
-</androidx.cardview.widget.CardView>
+            <!-- 6. Calculus -->
+            <androidx.cardview.widget.CardView
+                android:id="@+id/btnCalculus"
+                android:layout_width="0dp"
+                android:layout_height="100dp"
+                android:layout_columnWeight="1"
+                android:layout_margin="6dp"
+                android:clickable="true"
+                android:focusable="true"
+                android:foreground="?attr/selectableItemBackground"
+                app:cardCornerRadius="12dp"
+                app:cardElevation="3dp"
+                app:cardBackgroundColor="#2196F3">
+                <LinearLayout android:layout_width="match_parent" android:layout_height="match_parent" android:gravity="center" android:orientation="vertical" android:padding="8dp">
+                    <ImageView android:layout_width="30dp" android:layout_height="30dp" android:src="@android:drawable/ic_menu_sort_by_size" app:tint="#FFFFFF" />
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="6dp" android:text="Calculus" android:textStyle="bold" android:textColor="#FFFFFF" android:textSize="12sp" android:gravity="center" android:singleLine="true"/>
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
 
-<!-- 4. Coordinate Geometry -->
-<androidx.cardview.widget.CardView
-    android:id="@+id/btnCoordinate"
-    android:layout_width="0dp"
-    android:layout_height="100dp"
-    android:layout_columnWeight="1"
-    android:layout_margin="6dp"
-    android:clickable="true"
-    android:focusable="true"
-    android:foreground="?attr/selectableItemBackground"
-    app:cardCornerRadius="12dp"
-    app:cardElevation="3dp"
-    app:cardBackgroundColor="#FFFFFF">
-    <LinearLayout android:layout_width="match_parent" android:layout_height="match_parent" android:gravity="center" android:orientation="vertical" android:padding="8dp">
-        <ImageView android:layout_width="32dp" android:layout_height="32dp" android:src="@android:drawable/ic_menu_mapmode" app:tint="#3F51B5" />
-        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="6dp" android:text="Coordinate" android:textStyle="bold" android:textColor="#333333" android:textSize="12sp" android:gravity="center"/>
-    </LinearLayout>
-</androidx.cardview.widget.CardView>
+            <!-- 7. Coordinate Geometry -->
+            <androidx.cardview.widget.CardView
+                android:id="@+id/btnCoordinate"
+                android:layout_width="0dp"
+                android:layout_height="100dp"
+                android:layout_columnWeight="1"
+                android:layout_margin="6dp"
+                android:clickable="true"
+                android:focusable="true"
+                android:foreground="?attr/selectableItemBackground"
+                app:cardCornerRadius="12dp"
+                app:cardElevation="3dp"
+                app:cardBackgroundColor="#00BCD4">
+                <LinearLayout android:layout_width="match_parent" android:layout_height="match_parent" android:gravity="center" android:orientation="vertical" android:padding="8dp">
+                    <ImageView android:layout_width="30dp" android:layout_height="30dp" android:src="@android:drawable/ic_menu_mapmode" app:tint="#FFFFFF" />
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="6dp" android:text="Coordinate\nGeometry" android:textStyle="bold" android:textColor="#FFFFFF" android:textSize="11sp" android:gravity="center" android:maxLines="2"/>
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
 
-            <!-- activity_main.xml-ல் சேர்க்க வேண்டிய கார்டு டிசைன் -->
-<androidx.cardview.widget.CardView
-    android:id="@+id/btnVideoTutorials"
-    android:layout_width="0dp"
-    android:layout_height="100dp"
-    android:layout_columnWeight="1"
-    android:layout_margin="6dp"
-    android:clickable="true"
-    android:focusable="true"
-    android:foreground="?attr/selectableItemBackground"
-    app:cardCornerRadius="12dp"
-    app:cardElevation="3dp"
-    app:cardBackgroundColor="#FFFFFF">
-    <LinearLayout android:layout_width="match_parent" android:layout_height="match_parent" android:gravity="center" android:orientation="vertical" android:padding="8dp">
-        <ImageView android:layout_width="32dp" android:layout_height="32dp" android:src="@android:drawable/ic_media_play" app:tint="#3F51B5" />
-        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="6dp" android:text="Video Classes" android:textStyle="bold" android:textColor="#333333" android:textSize="12sp" android:gravity="center"/>
-    </LinearLayout>
-</androidx.cardview.widget.CardView>
+            <!-- 8. Video Classes -->
+            <androidx.cardview.widget.CardView
+                android:id="@+id/btnVideoTutorials"
+                android:layout_width="0dp"
+                android:layout_height="100dp"
+                android:layout_columnWeight="1"
+                android:layout_margin="6dp"
+                android:clickable="true"
+                android:focusable="true"
+                android:foreground="?attr/selectableItemBackground"
+                app:cardCornerRadius="12dp"
+                app:cardElevation="3dp"
+                app:cardBackgroundColor="#FF5722">
+                <LinearLayout android:layout_width="match_parent" android:layout_height="match_parent" android:gravity="center" android:orientation="vertical" android:padding="8dp">
+                    <ImageView android:layout_width="30dp" android:layout_height="30dp" android:src="@android:drawable/ic_media_play" app:tint="#FFFFFF" />
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="6dp" android:text="Video Classes" android:textStyle="bold" android:textColor="#FFFFFF" android:textSize="12sp" android:gravity="center" android:singleLine="true"/>
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
 
-            <!-- 4. AI Lady Teacher -->
+            <!-- 9. AI Lady Teacher -->
             <androidx.cardview.widget.CardView
                 android:id="@+id/btnAiTeacher"
                 android:layout_width="0dp"
@@ -227,14 +227,14 @@
                 android:foreground="?attr/selectableItemBackground"
                 app:cardCornerRadius="12dp"
                 app:cardElevation="3dp"
-                app:cardBackgroundColor="#FFFFFF">
+                app:cardBackgroundColor="#795548">
                 <LinearLayout android:layout_width="match_parent" android:layout_height="match_parent" android:gravity="center" android:orientation="vertical" android:padding="8dp">
-                    <ImageView android:layout_width="32dp" android:layout_height="32dp" android:src="@android:drawable/ic_menu_day" app:tint="#3F51B5" />
-                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="6dp" android:text="AI Lady Teacher" android:textStyle="bold" android:textColor="#333333" android:textSize="12sp" android:gravity="center"/>
+                    <ImageView android:layout_width="30dp" android:layout_height="30dp" android:src="@android:drawable/ic_menu_day" app:tint="#FFFFFF" />
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="6dp" android:text="AI Lady\nTeacher" android:textStyle="bold" android:textColor="#FFFFFF" android:textSize="12sp" android:gravity="center" android:maxLines="2"/>
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
 
-            <!-- 5. Quiz Game -->
+            <!-- 10. Quiz Game -->
             <androidx.cardview.widget.CardView
                 android:id="@+id/btnQuiz"
                 android:layout_width="0dp"
@@ -246,14 +246,14 @@
                 android:foreground="?attr/selectableItemBackground"
                 app:cardCornerRadius="12dp"
                 app:cardElevation="3dp"
-                app:cardBackgroundColor="#FFFFFF">
+                app:cardBackgroundColor="#607D8B">
                 <LinearLayout android:layout_width="match_parent" android:layout_height="match_parent" android:gravity="center" android:orientation="vertical" android:padding="8dp">
-                    <ImageView android:layout_width="32dp" android:layout_height="32dp" android:src="@android:drawable/ic_menu_compass" app:tint="#3F51B5" />
-                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="6dp" android:text="Quiz Game" android:textStyle="bold" android:textColor="#333333" android:textSize="13sp"/>
+                    <ImageView android:layout_width="30dp" android:layout_height="30dp" android:src="@android:drawable/ic_menu_compass" app:tint="#FFFFFF" />
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="6dp" android:text="Quiz Game" android:textStyle="bold" android:textColor="#FFFFFF" android:textSize="13sp" android:singleLine="true"/>
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
 
-            <!-- 6. Exam Mock Test -->
+            <!-- 11. Exam Mock Test (Two Lines as requested) -->
             <androidx.cardview.widget.CardView
                 android:id="@+id/btnExamMock"
                 android:layout_width="0dp"
@@ -265,14 +265,14 @@
                 android:foreground="?attr/selectableItemBackground"
                 app:cardCornerRadius="12dp"
                 app:cardElevation="3dp"
-                app:cardBackgroundColor="#FFFFFF">
+                app:cardBackgroundColor="#E91E63">
                 <LinearLayout android:layout_width="match_parent" android:layout_height="match_parent" android:gravity="center" android:orientation="vertical" android:padding="8dp">
-                    <ImageView android:layout_width="32dp" android:layout_height="32dp" android:src="@android:drawable/ic_menu_manage" app:tint="#3F51B5" />
-                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="6dp" android:text="Exam Mock Test" android:textStyle="bold" android:textColor="#333333" android:textSize="12sp" android:gravity="center"/>
+                    <ImageView android:layout_width="30dp" android:layout_height="30dp" android:src="@android:drawable/ic_menu_manage" app:tint="#FFFFFF" />
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="6dp" android:text="Exam Mock\nTest" android:textStyle="bold" android:textColor="#FFFFFF" android:textSize="12sp" android:gravity="center" android:maxLines="2"/>
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
 
-            <!-- 7. Voice Doubt -->
+            <!-- 12. Voice Doubt -->
             <androidx.cardview.widget.CardView
                 android:id="@+id/btnVoiceDoubt"
                 android:layout_width="0dp"
@@ -284,14 +284,14 @@
                 android:foreground="?attr/selectableItemBackground"
                 app:cardCornerRadius="12dp"
                 app:cardElevation="3dp"
-                app:cardBackgroundColor="#FFFFFF">
+                app:cardBackgroundColor="#3F51B5">
                 <LinearLayout android:layout_width="match_parent" android:layout_height="match_parent" android:gravity="center" android:orientation="vertical" android:padding="8dp">
-                    <ImageView android:layout_width="32dp" android:layout_height="32dp" android:src="@android:drawable/ic_btn_speak_now" app:tint="#3F51B5" />
-                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="6dp" android:text="Voice Doubt" android:textStyle="bold" android:textColor="#333333" android:textSize="13sp"/>
+                    <ImageView android:layout_width="30dp" android:layout_height="30dp" android:src="@android:drawable/ic_btn_speak_now" app:tint="#FFFFFF" />
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="6dp" android:text="Voice Doubt" android:textStyle="bold" android:textColor="#FFFFFF" android:textSize="13sp" android:singleLine="true"/>
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
 
-            <!-- 8. Offline Practice -->
+            <!-- 13. Offline Practice -->
             <androidx.cardview.widget.CardView
                 android:id="@+id/btnOffline"
                 android:layout_width="0dp"
@@ -303,14 +303,14 @@
                 android:foreground="?attr/selectableItemBackground"
                 app:cardCornerRadius="12dp"
                 app:cardElevation="3dp"
-                app:cardBackgroundColor="#FFFFFF">
+                app:cardBackgroundColor="#4CAF50">
                 <LinearLayout android:layout_width="match_parent" android:layout_height="match_parent" android:gravity="center" android:orientation="vertical" android:padding="8dp">
-                    <ImageView android:layout_width="32dp" android:layout_height="32dp" android:src="@android:drawable/ic_menu_save" app:tint="#3F51B5" />
-                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="6dp" android:text="Offline Practice" android:textStyle="bold" android:textColor="#333333" android:textSize="12sp" android:gravity="center"/>
+                    <ImageView android:layout_width="30dp" android:layout_height="30dp" android:src="@android:drawable/ic_menu_save" app:tint="#FFFFFF" />
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="6dp" android:text="Offline\nPractice" android:textStyle="bold" android:textColor="#FFFFFF" android:textSize="12sp" android:gravity="center" android:maxLines="2"/>
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
 
-            <!-- 9. Progress Tracker -->
+            <!-- 14. Progress Tracker -->
             <androidx.cardview.widget.CardView
                 android:id="@+id/btnProgress"
                 android:layout_width="0dp"
@@ -322,14 +322,14 @@
                 android:foreground="?attr/selectableItemBackground"
                 app:cardCornerRadius="12dp"
                 app:cardElevation="3dp"
-                app:cardBackgroundColor="#FFFFFF">
+                app:cardBackgroundColor="#FF9800">
                 <LinearLayout android:layout_width="match_parent" android:layout_height="match_parent" android:gravity="center" android:orientation="vertical" android:padding="8dp">
-                    <ImageView android:layout_width="32dp" android:layout_height="32dp" android:src="@android:drawable/ic_menu_upload" app:tint="#3F51B5" />
-                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="6dp" android:text="Progress Tracker" android:textStyle="bold" android:textColor="#333333" android:textSize="12sp" android:gravity="center"/>
+                    <ImageView android:layout_width="30dp" android:layout_height="30dp" android:src="@android:drawable/ic_menu_upload" app:tint="#FFFFFF" />
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="6dp" android:text="Progress\nTracker" android:textStyle="bold" android:textColor="#FFFFFF" android:textSize="12sp" android:gravity="center" android:maxLines="2"/>
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
 
-            <!-- 10. Badges & Rewards -->
+            <!-- 15. Badges & Rewards -->
             <androidx.cardview.widget.CardView
                 android:id="@+id/btnBadges"
                 android:layout_width="0dp"
@@ -341,14 +341,14 @@
                 android:foreground="?attr/selectableItemBackground"
                 app:cardCornerRadius="12dp"
                 app:cardElevation="3dp"
-                app:cardBackgroundColor="#FFFFFF">
+                app:cardBackgroundColor="#9C27B0">
                 <LinearLayout android:layout_width="match_parent" android:layout_height="match_parent" android:gravity="center" android:orientation="vertical" android:padding="8dp">
-                    <ImageView android:layout_width="32dp" android:layout_height="32dp" android:src="@android:drawable/ic_menu_send" app:tint="#3F51B5" />
-                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="6dp" android:text="Badges &amp; Rewards" android:textStyle="bold" android:textColor="#333333" android:textSize="12sp" android:gravity="center"/>
+                    <ImageView android:layout_width="30dp" android:layout_height="30dp" android:src="@android:drawable/ic_menu_send" app:tint="#FFFFFF" />
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="6dp" android:text="Badges &\nRewards" android:textStyle="bold" android:textColor="#FFFFFF" android:textSize="12sp" android:gravity="center" android:maxLines="2"/>
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
 
-            <!-- 11. Daily Challenge -->
+            <!-- 16. Daily Challenge -->
             <androidx.cardview.widget.CardView
                 android:id="@+id/btnDailyChallenge"
                 android:layout_width="0dp"
@@ -360,14 +360,14 @@
                 android:foreground="?attr/selectableItemBackground"
                 app:cardCornerRadius="12dp"
                 app:cardElevation="3dp"
-                app:cardBackgroundColor="#FFFFFF">
+                app:cardBackgroundColor="#009688">
                 <LinearLayout android:layout_width="match_parent" android:layout_height="match_parent" android:gravity="center" android:orientation="vertical" android:padding="8dp">
-                    <ImageView android:layout_width="32dp" android:layout_height="32dp" android:src="@android:drawable/ic_menu_today" app:tint="#3F51B5" />
-                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="6dp" android:text="Daily Challenge" android:textStyle="bold" android:textColor="#333333" android:textSize="12sp" android:gravity="center"/>
+                    <ImageView android:layout_width="30dp" android:layout_height="30dp" android:src="@android:drawable/ic_menu_today" app:tint="#FFFFFF" />
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="6dp" android:text="Daily\nChallenge" android:textStyle="bold" android:textColor="#FFFFFF" android:textSize="12sp" android:gravity="center" android:maxLines="2"/>
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
 
-            <!-- 12. Math Calculator -->
+            <!-- 17. Math Calculator -->
             <androidx.cardview.widget.CardView
                 android:id="@+id/btnCalculator"
                 android:layout_width="0dp"
@@ -379,14 +379,14 @@
                 android:foreground="?attr/selectableItemBackground"
                 app:cardCornerRadius="12dp"
                 app:cardElevation="3dp"
-                app:cardBackgroundColor="#FFFFFF">
+                app:cardBackgroundColor="#3F51B5">
                 <LinearLayout android:layout_width="match_parent" android:layout_height="match_parent" android:gravity="center" android:orientation="vertical" android:padding="8dp">
-                    <ImageView android:layout_width="32dp" android:layout_height="32dp" android:src="@android:drawable/ic_menu_sort_by_size" app:tint="#3F51B5" />
-                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="6dp" android:text="Math Calculator" android:textStyle="bold" android:textColor="#333333" android:textSize="12sp" android:gravity="center"/>
+                    <ImageView android:layout_width="30dp" android:layout_height="30dp" android:src="@android:drawable/ic_menu_sort_by_size" app:tint="#FFFFFF" />
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="6dp" android:text="Math\nCalculator" android:textStyle="bold" android:textColor="#FFFFFF" android:textSize="12sp" android:gravity="center" android:maxLines="2"/>
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
 
-            <!-- 13. WhatsApp Doubt -->
+            <!-- 18. WhatsApp Doubt -->
             <androidx.cardview.widget.CardView
                 android:id="@+id/btnWhatsapp"
                 android:layout_width="0dp"
@@ -398,14 +398,14 @@
                 android:foreground="?attr/selectableItemBackground"
                 app:cardCornerRadius="12dp"
                 app:cardElevation="3dp"
-                app:cardBackgroundColor="#FFFFFF">
+                app:cardBackgroundColor="#2E7D32">
                 <LinearLayout android:layout_width="match_parent" android:layout_height="match_parent" android:gravity="center" android:orientation="vertical" android:padding="8dp">
-                    <ImageView android:layout_width="32dp" android:layout_height="32dp" android:src="@android:drawable/ic_menu_send" app:tint="#25D366" />
-                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="6dp" android:text="WhatsApp Doubt" android:textStyle="bold" android:textColor="#333333" android:textSize="12sp" android:gravity="center"/>
+                    <ImageView android:layout_width="30dp" android:layout_height="30dp" android:src="@android:drawable/ic_menu_send" app:tint="#FFFFFF" />
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="6dp" android:text="WhatsApp\nDoubt" android:textStyle="bold" android:textColor="#FFFFFF" android:textSize="12sp" android:gravity="center" android:maxLines="2"/>
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
 
-            <!-- 14. Call Teacher -->
+            <!-- 19. Call Teacher -->
             <androidx.cardview.widget.CardView
                 android:id="@+id/btnCall"
                 android:layout_width="0dp"
@@ -417,14 +417,14 @@
                 android:foreground="?attr/selectableItemBackground"
                 app:cardCornerRadius="12dp"
                 app:cardElevation="3dp"
-                app:cardBackgroundColor="#FFFFFF">
+                app:cardBackgroundColor="#C2185B">
                 <LinearLayout android:layout_width="match_parent" android:layout_height="match_parent" android:gravity="center" android:orientation="vertical" android:padding="8dp">
-                    <ImageView android:layout_width="32dp" android:layout_height="32dp" android:src="@android:drawable/ic_menu_call" app:tint="#4CAF50" />
-                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="6dp" android:text="Call Teacher" android:textStyle="bold" android:textColor="#333333" android:textSize="12sp" android:gravity="center"/>
+                    <ImageView android:layout_width="30dp" android:layout_height="30dp" android:src="@android:drawable/ic_menu_call" app:tint="#FFFFFF" />
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="6dp" android:text="Call Teacher" android:textStyle="bold" android:textColor="#FFFFFF" android:textSize="12sp" android:gravity="center" android:singleLine="true"/>
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
 
-            <!-- 15. Share App -->
+            <!-- 20. Share App -->
             <androidx.cardview.widget.CardView
                 android:id="@+id/btnShare"
                 android:layout_width="0dp"
@@ -436,31 +436,31 @@
                 android:foreground="?attr/selectableItemBackground"
                 app:cardCornerRadius="12dp"
                 app:cardElevation="3dp"
-                app:cardBackgroundColor="#FFFFFF">
+                app:cardBackgroundColor="#00ACC1">
                 <LinearLayout android:layout_width="match_parent" android:layout_height="match_parent" android:gravity="center" android:orientation="vertical" android:padding="8dp">
-                    <ImageView android:layout_width="32dp" android:layout_height="32dp" android:src="@android:drawable/ic_menu_share" app:tint="#3F51B5" />
-                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="6dp" android:text="Share App" android:textStyle="bold" android:textColor="#333333" android:textSize="13sp"/>
+                    <ImageView android:layout_width="30dp" android:layout_height="30dp" android:src="@android:drawable/ic_menu_share" app:tint="#FFFFFF" />
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="6dp" android:text="Share App" android:textStyle="bold" android:textColor="#FFFFFF" android:textSize="13sp" android:singleLine="true"/>
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
 
-            <!-- 16. Export PDF Notes -->
-<androidx.cardview.widget.CardView
-    android:id="@+id/btnExportPdf"
-    android:layout_width="0dp"
-    android:layout_height="100dp"
-    android:layout_columnWeight="1"
-    android:layout_margin="6dp"
-    android:clickable="true"
-    android:focusable="true"
-    android:foreground="?attr/selectableItemBackground"
-    app:cardCornerRadius="12dp"
-    app:cardElevation="3dp"
-    app:cardBackgroundColor="#FFFFFF">
-    <LinearLayout android:layout_width="match_parent" android:layout_height="match_parent" android:gravity="center" android:orientation="vertical" android:padding="8dp">
-        <ImageView android:layout_width="32dp" android:layout_height="32dp" android:src="@android:drawable/ic_menu_save" app:tint="#3F51B5" />
-        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="6dp" android:text="Export PDF" android:textStyle="bold" android:textColor="#333333" android:textSize="12sp" android:gravity="center"/>
-    </LinearLayout>
-</androidx.cardview.widget.CardView>
+            <!-- 21. Export PDF Notes -->
+            <androidx.cardview.widget.CardView
+                android:id="@+id/btnExportPdf"
+                android:layout_width="0dp"
+                android:layout_height="100dp"
+                android:layout_columnWeight="1"
+                android:layout_margin="6dp"
+                android:clickable="true"
+                android:focusable="true"
+                android:foreground="?attr/selectableItemBackground"
+                app:cardCornerRadius="12dp"
+                app:cardElevation="3dp"
+                app:cardBackgroundColor="#512DA8">
+                <LinearLayout android:layout_width="match_parent" android:layout_height="match_parent" android:gravity="center" android:orientation="vertical" android:padding="8dp">
+                    <ImageView android:layout_width="30dp" android:layout_height="30dp" android:src="@android:drawable/ic_menu_save" app:tint="#FFFFFF" />
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="6dp" android:text="Export PDF" android:textStyle="bold" android:textColor="#FFFFFF" android:textSize="12sp" android:gravity="center" android:singleLine="true"/>
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
 
         </GridLayout>
 
