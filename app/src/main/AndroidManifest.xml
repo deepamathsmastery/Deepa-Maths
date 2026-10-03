@@ -46,7 +46,8 @@
             android:exported="false" />
         <activity android:name=".CoordinateActivity" 
             android:exported="false" />
-        
+        <activity android:name=".VideoTutorialsActivity" 
+            android:exported="false" />
 
     </application>
 </manifest>
