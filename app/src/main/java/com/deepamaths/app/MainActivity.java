@@ -186,8 +186,7 @@ setupCardWithAnimation(R.id.btnExamMock, v -> {
             editor.clear();
             editor.apply();
 
-            Toast.On("Logged out successfully", Toast.LENGTH_SHORT).show(); // Note: standard Toast usage below
-            Toast.makeText(this, "Logged out successfully", Toast.LENGTH_SHORT).show();
+Toast.makeText(MainActivity.this, "Logged out successfully", Toast.LENGTH_SHORT).show();
             
             Intent intent = new Intent(MainActivity.this, MainActivity.class);
             startActivity(intent);
@@ -217,7 +216,8 @@ setupCardWithAnimation(R.id.btnExamMock, v -> {
     private void redirectToLogin() {
         Toast.makeText(MainActivity.this, "தயவுசெய்து முதலில் Login செய்யவும்!", Toast.LENGTH_SHORT).show();
         // வெப்சைட்டின் லாகின்/டேஷ்போர்ட் பக்கத்திற்கு அனுப்ப StudentDashboardActivity-ஐத் திறக்கலாம்
-        Intent intent = new Intent(MainActivity.this, StudentDashboardActivity.class);
-        startActivity(intent);
+       Intent intent = new Intent(MainActivity.this, WebViewActivity.class);
+intent.putExtra("url", "https://deepamaths.com/student-dashboard");
+startActivity(intent);
     }
 }
