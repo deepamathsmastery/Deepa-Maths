@@ -79,9 +79,11 @@ public class MainActivity extends AppCompatActivity {
 
         // --- ALL CARD / BUTTON CLICK LISTENERS WITH BOUNCE ANIMATION ---
 
-        // Home Button
-        setupCardWithAnimation(R.id.btnHome, v -> 
-            Toast.makeText(this, "Home Page Opened", Toast.LENGTH_SHORT).show());
+        // Home Button -> Opens Website (https://deepamaths.com)
+setupCardWithAnimation(R.id.btnHome, v -> {
+    Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://deepamaths.com"));
+    startActivity(browserIntent);
+});
 
         // Dashboard -> Opens Web URL (student-dashboard)
         setupCardWithAnimation(R.id.btnDashboard, v -> {
