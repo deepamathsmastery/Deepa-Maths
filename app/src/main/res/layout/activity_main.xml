@@ -21,16 +21,14 @@
             android:paddingStart="4dp"
             android:paddingEnd="4dp">
 
-            <!-- App Logo (உங்களது அப்லோட் செய்த app_logo இங்கே இணைக்கப்பட்டுள்ளது) -->
+            <!-- App Logo -->
             <ImageView
-               
                 android:id="@+id/imgAppLogo"
                 android:layout_width="48dp"
                 android:layout_height="48dp"
-                android:src="@android:drawable/ic_menu_compass"
+                android:src="@drawable/app_logo"
                 android:background="#E8EAF6"
-                android:padding="4dp" 
-                app:tint="#3F51B5" />
+                android:padding="4dp" />
 
             <!-- Welcome Text -->
             <LinearLayout
