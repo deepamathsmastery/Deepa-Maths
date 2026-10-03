@@ -120,6 +120,82 @@
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
 
+            <!-- 1. Algebra & Complex Numbers -->
+<androidx.cardview.widget.CardView
+    android:id="@+id/btnAlgebra"
+    android:layout_width="0dp"
+    android:layout_height="100dp"
+    android:layout_columnWeight="1"
+    android:layout_margin="6dp"
+    android:clickable="true"
+    android:focusable="true"
+    android:foreground="?attr/selectableItemBackground"
+    app:cardCornerRadius="12dp"
+    app:cardElevation="3dp"
+    app:cardBackgroundColor="#FFFFFF">
+    <LinearLayout android:layout_width="match_parent" android:layout_height="match_parent" android:gravity="center" android:orientation="vertical" android:padding="8dp">
+        <ImageView android:layout_width="32dp" android:layout_height="32dp" android:src="@android:drawable/ic_menu_agenda" app:tint="#3F51B5" />
+        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="6dp" android:text="Algebra" android:textStyle="bold" android:textColor="#333333" android:textSize="12sp" android:gravity="center"/>
+    </LinearLayout>
+</androidx.cardview.widget.CardView>
+
+<!-- 2. Trigonometry -->
+<androidx.cardview.widget.CardView
+    android:id="@+id/btnTrigonometry"
+    android:layout_width="0dp"
+    android:layout_height="100dp"
+    android:layout_columnWeight="1"
+    android:layout_margin="6dp"
+    android:clickable="true"
+    android:focusable="true"
+    android:foreground="?attr/selectableItemBackground"
+    app:cardCornerRadius="12dp"
+    app:cardElevation="3dp"
+    app:cardBackgroundColor="#FFFFFF">
+    <LinearLayout android:layout_width="match_parent" android:layout_height="match_parent" android:gravity="center" android:orientation="vertical" android:padding="8dp">
+        <ImageView android:layout_width="32dp" android:layout_height="32dp" android:src="@android:drawable/ic_menu_compass" app:tint="#3F51B5" />
+        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="6dp" android:text="Trigonometry" android:textStyle="bold" android:textColor="#333333" android:textSize="12sp" android:gravity="center"/>
+    </LinearLayout>
+</androidx.cardview.widget.CardView>
+
+<!-- 3. Calculus -->
+<androidx.cardview.widget.CardView
+    android:id="@+id/btnCalculus"
+    android:layout_width="0dp"
+    android:layout_height="100dp"
+    android:layout_columnWeight="1"
+    android:layout_margin="6dp"
+    android:clickable="true"
+    android:focusable="true"
+    android:foreground="?attr/selectableItemBackground"
+    app:cardCornerRadius="12dp"
+    app:cardElevation="3dp"
+    app:cardBackgroundColor="#FFFFFF">
+    <LinearLayout android:layout_width="match_parent" android:layout_height="match_parent" android:gravity="center" android:orientation="vertical" android:padding="8dp">
+        <ImageView android:layout_width="32dp" android:layout_height="32dp" android:src="@android:drawable/ic_menu_sort_by_size" app:tint="#3F51B5" />
+        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="6dp" android:text="Calculus" android:textStyle="bold" android:textColor="#333333" android:textSize="12sp" android:gravity="center"/>
+    </LinearLayout>
+</androidx.cardview.widget.CardView>
+
+<!-- 4. Coordinate Geometry -->
+<androidx.cardview.widget.CardView
+    android:id="@+id/btnCoordinate"
+    android:layout_width="0dp"
+    android:layout_height="100dp"
+    android:layout_columnWeight="1"
+    android:layout_margin="6dp"
+    android:clickable="true"
+    android:focusable="true"
+    android:foreground="?attr/selectableItemBackground"
+    app:cardCornerRadius="12dp"
+    app:cardElevation="3dp"
+    app:cardBackgroundColor="#FFFFFF">
+    <LinearLayout android:layout_width="match_parent" android:layout_height="match_parent" android:gravity="center" android:orientation="vertical" android:padding="8dp">
+        <ImageView android:layout_width="32dp" android:layout_height="32dp" android:src="@android:drawable/ic_menu_mapmode" app:tint="#3F51B5" />
+        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="6dp" android:text="Coordinate" android:textStyle="bold" android:textColor="#333333" android:textSize="12sp" android:gravity="center"/>
+    </LinearLayout>
+</androidx.cardview.widget.CardView>
+
             <!-- 4. AI Lady Teacher -->
             <androidx.cardview.widget.CardView
                 android:id="@+id/btnAiTeacher"
@@ -347,6 +423,8 @@
                     <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="6dp" android:text="Share App" android:textStyle="bold" android:textColor="#333333" android:textSize="13sp"/>
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
+
+            
 
         </GridLayout>
 
