@@ -112,7 +112,7 @@ public class MainActivity extends AppCompatActivity {
 
         // Homework Button -> Opens WebViewActivity with URL
         setupCardWithAnimation(R.id.btnHomework, v -> {
-            Intent intent = new Intent(MainActivity.this, WebViewActivity.class);
+                     Intent intent = new Intent(MainActivity.this, WebViewActivity.class);
             intent.putExtra("url", "https://deepamaths.com/homework");
             startActivity(intent);
         });
