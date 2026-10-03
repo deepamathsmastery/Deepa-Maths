@@ -121,3 +121,10 @@ findViewById(R.id.btnVoiceDoubt).setOnClickListener(v -> {
         redirectToLogin();
     }
 });
+findViewById(R.id.btnQuiz).setOnClickListener(v -> {
+    if (sharedPreferences.getBoolean("isLoggedIn", false)) {
+        startActivity(new Intent(MainActivity.this, QuizActivity.class));
+    } else {
+        redirectToLogin();
+    }
+});
