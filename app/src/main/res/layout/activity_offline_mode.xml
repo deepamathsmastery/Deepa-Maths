@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp"
+    android:background="#FFFFFF">
+
+    <!-- Title -->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Offline Mode &amp; Formula Book"
+        android:textSize="22sp"
+        android:textStyle="bold"
+        android:textColor="#3F51B5"
+        android:layout_gravity="center"
+        android:layout_marginBottom="12dp" />
+
+    <!-- Network Status Indicator -->
+    <TextView
+        android:id="@+id/tvNetworkStatus"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="இணைய இணைப்புச் சோதிக்கப்படுகிறது..."
+        android:textSize="14sp"
+        android:textColor="#FFFFFF"
+        android:background="#FF9800"
+        android:padding="8dp"
+        android:gravity="center"
+        android:layout_marginBottom="16dp" />
+
+    <!-- Offline Notes / Formula Section -->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="முக்கிய கணிதப் பார்முலாக்கள் (இணையம் தேவையில்லை):"
+        android:textStyle="bold"
+        android:textSize="16sp"
+        android:textColor="#333333"
+        android:layout_marginBottom="8dp" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:background="#F5F5F5"
+        android:padding="12dp"
+        android:layout_marginBottom="16dp">
+
+        <TextView
+            android:id="@+id/tvOfflineContent"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="பார்முலாக்கள் ஏற்றப்படுகின்றன..."
+            android:textSize="15sp"
+            android:textColor="#333333"
+            android:lineSpacingExtra="6dp" />
+    </ScrollView>
+
+    <!-- Back Button -->
+    <Button
+        android:id="@+id/btnOfflineBack"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="முகப்புக்குச் செல் (Back to Home)"
+        android:backgroundTint="#757575"
+        android:textColor="#FFFFFF"
+        android:padding="12dp" />
+
+</LinearLayout>
