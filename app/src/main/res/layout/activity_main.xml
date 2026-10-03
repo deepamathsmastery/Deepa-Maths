@@ -55,6 +55,56 @@
             android:text="Quiz Game" 
             android:layout_marginBottom="8dp"/>
 
+        <!-- புதிதாகச் சேர்க்கப்பட்ட பட்டன்கள் -->
+        <Button 
+            android:id="@+id/btnExamMock" 
+            android:layout_width="match_parent" 
+            android:layout_height="wrap_content" 
+            android:text="Exam Mock Test" 
+            android:layout_marginBottom="8dp"/>
+
+        <Button 
+            android:id="@+id/btnVoiceDoubt" 
+            android:layout_width="match_parent" 
+            android:layout_height="wrap_content" 
+            android:text="Voice Doubt" 
+            android:layout_marginBottom="8dp"/>
+
+        <Button 
+            android:id="@+id/btnOffline" 
+            android:layout_width="match_parent" 
+            android:layout_height="wrap_content" 
+            android:text="Offline Practice" 
+            android:layout_marginBottom="8dp"/>
+
+        <Button 
+            android:id="@+id/btnProgress" 
+            android:layout_width="match_parent" 
+            android:layout_height="wrap_content" 
+            android:text="Progress Tracker" 
+            android:layout_marginBottom="8dp"/>
+
+        <Button 
+            android:id="@+id/btnBadges" 
+            android:layout_width="match_parent" 
+            android:layout_height="wrap_content" 
+            android:text="Badges &amp; Rewards" 
+            android:layout_marginBottom="8dp"/>
+
+        <Button 
+            android:id="@+id/btnDailyChallenge" 
+            android:layout_width="match_parent" 
+            android:layout_height="wrap_content" 
+            android:text="Daily Challenge" 
+            android:layout_marginBottom="8dp"/>
+
+        <Button 
+            android:id="@+id/btnCalculator" 
+            android:layout_width="match_parent" 
+            android:layout_height="wrap_content" 
+            android:text="Math Calculator" 
+            android:layout_marginBottom="8dp"/>
+
         <Button 
             android:id="@+id/btnWhatsapp" 
             android:layout_width="match_parent" 
@@ -76,6 +126,15 @@
             android:text="Share App" 
             android:layout_marginBottom="8dp"/>
 
+        <Switch
+            android:id="@+id/switchDarkMode"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Dark Mode (இரவு முறை)"
+            android:textSize="16sp"
+            android:padding="12dp"
+            android:layout_marginBottom="8dp" />
+
         <Button 
             android:id="@+id/btnLogout" 
             android:layout_width="match_parent" 
@@ -83,13 +142,6 @@
             android:text="Logout" 
             android:backgroundTint="#D32F2F" 
             android:textColor="#FFFFFF"/>
-<Switch
-    android:id="@+id/switchDarkMode"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:text="Dark Mode (இரவு முறை)"
-    android:textSize="16sp"
-    android:padding="12dp"
-    android:layout_marginBottom="12dp" />
+
     </LinearLayout>
 </ScrollView>
