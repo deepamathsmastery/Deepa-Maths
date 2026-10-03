@@ -196,6 +196,25 @@
     </LinearLayout>
 </androidx.cardview.widget.CardView>
 
+            <!-- activity_main.xml-ல் சேர்க்க வேண்டிய கார்டு டிசைன் -->
+<androidx.cardview.widget.CardView
+    android:id="@+id/btnVideoTutorials"
+    android:layout_width="0dp"
+    android:layout_height="100dp"
+    android:layout_columnWeight="1"
+    android:layout_margin="6dp"
+    android:clickable="true"
+    android:focusable="true"
+    android:foreground="?attr/selectableItemBackground"
+    app:cardCornerRadius="12dp"
+    app:cardElevation="3dp"
+    app:cardBackgroundColor="#FFFFFF">
+    <LinearLayout android:layout_width="match_parent" android:layout_height="match_parent" android:gravity="center" android:orientation="vertical" android:padding="8dp">
+        <ImageView android:layout_width="32dp" android:layout_height="32dp" android:src="@android:drawable/ic_media_play" app:tint="#3F51B5" />
+        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="6dp" android:text="Video Classes" android:textStyle="bold" android:textColor="#333333" android:textSize="12sp" android:gravity="center"/>
+    </LinearLayout>
+</androidx.cardview.widget.CardView>
+
             <!-- 4. AI Lady Teacher -->
             <androidx.cardview.widget.CardView
                 android:id="@+id/btnAiTeacher"
