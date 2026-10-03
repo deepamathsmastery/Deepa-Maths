@@ -71,12 +71,18 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        // 8. Share App
+        // 8. Share App to WhatsApp, Facebook, Telegram, X, etc.
         findViewById(R.id.btnShare).setOnClickListener(v -> {
+            String shareMessage = "Deepa Maths ஆப் மூலம் எளிதாக கணிதத்தைக் கற்றுக்கொள்ளுங்கள்! மாணவர்களுக்கான சிறந்த செயலி.\n\n" +
+                    "டவுன்லோட் செய்ய லிங்க்:\n" +
+                    "https://play.google.com/store/apps/details?id=" + BuildConfig.APPLICATION_ID;
+
             Intent intent = new Intent(Intent.ACTION_SEND);
             intent.setType("text/plain");
-            intent.putExtra(Intent.EXTRA_TEXT, "Download Deepa Maths Mastery App for best online classes!");
-            startActivity(Intent.createChooser(intent, "Share Via"));
+            intent.putExtra(Intent.EXTRA_TEXT, shareMessage);
+            
+            // இது பயனர் போனில் உள்ள WhatsApp, Telegram, Facebook, X, Reddit போன்ற அனைத்து ஆப்ஸையும் காட்டும்
+            startActivity(Intent.createChooser(intent, "Deepa Maths-ஐப் பகிர (Share via):"));
         });
 
         // 9. Logout Button
