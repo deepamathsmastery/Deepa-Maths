@@ -20,13 +20,13 @@
     <EditText
         android:id="@+id/etMathQuery"
         android:layout_width="match_parent"
-        android:layout_height="120dp"
-        android:hint="உங்கள் கணிதக் கேள்வியை இங்கு டைப் செய்யவும் (எ.கா: Solve 2x + 5 = 15)"
+        android:layout_height="100dp"
+        android:hint="உங்கள் கணிதக் கேள்வியை இங்கு டைப் செய்யவும்..."
         android:gravity="top"
         android:inputType="textMultiLine"
         android:padding="12dp"
         android:background="@android:drawable/editbox_background_normal"
-        android:layout_marginBottom="16dp" />
+        android:layout_marginBottom="12dp" />
 
     <!-- Solve Button -->
     <Button
@@ -37,7 +37,7 @@
         android:backgroundTint="#3F51B5"
         android:textColor="#FFFFFF"
         android:padding="12dp"
-        android:layout_marginBottom="16dp" />
+        android:layout_marginBottom="12dp" />
 
     <!-- AI Response Section -->
     <TextView
@@ -51,9 +51,11 @@
 
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
         android:background="#F5F5F5"
-        android:padding="8dp">
+        android:padding="8dp"
+        android:layout_marginBottom="12dp">
 
         <TextView
             android:id="@+id/tvAiResponse"
@@ -63,5 +65,15 @@
             android:textSize="16sp"
             android:textColor="#333333" />
     </ScrollView>
+
+    <!-- Back Button -->
+    <Button
+        android:id="@+id/btnBack"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="முகப்புக்குச் செல் (Back to Home)"
+        android:backgroundTint="#757575"
+        android:textColor="#FFFFFF"
+        android:padding="12dp" />
 
 </LinearLayout>
