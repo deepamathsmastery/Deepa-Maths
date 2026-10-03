@@ -132,7 +132,7 @@
 
         <!-- Register Button -->
         <Button
-            android:id="@+s/btnRegisterSubmit"
+            android:id="@+id/btnRegisterSubmit"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="பதிவு செய் (Register)"
