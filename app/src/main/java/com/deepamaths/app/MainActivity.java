@@ -114,3 +114,10 @@ public class MainActivity extends AppCompatActivity {
         startActivity(intent);
     }
 }
+findViewById(R.id.btnVoiceDoubt).setOnClickListener(v -> {
+    if (sharedPreferences.getBoolean("isLoggedIn", false)) {
+        startActivity(new Intent(MainActivity.this, VoiceDoubtActivity.class));
+    } else {
+        redirectToLogin();
+    }
+});
