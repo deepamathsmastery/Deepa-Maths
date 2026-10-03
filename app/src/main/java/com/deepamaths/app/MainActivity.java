@@ -188,6 +188,37 @@ public class MainActivity extends AppCompatActivity {
             redirectToLogin();
         }
     }
+    // 1. Algebra Card Click
+androidx.cardview.widget.CardView btnAlgebra = findViewById(R.id.btnAlgebra); // உங்கள் XML-ல் உள்ள id-க்கு ஏற்ப மாற்றிக் கொள்ளவும்
+if (btnAlgebra != null) {
+    btnAlgebra.setOnClickListener(v -> {
+        startActivity(new android.content.Intent(MainActivity.this, AlgebraActivity.class));
+    });
+}
+
+// 2. Trigonometry Card Click
+androidx.cardview.widget.CardView btnTrigonometry = findViewById(R.id.btnTrigonometry);
+if (btnTrigonometry != null) {
+    btnTrigonometry.setOnClickListener(v -> {
+        startActivity(new android.content.Intent(MainActivity.this, TrigonometryActivity.class));
+    });
+}
+
+// 3. Calculus Card Click
+androidx.cardview.widget.CardView btnCalculus = findViewById(R.id.btnCalculus);
+if (btnCalculus != null) {
+    btnCalculus.setOnClickListener(v -> {
+        startActivity(new android.content.Intent(MainActivity.this, CalculusActivity.class));
+    });
+}
+
+// 4. Coordinate Geometry Card Click
+androidx.cardview.widget.CardView btnCoordinate = findViewById(R.id.btnCoordinate);
+if (btnCoordinate != null) {
+    btnCoordinate.setOnClickListener(v -> {
+        startActivity(new android.content.Intent(MainActivity.this, CoordinateActivity.class));
+    });
+}
 
     private void redirectToLogin() {
         Toast.makeText(MainActivity.this, "தயவுசெய்து முதலில் Login செய்யவும்!", Toast.LENGTH_SHORT).show();
