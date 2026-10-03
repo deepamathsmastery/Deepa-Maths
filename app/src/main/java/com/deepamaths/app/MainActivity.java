@@ -79,7 +79,7 @@ public class MainActivity extends AppCompatActivity {
 
         // Student Math Pad
         findViewById(R.id.btnMathPad).setOnClickListener(v -> 
-            checkLoginAndOpen(AiTeacherActivity.class);
+            checkLoginAndOpen(AITeacherActivity.class);
 
         // AI Lady Teacher (Web Chat)
         findViewById(R.id.btnAiTeacher).setOnClickListener(v -> 
