@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="20dp"
+    android:background="#FFFFFF">
+
+    <!-- Title -->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Daily Math Challenge (தினசரி கணிதச் சவால்)"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:textColor="#3F51B5"
+        android:layout_gravity="center"
+        android:layout_marginBottom="24dp" />
+
+    <!-- Challenge Card -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:background="#F5F5F5"
+        android:padding="16dp"
+        android:layout_marginBottom="20dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="இன்றைய சிறப்புச் சவால்:"
+            android:textStyle="bold"
+            android:textSize="16sp"
+            android:textColor="#E91E63"
+            android:layout_marginBottom="8dp" />
+
+        <TextView
+            android:id="@+id/tvDailyQuestion"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="கேள்வி ஏற்றப்படுகிறது..."
+            android:textSize="18sp"
+            android:textColor="#333333"
+            android:textStyle="bold" />
+    </LinearLayout>
+
+    <!-- Answer Input -->
+    <EditText
+        android:id="@+id/etDailyAnswer"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="உங்கள் விடையை இங்கு உள்ளிடவும்..."
+        android:inputType="text"
+        android:padding="12dp"
+        android:background="@android:drawable/editbox_background_normal"
+        android:layout_marginBottom="16dp" />
+
+    <!-- Submit Button -->
+    <Button
+        android:id="@+id/btnSubmitDaily"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="பதிலைச் சமர்ப்பிக்க (Submit Answer)"
+        android:backgroundTint="#3F51B5"
+        android:textColor="#FFFFFF"
+        android:padding="12dp"
+        android:layout_marginBottom="12dp" />
+
+    <!-- Back Button -->
+    <Button
+        android:id="@+id/btnDailyBack"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="முகப்புக்குச் செல் (Back to Home)"
+        android:backgroundTint="#757575"
+        android:textColor="#FFFFFF"
+        android:padding="12dp" />
+
+</LinearLayout>
