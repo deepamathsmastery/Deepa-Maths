@@ -130,6 +130,13 @@ private SharedPreferences sharedPreferences;
             finish();
         });
     }
+    findViewById(R.id.btnBadges).setOnClickListener(v -> {
+    if (sharedPreferences.getBoolean("isLoggedIn", false)) {
+        startActivity(new Intent(MainActivity.this, BadgesActivity.java));
+    } else {
+        redirectToLogin();
+    }
+});
     findViewById(R.id.btnDailyChallenge).setOnClickListener(v -> {
     if (sharedPreferences.getBoolean("isLoggedIn", false)) {
         startActivity(new Intent(MainActivity.this, DailyChallengeActivity.java));
