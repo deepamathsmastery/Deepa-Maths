@@ -144,7 +144,13 @@ private SharedPreferences sharedPreferences;
         redirectToLogin();
     }
 });
-
+findViewById(R.id.btnExportPdf).setOnClickListener(v -> {
+    if (sharedPreferences.getBoolean("isLoggedIn", false)) {
+        startActivity(new Intent(MainActivity.this, ExportPdfActivity.class));
+    } else {
+        redirectToLogin();
+    }
+});
     private void checkLoginAndOpen(Class<?> targetActivityClass) {
         boolean isLoggedIn = sharedPreferences.getBoolean("isLoggedIn", false);
 
