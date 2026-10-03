@@ -4,7 +4,7 @@ import android.content.Context;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
-import android:widget.Button;
+import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
@@ -41,7 +41,7 @@ public class ProgressTrackerActivity extends AppCompatActivity {
                 editor.apply();
 
                 loadProgressData();
-                Toast.makeText(ProgressTrackerActivity.javaThisFallback(), "புள்ளிவிவரங்கள் அழிக்கப்பட்டன!", Toast.LENGTH_SHORT).show(); // Note: use ProgressTrackerActivity.this
+                Toast.makeText(ProgressTrackerActivity.this, "புள்ளிவிவரங்கள் அழிக்கப்பட்டன!", Toast.LENGTH_SHORT).show();
             }
         });
 
