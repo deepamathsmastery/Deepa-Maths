@@ -33,10 +33,11 @@ public class AITeacherActivity extends AppCompatActivity {
         });
 
         // உங்களது AI Teacher வெப்சைட் அல்லது டூல் லிங்க்
+        // (உதாரணத்திற்கு உங்களது AI பக்கத்தை அல்லது ChatGPT / Claude போன்றவற்றை இங்கு கொடுக்கலாம்)
         webView.loadUrl("https://deepamaths.com/ai-teacher"); 
     }
 
-    // பேக் பட்டனை (Back Button) அழுத்தும்போது முந்தைய பக்கத்திற்குச் செல்ல
+    // பேக் பட்டனை (Back Button) அழுத்தும்போது வெப்சைட்டில் முந்தைய பக்கத்திற்குச் செல்ல
     @Override
     public void onBackPressed() {
         if (webView != null && webView.canGoBack()) {
@@ -46,4 +47,3 @@ public class AITeacherActivity extends AppCompatActivity {
         }
     }
 }
-
