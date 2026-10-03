@@ -38,6 +38,15 @@
         <activity
             android:name=".MathPadActivity"
             android:exported="true" />
+        <activity android:name=".AlgebraActivity" 
+            android:exported="false" />
+        <activity android:name=".TrigonometryActivity" 
+            android:exported="false" />
+        <activity android:name=".CalculusActivity" 
+            android:exported="false" />
+        <activity android:name=".CoordinateActivity" 
+            android:exported="false" />
+        
 
     </application>
 </manifest>
