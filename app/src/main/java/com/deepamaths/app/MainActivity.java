@@ -92,6 +92,12 @@ public class MainActivity extends AppCompatActivity {
             startActivity(intent);
         });
 
+        setupCardWithAnimation(R.id.btnHomework, v -> {
+    Intent intent = new Intent(MainActivity.this, WebViewActivity.class);
+    intent.putExtra("url", "https://deepamaths.com/homework");
+    startActivity(intent);
+});
+
         // Student Math Pad
         setupCardWithAnimation(R.id.btnMathPad, v -> checkLoginAndOpen(AITeacherActivity.class));
 
