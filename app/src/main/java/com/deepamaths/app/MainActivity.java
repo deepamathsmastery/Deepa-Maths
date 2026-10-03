@@ -6,7 +6,6 @@ import android.content.SharedPreferences;
 import android.net.Uri;
 import android.os.Bundle;
 import android.widget.Switch;
-import com.deepamaths.app.BuildConfig;
 import android.widget.TextView;
 import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
@@ -144,10 +143,9 @@ public class MainActivity extends AppCompatActivity {
 
         // Share App
         findViewById(R.id.btnShare).setOnClickListener(v -> {
-            String shareMessage = "Deepa Maths ஆப் மூலம் எளிதாக கணிதத்தைக் கற்றுக்கொள்ளுங்கள்! மாணவர்களுக்கான சிறந்த செயலி.\n\n" +
-                    "டவுன்லோட் செய்ய லிங்க்:\n" +
-                    "https://play.google.com/store/apps/details?id=" + BuildConfig.APPLICATION_ID;
-
+           String shareMessage = "Deepa Maths ஆப் மூலம் எளிதாக கணிதத்தைக் கற்றுக்கொள்ளுங்கள்! மாணவர்களுக்கான சிறந்த செயலி.\n\n" +
+                      "டவுன்லோட் செய்ய லிங்க்:\n" +
+                      "https://play.google.com/store/apps/details?id=com.deepamaths.app";
             Intent intent = new Intent(Intent.ACTION_SEND);
             intent.setType("text/plain");
             intent.putExtra(Intent.EXTRA_TEXT, shareMessage);
