@@ -77,25 +77,25 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        // Student Math Pad
-        findViewById(R.id.btnMathPad).setOnClickListener(v -> 
-            checkLoginAndOpen(AITeacherActivity.class);
+      // Student Math Pad
+    findViewById(R.id.btnMathPad).setOnClickListener(v -> 
+        checkLoginAndOpen(AITeacherActivity.class));
 
-        // AI Lady Teacher (Web Chat)
-        findViewById(R.id.btnAiTeacher).setOnClickListener(v -> 
-            checkLoginAndOpen(AIChatWebActivity.class));
+    // AI Lady Teacher (Web Chat)
+    findViewById(R.id.btnAiTeacher).setOnClickListener(v -> 
+        checkLoginAndOpen(AIChatWebActivity.class));
 
-        // Quiz Game
-        findViewById(R.id.btnQuiz).setOnClickListener(v -> 
-            checkLoginAndOpen(QuizActivity.class));
+    // Quiz Game
+    findViewById(R.id.btnQuiz).setOnClickListener(v -> 
+        checkLoginAndOpen(QuizActivity.class));
 
-        // Voice Doubt Support
-        findViewById(R.id.btnVoiceDoubt).setOnClickListener(v -> 
-            checkLoginAndOpen(VoiceDoubtActivity.class));
+    // Voice Doubt Support
+    findViewById(R.id.btnVoiceDoubt).setOnClickListener(v -> 
+        checkLoginAndOpen(VoiceDoubtActivity.class));
 
-        // Offline Mode
-        findViewById(R.id.btnOffline).setOnClickListener(v -> 
-            startActivity(new Intent(MainActivity.this, OfflineModeActivity.class)));
+    // Offline Mode
+    findViewById(R.id.btnOffline).setOnClickListener(v -> 
+        startActivity(new Intent(MainActivity.this, OfflineModeActivity.class)));
 
         // Progress Tracker
         findViewById(R.id.btnProgress).setOnClickListener(v -> 
