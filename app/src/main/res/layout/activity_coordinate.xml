@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="16dp"
+    android:background="#F5F7FA">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Coordinate Geometry"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:textColor="#3F51B5"
+            android:gravity="center"
+            android:layout_marginBottom="16dp"/>
+
+        <!-- 2D Geometry -->
+        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical" android:background="#FFFFFF" android:padding="14dp" android:layout_marginBottom="12dp" android:elevation="2dp">
+            <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:text="1. 2D Coordinate Formulas" android:textSize="16sp" android:textStyle="bold" android:textColor="#D32F2F" android:layout_marginBottom="8dp"/>
+            <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:text="• Distance Formula: d = √((x₂ - x₁)² + (y₂ - y₁)²)\n• Section Formula: ((m₁x₂ + m₂x₁) / (m₁ + m₂), (m₁y₂ + m₂y₁) / (m₁ + m₂))\n• Midpoint Formula: ((x₁ + x₂)/2, (y₁ + y₂)/2)\n• Area of Triangle: ½ |x₁(y₂ - y₃) + x₂(y₃ - y₁) + x₃(y₁ - y₂)|\n• Slope (m) = (y₂ - y₁) / (x₂ - x₁)" android:textSize="14sp" android:textColor="#333333" android:lineSpacingExtra="4dp"/>
+        </LinearLayout>
+
+        <!-- Conic Sections -->
+        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical" android:background="#FFFFFF" android:padding="14dp" android:layout_marginBottom="16dp" android:elevation="2dp">
+            <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:text="2. Conic Sections (Circle, Parabola, etc.)" android:textSize="16sp" android:textStyle="bold" android:textColor="#D32F2F" android:layout_marginBottom="8dp"/>
+            <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:text="• Circle: (x - h)² + (y - k)² = r²\n• Parabola: y² = 4ax\n• Ellipse: (x²/a²) + (y²/b²) = 1\n• Hyperbola: (x²/a²) - (y²/b²) = 1" android:textSize="14sp" android:textColor="#333333" android:lineSpacingExtra="4dp"/>
+        </LinearLayout>
+
+    </LinearLayout>
+</ScrollView>
