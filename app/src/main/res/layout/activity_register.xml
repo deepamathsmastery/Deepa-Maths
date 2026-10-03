@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="20dp"
+    android:background="#FFFFFF">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="புதிய கணக்கு பதிவு (Register)"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            android:textColor="#3F51B5"
+            android:layout_gravity="center"
+            android:layout_marginBottom="20dp" />
+
+        <!-- First Name -->
+        <EditText
+            android:id="@+id/etFirstName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="First Name (முதல் பெயர்)"
+            android:inputType="textPersonName"
+            android:padding="12dp"
+            android:layout_marginBottom="12dp" />
+
+        <!-- Last Name -->
+        <EditText
+            android:id="@+id/etLastName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Last Name (கடைசிப் பெயர்)"
+            android:inputType="textPersonName"
+            android:padding="12dp"
+            android:layout_marginBottom="12dp" />
+
+        <!-- Username -->
+        <EditText
+            android:id="@+id/etRegUsername"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Username (பயனர் பெயர்)"
+            android:inputType="text"
+            android:padding="12dp"
+            android:layout_marginBottom="12dp" />
+
+        <!-- Account Email -->
+        <EditText
+            android:id="@+id/etRegEmail"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Account Email (மின்னஞ்சல்)"
+            android:inputType="textEmailAddress"
+            android:padding="12dp"
+            android:layout_marginBottom="12dp" />
+
+        <!-- Password -->
+        <EditText
+            android:id="@+id/etRegPassword"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Password (பாஸ்வேர்ட்)"
+            android:inputType="textPassword"
+            android:padding="12dp"
+            android:layout_marginBottom="12dp" />
+
+        <!-- Re-Password -->
+        <EditText
+            android:id="@+id/etRePassword"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Confirm Password (உள்ளிட்ட பாஸ்வேர்ட் மீண்டும்)"
+            android:inputType="textPassword"
+            android:padding="12dp"
+            android:layout_marginBottom="12dp" />
+
+        <!-- Mobile No -->
+        <EditText
+            android:id="@+id/etMobileNo"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Mobile No (கைபேசி எண்)"
+            android:inputType="phone"
+            android:padding="12dp"
+            android:layout_marginBottom="12dp" />
+
+        <!-- WhatsApp No -->
+        <EditText
+            android:id="@+id/etWhatsappNo"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="WhatsApp No (வாட்ஸ்அப் எண்)"
+            android:inputType="phone"
+            android:padding="12dp"
+            android:layout_marginBottom="12dp" />
+
+        <!-- Area -->
+        <EditText
+            android:id="@+id/etArea"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Area / City (இடம் / ஊர்)"
+            android:inputType="textPostalAddress"
+            android:padding="12dp"
+            android:layout_marginBottom="12dp" />
+
+        <!-- Board / Curriculum -->
+        <EditText
+            android:id="@+id/etBoard"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Board / Curriculum (எ.கா: State Board / CBSE)"
+            android:inputType="text"
+            android:padding="12dp"
+            android:layout_marginBottom="12dp" />
+
+        <!-- Class / Grade -->
+        <EditText
+            android:id="@+id/etClassGrade"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Class / Grade (எ.கா: 10th Std)"
+            android:inputType="text"
+            android:padding="12dp"
+            android:layout_marginBottom="24dp" />
+
+        <!-- Register Button -->
+        <Button
+            android:id="@+s/btnRegisterSubmit"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="பதிவு செய் (Register)"
+            android:textSize="16sp"
+            android:backgroundTint="#3F51B5"
+            android:textColor="#FFFFFF"
+            android:padding="12dp"
+            android:layout_marginBottom="16dp" />
+
+    </LinearLayout>
+</ScrollView>
