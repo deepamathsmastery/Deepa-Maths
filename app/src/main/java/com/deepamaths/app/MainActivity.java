@@ -3,11 +3,14 @@ package com.deepamaths.app;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.Color;
 import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
+import android.webkit.CookieManager;
+import android.widget.Button;
 import android.widget.Switch;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -24,7 +27,6 @@ public class MainActivity extends AppCompatActivity {
         Animation animation = AnimationUtils.loadAnimation(this, R.anim.card_bounce);
         view.startAnimation(animation);
         
-        // அனிமேஷன் முடியும் வரை (300ms) சிறிது தாமதித்துவிட்டு அடுத்த செயலைச் செய்தல்
         view.postDelayed(() -> {
             if (action != null) {
                 action.run();
@@ -34,7 +36,6 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        // 1. ஆப் தொடங்கும் முன்பே சேமிக்கப்பட்ட தீம் மோடை அமைத்தல்
         sharedPreferences = getSharedPreferences("MathsAppPrefs", Context.MODE_PRIVATE);
         boolean isDarkMode = sharedPreferences.getBoolean("isDarkMode", false);
 
@@ -86,10 +87,10 @@ public class MainActivity extends AppCompatActivity {
         });
 
         // Dashboard / Login Button -> Opens WebViewActivity (Inside App WebView)
-setupCardWithAnimation(R.id.btnDashboard, v -> {
-    Intent intent = new Intent(MainActivity.this, WebViewActivity.class);
-    startActivity(intent);
-});
+        setupCardWithAnimation(R.id.btnDashboard, v -> {
+            Intent intent = new Intent(MainActivity.this, WebViewActivity.class);
+            startActivity(intent);
+        });
 
         // Student Math Pad
         setupCardWithAnimation(R.id.btnMathPad, v -> checkLoginAndOpen(AITeacherActivity.class));
@@ -122,30 +123,25 @@ setupCardWithAnimation(R.id.btnDashboard, v -> {
         setupCardWithAnimation(R.id.btnCalculator, v -> checkLoginAndOpen(MathCalculatorActivity.class));
 
         // Exam Mock Test Mode -> Opens Mock Test Web Page
-setupCardWithAnimation(R.id.btnExamMock, v -> {
-    Intent intent = new Intent(MainActivity.this, WebViewActivity.class);
-    intent.putExtra("url", "https://deepamaths.com/maths-mock-test");
-    startActivity(intent);
-});
+        setupCardWithAnimation(R.id.btnExamMock, v -> {
+            Intent intent = new Intent(MainActivity.this, WebViewActivity.class);
+            intent.putExtra("url", "https://deepamaths.com/maths-mock-test");
+            startActivity(intent);
+        });
+
         // --- FORMULAS & SHORTCUTS ACTIVITIES (ANIMATED) ---
-        
-        // 1. Algebra Card Click
         setupCardWithAnimation(R.id.btnAlgebra, v -> 
             startActivity(new Intent(MainActivity.this, AlgebraActivity.class)));
 
-        // 2. Trigonometry Card Click
         setupCardWithAnimation(R.id.btnTrigonometry, v -> 
             startActivity(new Intent(MainActivity.this, TrigonometryActivity.class)));
 
-        // 3. Calculus Card Click
         setupCardWithAnimation(R.id.btnCalculus, v -> 
             startActivity(new Intent(MainActivity.this, CalculusActivity.class)));
 
-        // 4. Coordinate Geometry Card Click
         setupCardWithAnimation(R.id.btnCoordinate, v -> 
             startActivity(new Intent(MainActivity.this, CoordinateActivity.class)));
 
-        // 5. Video Tutorials Card Click
         setupCardWithAnimation(R.id.btnVideoTutorials, v -> 
             startActivity(new Intent(MainActivity.this, VideoTutorialsActivity.class)));
 
@@ -180,18 +176,58 @@ setupCardWithAnimation(R.id.btnExamMock, v -> {
             startActivity(Intent.createChooser(intent, "Deepa Maths-ஐப் பகிர (Share via):"));
         });
 
-        // Logout Button
+        // Dynamic Login / Logout Button Click Listener
         setupCardWithAnimation(R.id.btnLogout, v -> {
-            SharedPreferences.Editor editor = sharedPreferences.edit();
-            editor.clear();
-            editor.apply();
+            CookieManager cookieManager = CookieManager.getInstance();
+            String cookies = cookieManager.getCookie("https://deepamaths.com/");
+            boolean isWebLoggedIn = cookies != null && !cookies.isEmpty();
 
-Toast.makeText(MainActivity.this, "Logged out successfully", Toast.LENGTH_SHORT).show();
-            
-            Intent intent = new Intent(MainActivity.this, MainActivity.class);
-            startActivity(intent);
-            finish();
+            if (isWebLoggedIn) {
+                // லாகின் செய்திருந்தால் -> Logout செய்யும்
+                cookieManager.removeAllCookies(null);
+                cookieManager.flush();
+
+                SharedPreferences.Editor editor = sharedPreferences.edit();
+                editor.clear();
+                editor.apply();
+
+                Toast.makeText(MainActivity.this, "Logged out successfully", Toast.LENGTH_SHORT).show();
+                
+                Intent intent = new Intent(MainActivity.this, MainActivity.class);
+                startActivity(intent);
+                finish();
+            } else {
+                // லாகின் செய்யவில்லை என்றால் -> Login பக்கத்திற்கு (WebView) கொண்டு செல்லும்
+                Intent intent = new Intent(MainActivity.this, WebViewActivity.class);
+                intent.putExtra("url", "https://deepamaths.com/student-dashboard");
+                startActivity(intent);
+            }
         });
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        updateLoginLogoutButton();
+    }
+
+    private void updateLoginLogoutButton() {
+        CookieManager cookieManager = CookieManager.getInstance();
+        String cookies = cookieManager.getCookie("https://deepamaths.com/");
+        boolean isWebLoggedIn = cookies != null && !cookies.isEmpty();
+
+        Button btnLoginLogout = findViewById(R.id.btnLogout);
+        if (btnLoginLogout != null) {
+            if (isWebLoggedIn) {
+                // லாகின் செய்திருந்தால்: சிவப்பு நிறம் மற்றும் "Logout" டெக்ஸ்ட்
+                btnLoginLogout.setBackgroundColor(Color.parseColor("#D32F2F"));
+                btnLoginLogout.setText("Logout");
+            } else {
+                // லாகின் செய்யவில்லை என்றால்: பச்சை நிறம் மற்றும் "Login" டெக்ஸ்ட்
+                btnLoginLogout.setBackgroundColor(Color.parseColor("#4CAF50"));
+                btnLoginLogout.setText("Login");
+            }
+        }
     }
 
     // எளிதாக அனிமேஷனை இணைக்க உதவும் சிறிய முறை (Helper Method)
@@ -215,9 +251,8 @@ Toast.makeText(MainActivity.this, "Logged out successfully", Toast.LENGTH_SHORT)
 
     private void redirectToLogin() {
         Toast.makeText(MainActivity.this, "தயவுசெய்து முதலில் Login செய்யவும்!", Toast.LENGTH_SHORT).show();
-        // வெப்சைட்டின் லாகின்/டேஷ்போர்ட் பக்கத்திற்கு அனுப்ப StudentDashboardActivity-ஐத் திறக்கலாம்
-       Intent intent = new Intent(MainActivity.this, WebViewActivity.class);
-intent.putExtra("url", "https://deepamaths.com/student-dashboard");
-startActivity(intent);
+        Intent intent = new Intent(MainActivity.this, WebViewActivity.class);
+        intent.putExtra("url", "https://deepamaths.com/student-dashboard");
+        startActivity(intent);
     }
 }
