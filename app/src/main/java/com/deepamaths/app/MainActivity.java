@@ -17,6 +17,24 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.app.AppCompatDelegate;
 
+// அனைத்து ஆக்டிவிட்டி இம்போர்ட்டுகள்
+import com.deepamaths.app.AITeacherActivity;
+import com.deepamaths.app.AIChatWebActivity;
+import com.deepamaths.app.QuizActivity;
+import com.deepamaths.app.VoiceDoubtActivity;
+import com.deepamaths.app.OfflineModeActivity;
+import com.deepamaths.app.ProgressTrackerActivity;
+import com.deepamaths.app.BadgesActivity;
+import com.deepamaths.app.DailyChallengeActivity;
+import com.deepamaths.app.ExportPdfActivity;
+import com.deepamaths.app.MathCalculatorActivity;
+import com.deepamaths.app.AlgebraActivity;
+import com.deepamaths.app.TrigonometryActivity;
+import com.deepamaths.app.CalculusActivity;
+import com.deepamaths.app.CoordinateActivity;
+import com.deepamaths.app.VideoTutorialsActivity;
+import com.deepamaths.app.WebViewActivity;
+
 public class MainActivity extends AppCompatActivity {
 
     private SharedPreferences sharedPreferences;
