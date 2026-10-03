@@ -58,7 +58,7 @@ public class QuizActivity extends AppCompatActivity {
                 int selectedId = radioGroupOptions.getCheckedRadioButtonId();
 
                 if (selectedId == -1) {
-                    Toast.MakenText(QuizActivity.QuizActivity.this, "தயவுசெய்து ஒரு விடையைத் தேர்ந்தெடுக்கவும்!", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(QuizActivity.this, "தயவுசெய்து ஒரு விடையைத் தேர்ந்தெடுக்கவும்!", Toast.LENGTH_SHORT).show();
                     return;
                 }
 
