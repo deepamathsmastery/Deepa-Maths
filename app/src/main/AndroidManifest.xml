@@ -51,6 +51,7 @@
         <activity android:name=".CalculusActivity" android:exported="false" />
         <activity android:name=".CoordinateActivity" android:exported="false" />
         <activity android:name=".VideoTutorialsActivity" android:exported="false" />
+        <activity android:name=".DashboardActivity" />
 
     </application>
 </manifest>
