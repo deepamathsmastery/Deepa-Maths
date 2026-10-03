@@ -61,15 +61,21 @@ public class MainActivity extends AppCompatActivity {
             }
         }
 
-        // --- ALL BUTTON CLICK LISTENERS (onCreate-க்குள் சரியாக இணைக்கப்பட்டுள்ளன) ---
+        // --- ALL BUTTON CLICK LISTENERS ---
 
         // Home Button
         findViewById(R.id.btnHome).setOnClickListener(v -> 
             Toast.makeText(this, "Home Page Opened", Toast.LENGTH_SHORT).show());
 
-        // Dashboard / AI Teacher
-        findViewById(R.id.btnDashboard).setOnClickListener(v -> 
-            checkLoginAndOpen(AITeacherActivity.class));
+        // Dashboard -> Opens Web URL (student-dashboard)
+        findViewById(R.id.btnDashboard).setOnClickListener(v -> {
+            if (sharedPreferences.getBoolean("isLoggedIn", false)) {
+                Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://deepamaths.com/student-dashboard/"));
+                startActivity(browserIntent);
+            } else {
+                redirectToLogin();
+            }
+        });
 
         // Student Math Pad
         findViewById(R.id.btnMathPad).setOnClickListener(v -> 
@@ -147,14 +153,15 @@ public class MainActivity extends AppCompatActivity {
             startActivity(Intent.createChooser(intent, "Deepa Maths-ஐப் பகிர (Share via):"));
         });
 
-        // Logout Button
+        // Logout Button (சரியான முறையில் இயங்கும் வகையில் அமைக்கப்பட்டுள்ளது)
         findViewById(R.id.btnLogout).setOnClickListener(v -> {
             SharedPreferences.Editor editor = sharedPreferences.edit();
             editor.clear();
             editor.apply();
 
             Toast.makeText(this, "Logged out successfully", Toast.LENGTH_SHORT).show();
-            startActivity(new Intent(MainActivity.this, LoginActivity.class));
+            Intent intent = new Intent(MainActivity.this, LoginActivity.class);
+            startActivity(intent);
             finish();
         });
     }
@@ -171,7 +178,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void redirectToLogin() {
-        Toast.makeText(MainActivity.this, "தயவுசெய்து முதலில் Login செய்யவும்!", Toast.LENGTH_SHORT).show();
+        Toast..makeText(MainActivity.this, "தயவுசெய்து முதலில் Login செய்யவும்!", Toast.LENGTH_SHORT).show();
         Intent intent = new Intent(MainActivity.this, LoginActivity.class);
         startActivity(intent);
     }
