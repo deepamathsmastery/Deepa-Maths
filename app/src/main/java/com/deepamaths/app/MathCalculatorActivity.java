@@ -49,10 +49,10 @@ public class MathCalculatorActivity extends AppCompatActivity {
             }
         });
 
-        // 2. Square Root கணக்கிடுதல்
+        // 2. Square Root கணக்கிடுதல் (திருத்தப்பட்டது: V v என்பதற்கு பதிலாக View v)
         btnSquareRoot.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(V v) {
+            public void onClick(View v) {
                 String n1Str = etNum1.getText().toString().trim();
 
                 if (n1Str.isEmpty()) {
