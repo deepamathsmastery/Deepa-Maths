@@ -108,21 +108,14 @@ public class ExamMockActivity extends AppCompatActivity {
                 tvTimer.setText(String.format("மீதமுள்ள நேரம்: %02d:%02d", minutes, seconds));
             }
 
-            new CountDownTimer(60000, 1000) {
-    @Override
-    public void onTick(long millisUntilFinished) {
-        // timer logic
+            @Override
+            public void onFinish() {
+                tvTimer.setText("நேரம் முடிந்தது! (Time's up!)");
+                finishExam();
+            }
+        }.start();
     }
 
-    @Override
-    public void onFinish() {
-        // finished logic
-    }
-}.start();
-    }
-
-    // Corrected helper for timer finish
-    // (Ensure standard override without syntax typos)
     private void loadQuestion() {
         tvExamQuestion.setText(questions[currentQuestionIndex]);
         rbExamOpt1.setText(options[currentQuestionIndex][0]);
