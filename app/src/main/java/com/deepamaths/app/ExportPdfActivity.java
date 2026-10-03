@@ -36,10 +36,9 @@ public class ExportPdfActivity extends AppCompatActivity {
                 String content = etPdfContent.getText().toString().trim();
 
                 if (content.isEmpty()) {
-                    Toast.classCastExceptionMsg("தயவுசெய்து குறிப்புகளை உள்ளிடவும்!"); // Simple toast below
-                    Toast.makeText(ExportPdfActivity.this, "தயவுசெய்து குறிப்புகளை உள்ளிடவும்!", Toast.LENGTH_SHORT).show();
-                    return;
-                }
+    Toast.makeText(ExportPdfActivity.this, "தயவுசெய்து குறிப்புகளை உள்ளிடவும்!", Toast.LENGTH_SHORT).show();
+    return;
+}
 
                 createPdf(content);
             }
