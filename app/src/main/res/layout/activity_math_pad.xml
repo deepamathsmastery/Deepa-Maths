@@ -1,11 +1,129 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:padding="16dp"
+    android:background="#FFFFFF">
 
-    <WebView
-        android:id="@+id/webviewMathPad"
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
 
-</RelativeLayout>
+        <!-- Title -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Interactive Step-by-Step Math Pad"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:textColor="#3F51B5"
+            android:layout_marginBottom="16dp"
+            android:layout_gravity="center" />
+
+        <!-- Problem Input -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="கணக்கு (Problem):"
+            android:textStyle="bold"
+            android:textColor="#333333"
+            android:layout_marginBottom="4dp" />
+
+        <EditText
+            android:id="@+id/etProblem"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="எ.கா: Solve 3x + 12 = 30"
+            android:padding="10dp"
+            android:background="@android:drawable/editbox_background_normal"
+            android:layout_marginBottom="12dp" />
+
+        <!-- Step 1 -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="படி 1 (Step 1):"
+            android:textStyle="bold"
+            android:textColor="#333333"
+            android:layout_marginBottom="4dp" />
+
+        <EditText
+            android:id="@+id/etStep1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="முதல் படியை எழுதவும்..."
+            android:padding="10dp"
+            android:background="@android:drawable/editbox_background_normal"
+            android:layout_marginBottom="12dp" />
+
+        <!-- Step 2 -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="படி 2 (Step 2):"
+            android:textStyle="bold"
+            android:textColor="#333333"
+            android:layout_marginBottom="4dp" />
+
+        <EditText
+            android:id="@+id/etStep2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="இரண்டாம் படியை எழுதவும்..."
+            android:padding="10dp"
+            android:background="@android:drawable/editbox_background_normal"
+            android:layout_marginBottom="12dp" />
+
+        <!-- Final Answer -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="இறுதி விடை (Final Answer):"
+            android:textStyle="bold"
+            android:textColor="#333333"
+            android:layout_marginBottom="4dp" />
+
+        <EditText
+            android:id="@+id/etFinalAnswer"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="விடையை உள்ளிடவும் (எ.கா: x = 6)"
+            android:padding="10dp"
+            android:background="@android:drawable/editbox_background_normal"
+            android:layout_marginBottom="20dp" />
+
+        <!-- Check & Save Button -->
+        <Button
+            android:id="@+id/btnCheckAnswer"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="பதிலைச் சரிபார் (Check &amp; Save)"
+            android:backgroundTint="#3F51B5"
+            android:textColor="#FFFFFF"
+            android:padding="12dp"
+            android:layout_marginBottom="10dp" />
+
+        <!-- Clear Button -->
+        <Button
+            android:id="@+id/btnClearPad"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="அனைத்தையும் அழி (Clear Pad)"
+            android:backgroundTint="#FF5722"
+            android:textColor="#FFFFFF"
+            android:padding="12dp"
+            android:layout_marginBottom="10dp" />
+
+        <!-- Back Button -->
+        <Button
+            android:id="@+id/btnMathPadBack"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="முகப்புக்குச் செல் (Back to Home)"
+            android:backgroundTint="#757575"
+            android:textColor="#FFFFFF"
+            android:padding="12dp" />
+
+    </LinearLayout>
+</ScrollView>
