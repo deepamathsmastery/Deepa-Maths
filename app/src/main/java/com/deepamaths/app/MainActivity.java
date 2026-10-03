@@ -10,7 +10,41 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 
 public class MainActivity extends AppCompatActivity {
+private SharedPreferences sharedPreferences;
+    private Switch switchDarkMode;
 
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        // ஆப் தொடங்கும் முன்பே சேமிக்கப்பட்ட தீம் மோடை அமைத்தல்
+        sharedPreferences = getSharedPreferences("MathsAppPrefs", Context.MODE_PRIVATE);
+        boolean isDarkMode = sharedPreferences.getBoolean("isDarkMode", false);
+
+        if (isDarkMode) {
+            AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
+        } else {
+            AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
+        }
+
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+
+        // Dark Mode Switch Setup
+        switchDarkMode = findViewById(R.id.switchDarkMode);
+        if (switchDarkMode != null) {
+            switchDarkMode.setChecked(isDarkMode);
+
+            switchDarkMode.setOnCheckedChangeListener((buttonView, isChecked) -> {
+                SharedPreferences.Editor editor = sharedPreferences.edit();
+                editor.putBoolean("isDarkMode", isChecked);
+                editor.apply();
+
+                if (isChecked) {
+                    AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
+                } else {
+                    AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
+                }
+            });
+        }
     private SharedPreferences sharedPreferences;
 
     @Override
