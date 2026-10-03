@@ -131,3 +131,10 @@ findViewById(R.id.btnQuiz).setOnClickListener(v -> {
         redirectToLogin();
     }
 });
+findViewById(R.id.btnProgress).setOnClickListener(v -> {
+    if (sharedPreferences.getBoolean("isLoggedIn", false)) {
+        startActivity(new Intent(MainActivity.this, ProgressTrackerActivity.class));
+    } else {
+        redirectToLogin();
+    }
+});
