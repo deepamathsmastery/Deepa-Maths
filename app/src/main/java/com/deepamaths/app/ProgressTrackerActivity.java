@@ -41,7 +41,7 @@ public class ProgressTrackerActivity extends AppCompatActivity {
                 editor.apply();
 
                 loadProgressData();
-                                  Toast.makeText(ProgressTrackerActivity.this, "புள்ளிவிவரங்கள் அழிக்கப்பட்டன!", Toast.LENGTH_SHORT).show();
+                Toast.makeText(ProgressTrackerActivity.this, "புள்ளிவிவரங்கள் அழிக்கப்பட்டன!", Toast.LENGTH_SHORT).show();
             }
         });
 
