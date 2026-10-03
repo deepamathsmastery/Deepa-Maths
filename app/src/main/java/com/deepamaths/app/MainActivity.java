@@ -130,6 +130,13 @@ private SharedPreferences sharedPreferences;
             finish();
         });
     }
+    findViewById(R.id.btnDailyChallenge).setOnClickListener(v -> {
+    if (sharedPreferences.getBoolean("isLoggedIn", false)) {
+        startActivity(new Intent(MainActivity.this, DailyChallengeActivity.java));
+    } else {
+        redirectToLogin();
+    }
+});
 
     private void checkLoginAndOpen(Class<?> targetActivityClass) {
         boolean isLoggedIn = sharedPreferences.getBoolean("isLoggedIn", false);
