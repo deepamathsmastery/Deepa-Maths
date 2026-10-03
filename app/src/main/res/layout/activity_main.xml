@@ -83,6 +83,13 @@
             android:text="Logout" 
             android:backgroundTint="#D32F2F" 
             android:textColor="#FFFFFF"/>
-
+<Switch
+    android:id="@+id/switchDarkMode"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:text="Dark Mode (இரவு முறை)"
+    android:textSize="16sp"
+    android:padding="12dp"
+    android:layout_marginBottom="12dp" />
     </LinearLayout>
 </ScrollView>
