@@ -55,7 +55,7 @@
             </LinearLayout>
         </LinearLayout>
 
-        <!-- 2 Columns Grid Layout for Cards (ஒரே அளவு மற்றும் தனித்தனி நிறங்கள்) -->
+        <!-- 2 Columns Grid Layout for Cards -->
         <GridLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -82,7 +82,7 @@
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
 
-            <!-- 2. Dashboard (Single Line) -->
+            <!-- 2. Dashboard -->
             <androidx.cardview.widget.CardView
                 android:id="@+id/btnDashboard"
                 android:layout_width="0dp"
@@ -253,7 +253,7 @@
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
 
-            <!-- 11. Exam Mock Test (Two Lines as requested) -->
+            <!-- 11. Exam Mock Test -->
             <androidx.cardview.widget.CardView
                 android:id="@+id/btnExamMock"
                 android:layout_width="0dp"
@@ -329,7 +329,7 @@
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
 
-            <!-- 15. Badges & Rewards -->
+            <!-- 15. Badges & Rewards (Fixed with &amp;) -->
             <androidx.cardview.widget.CardView
                 android:id="@+id/btnBadges"
                 android:layout_width="0dp"
@@ -344,7 +344,7 @@
                 app:cardBackgroundColor="#9C27B0">
                 <LinearLayout android:layout_width="match_parent" android:layout_height="match_parent" android:gravity="center" android:orientation="vertical" android:padding="8dp">
                     <ImageView android:layout_width="30dp" android:layout_height="30dp" android:src="@android:drawable/ic_menu_send" app:tint="#FFFFFF" />
-                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="6dp" android:text="Badges &\nRewards" android:textStyle="bold" android:textColor="#FFFFFF" android:textSize="12sp" android:gravity="center" android:maxLines="2"/>
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="6dp" android:text="Badges &amp;\nRewards" android:textStyle="bold" android:textColor="#FFFFFF" android:textSize="12sp" android:gravity="center" android:maxLines="2"/>
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
 
