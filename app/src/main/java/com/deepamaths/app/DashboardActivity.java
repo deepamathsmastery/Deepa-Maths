@@ -1,4 +1,4 @@
-package com.example.deepamaths; // உங்கள் ஆப் பேக்கேஜ் பெயரை இங்கே மாற்றிக் கொள்ளவும்
+package com.deepamaths.app; // உங்கள் உண்மையான பேக்கேஜ் பெயர்
 
 import android.os.Bundle;
 import android.webkit.CookieManager;
@@ -25,7 +25,7 @@ public class DashboardActivity extends AppCompatActivity {
         webSettings.setLoadWithOverviewMode(true);
         webSettings.setUseWideViewPort(true);
 
-        // லாகின் செஷன் (Session & Cookies) மாறாமல் இருக்க
+        // லாகின் செஷன் மாறாமல் இருக்க
         CookieManager.getInstance().setAcceptCookie(true);
 
         webView.setWebViewClient(new WebViewClient());
