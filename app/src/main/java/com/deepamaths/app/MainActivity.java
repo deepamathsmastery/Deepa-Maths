@@ -177,9 +177,9 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-    private void redirectToLogin() {
-        Toast..makeText(MainActivity.this, "தயவுசெய்து முதலில் Login செய்யவும்!", Toast.LENGTH_SHORT).show();
-        Intent intent = new Intent(MainActivity.this, LoginActivity.class);
-        startActivity(intent);
-    }
+   private void redirectToLogin() {
+    Toast.makeText(MainActivity.this, "தயவுசெய்து முதலில் Login செய்யவும்!", Toast.LENGTH_SHORT).show();
+    Intent intent = new Intent(MainActivity.this, LoginActivity.class);
+    startActivity(intent);
+}
 }
