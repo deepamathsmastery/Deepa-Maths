@@ -144,6 +144,10 @@ public class MainActivity extends AppCompatActivity {
         setupCardWithAnimation(R.id.btnCoordinate, v -> 
             startActivity(new Intent(MainActivity.this, CoordinateActivity.class)));
 
+        // 5. Video Tutorials Card Click
+        setupCardWithAnimation(R.id.btnVideoTutorials, v -> 
+            startActivity(new Intent(MainActivity.this, VideoTutorialsActivity.class)));
+
         // WhatsApp Doubt
         setupCardWithAnimation(R.id.btnWhatsapp, v -> {
             if (sharedPreferences.getBoolean("isLoggedIn", false)) {
