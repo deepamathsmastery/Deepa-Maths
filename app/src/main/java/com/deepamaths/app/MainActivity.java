@@ -85,11 +85,11 @@ public class MainActivity extends AppCompatActivity {
             startActivity(browserIntent);
         });
 
-        // Dashboard / Login Button -> Opens StudentDashboardActivity (Inside App WebView)
-        setupCardWithAnimation(R.id.btnDashboard, v -> {
-            Intent intent = new Intent(MainActivity.this, StudentDashboardActivity.class);
-            startActivity(intent);
-        });
+        // Dashboard / Login Button -> Opens WebViewActivity (Inside App WebView)
+setupCardWithAnimation(R.id.btnDashboard, v -> {
+    Intent intent = new Intent(MainActivity.this, WebViewActivity.class);
+    startActivity(intent);
+});
 
         // Student Math Pad
         setupCardWithAnimation(R.id.btnMathPad, v -> checkLoginAndOpen(AITeacherActivity.class));
@@ -121,9 +121,12 @@ public class MainActivity extends AppCompatActivity {
         // Instant Math Calculator
         setupCardWithAnimation(R.id.btnCalculator, v -> checkLoginAndOpen(MathCalculatorActivity.class));
 
-        // Exam Mock Test Mode
-        setupCardWithAnimation(R.id.btnExamMock, v -> checkLoginAndOpen(ExamMockActivity.class));
-
+        // Exam Mock Test Mode -> Opens Mock Test Web Page
+setupCardWithAnimation(R.id.btnExamMock, v -> {
+    Intent intent = new Intent(MainActivity.this, WebViewActivity.class);
+    intent.putExtra("url", "https://deepamaths.com/maths-mock-test");
+    startActivity(intent);
+});
         // --- FORMULAS & SHORTCUTS ACTIVITIES (ANIMATED) ---
         
         // 1. Algebra Card Click
