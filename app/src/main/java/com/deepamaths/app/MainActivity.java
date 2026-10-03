@@ -114,6 +114,9 @@ public class MainActivity extends AppCompatActivity {
         startActivity(intent);
     }
 }
+findViewById(R.id.btnOffline).setOnClickListener(v -> {
+    startActivity(new Intent(MainActivity.this, OfflineModeActivity.java));
+});
 findViewById(R.id.btnVoiceDoubt).setOnClickListener(v -> {
     if (sharedPreferences.getBoolean("isLoggedIn", false)) {
         startActivity(new Intent(MainActivity.this, VoiceDoubtActivity.class));
