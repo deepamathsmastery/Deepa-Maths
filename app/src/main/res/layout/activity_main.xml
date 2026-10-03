@@ -1,15 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="16dp"
-    android:background="#F5F5F5">
+    android:padding="12dp"
+    android:background="#F5F7FA">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical">
 
+        <!-- Welcome Header -->
         <TextView
             android:id="@+id/tvWelcome"
             android:layout_width="match_parent"
@@ -18,130 +20,325 @@
             android:textSize="20sp"
             android:textStyle="bold"
             android:textColor="#3F51B5"
-            android:layout_marginBottom="16dp" />
+            android:layout_marginBottom="12dp"
+            android:paddingStart="4dp"/>
 
-        <Button 
-            android:id="@+id/btnHome" 
-            android:layout_width="match_parent" 
-            android:layout_height="wrap_content" 
-            android:text="Home" 
-            android:layout_marginBottom="8dp"/>
+        <!-- 2 Columns Grid Layout for Cards -->
+        <GridLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:columnCount="2"
+            android:alignmentMode="alignMargins"
+            android:columnOrderPreserved="false">
 
-        <Button 
-            android:id="@+id/btnDashboard" 
-            android:layout_width="match_parent" 
-            android:layout_height="wrap_content" 
-            android:text="Dashboard" 
-            android:layout_marginBottom="8dp"/>
+            <!-- 1. Home -->
+            <androidx.cardview.widget.CardView
+                android:id="@+id/btnHome"
+                android:layout_width="0dp"
+                android:layout_height="100dp"
+                android:layout_columnWeight="1"
+                android:layout_margin="6dp"
+                android:clickable="true"
+                android:focusable="true"
+                android:foreground="?attr/selectableItemBackground"
+                app:cardCornerRadius="12dp"
+                app:cardElevation="3dp"
+                app:cardBackgroundColor="#FFFFFF">
+                <LinearLayout android:layout_width="match_parent" android:layout_height="match_parent" android:gravity="center" android:orientation="vertical" android:padding="8dp">
+                    <ImageView android:layout_width="32dp" android:layout_height="32dp" android:src="@drawable/ic_home" app:tint="#3F51B5" />
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="6dp" android:text="Home" android:textStyle="bold" android:textColor="#333333" android:textSize="13sp"/>
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
 
-        <Button 
-            android:id="@+id/btnMathPad" 
-            android:layout_width="match_parent" 
-            android:layout_height="wrap_content" 
-            android:text="Student Math Pad" 
-            android:layout_marginBottom="8dp"/>
+            <!-- 2. Dashboard -->
+            <androidx.cardview.widget.CardView
+                android:id="@+id/btnDashboard"
+                android:layout_width="0dp"
+                android:layout_height="100dp"
+                android:layout_columnWeight="1"
+                android:layout_margin="6dp"
+                android:clickable="true"
+                android:focusable="true"
+                android:foreground="?attr/selectableItemBackground"
+                app:cardCornerRadius="12dp"
+                app:cardElevation="3dp"
+                app:cardBackgroundColor="#FFFFFF">
+                <LinearLayout android:layout_width="match_parent" android:layout_height="match_parent" android:gravity="center" android:orientation="vertical" android:padding="8dp">
+                    <ImageView android:layout_width="32dp" android:layout_height="32dp" android:src="@drawable/ic_dashboard" app:tint="#3F51B5" />
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="6dp" android:text="Dashboard" android:textStyle="bold" android:textColor="#333333" android:textSize="13sp"/>
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
 
-        <Button 
-            android:id="@+id/btnAiTeacher" 
-            android:layout_width="match_parent" 
-            android:layout_height="wrap_content" 
-            android:text="AI Lady Teacher" 
-            android:layout_marginBottom="8dp"/>
+            <!-- 3. Student Math Pad -->
+            <androidx.cardview.widget.CardView
+                android:id="@+id/btnMathPad"
+                android:layout_width="0dp"
+                android:layout_height="100dp"
+                android:layout_columnWeight="1"
+                android:layout_margin="6dp"
+                android:clickable="true"
+                android:focusable="true"
+                android:foreground="?attr/selectableItemBackground"
+                app:cardCornerRadius="12dp"
+                app:cardElevation="3dp"
+                app:cardBackgroundColor="#FFFFFF">
+                <LinearLayout android:layout_width="match_parent" android:layout_height="match_parent" android:gravity="center" android:orientation="vertical" android:padding="8dp">
+                    <ImageView android:layout_width="32dp" android:layout_height="32dp" android:src="@drawable/ic_math_pad" app:tint="#3F51B5" />
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="6dp" android:text="Student Math Pad" android:textStyle="bold" android:textColor="#333333" android:textSize="12sp" android:gravity="center"/>
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
 
-        <Button 
-            android:id="@+id/btnQuiz" 
-            android:layout_width="match_parent" 
-            android:layout_height="wrap_content" 
-            android:text="Quiz Game" 
-            android:layout_marginBottom="8dp"/>
+            <!-- 4. AI Lady Teacher -->
+            <androidx.cardview.widget.CardView
+                android:id="@+id/btnAiTeacher"
+                android:layout_width="0dp"
+                android:layout_height="100dp"
+                android:layout_columnWeight="1"
+                android:layout_margin="6dp"
+                android:clickable="true"
+                android:focusable="true"
+                android:foreground="?attr/selectableItemBackground"
+                app:cardCornerRadius="12dp"
+                app:cardElevation="3dp"
+                app:cardBackgroundColor="#FFFFFF">
+                <LinearLayout android:layout_width="match_parent" android:layout_height="match_parent" android:gravity="center" android:orientation="vertical" android:padding="8dp">
+                    <ImageView android:layout_width="32dp" android:layout_height="32dp" android:src="@drawable/ic_ai_teacher" app:tint="#3F51B5" />
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="6dp" android:text="AI Lady Teacher" android:textStyle="bold" android:textColor="#333333" android:textSize="12sp" android:gravity="center"/>
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
 
-        <!-- புதிதாகச் சேர்க்கப்பட்ட பட்டன்கள் -->
-        <Button 
-            android:id="@+id/btnExamMock" 
-            android:layout_width="match_parent" 
-            android:layout_height="wrap_content" 
-            android:text="Exam Mock Test" 
-            android:layout_marginBottom="8dp"/>
+            <!-- 5. Quiz Game -->
+            <androidx.cardview.widget.CardView
+                android:id="@+id/btnQuiz"
+                android:layout_width="0dp"
+                android:layout_height="100dp"
+                android:layout_columnWeight="1"
+                android:layout_margin="6dp"
+                android:clickable="true"
+                android:focusable="true"
+                android:foreground="?attr/selectableItemBackground"
+                app:cardCornerRadius="12dp"
+                app:cardElevation="3dp"
+                app:cardBackgroundColor="#FFFFFF">
+                <LinearLayout android:layout_width="match_parent" android:layout_height="match_parent" android:gravity="center" android:orientation="vertical" android:padding="8dp">
+                    <ImageView android:layout_width="32dp" android:layout_height="32dp" android:src="@drawable/ic_quiz" app:tint="#3F51B5" />
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="6dp" android:text="Quiz Game" android:textStyle="bold" android:textColor="#333333" android:textSize="13sp"/>
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
 
-        <Button 
-            android:id="@+id/btnVoiceDoubt" 
-            android:layout_width="match_parent" 
-            android:layout_height="wrap_content" 
-            android:text="Voice Doubt" 
-            android:layout_marginBottom="8dp"/>
+            <!-- 6. Exam Mock Test -->
+            <androidx.cardview.widget.CardView
+                android:id="@+id/btnExamMock"
+                android:layout_width="0dp"
+                android:layout_height="100dp"
+                android:layout_columnWeight="1"
+                android:layout_margin="6dp"
+                android:clickable="true"
+                android:focusable="true"
+                android:foreground="?attr/selectableItemBackground"
+                app:cardCornerRadius="12dp"
+                app:cardElevation="3dp"
+                app:cardBackgroundColor="#FFFFFF">
+                <LinearLayout android:layout_width="match_parent" android:layout_height="match_parent" android:gravity="center" android:orientation="vertical" android:padding="8dp">
+                    <ImageView android:layout_width="32dp" android:layout_height="32dp" android:src="@drawable/ic_exam" app:tint="#3F51B5" />
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="6dp" android:text="Exam Mock Test" android:textStyle="bold" android:textColor="#333333" android:textSize="12sp" android:gravity="center"/>
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
 
-        <Button 
-            android:id="@+id/btnOffline" 
-            android:layout_width="match_parent" 
-            android:layout_height="wrap_content" 
-            android:text="Offline Practice" 
-            android:layout_marginBottom="8dp"/>
+            <!-- 7. Voice Doubt -->
+            <androidx.cardview.widget.CardView
+                android:id="@+id/btnVoiceDoubt"
+                android:layout_width="0dp"
+                android:layout_height="100dp"
+                android:layout_columnWeight="1"
+                android:layout_margin="6dp"
+                android:clickable="true"
+                android:focusable="true"
+                android:foreground="?attr/selectableItemBackground"
+                app:cardCornerRadius="12dp"
+                app:cardElevation="3dp"
+                app:cardBackgroundColor="#FFFFFF">
+                <LinearLayout android:layout_width="match_parent" android:layout_height="match_parent" android:gravity="center" android:orientation="vertical" android:padding="8dp">
+                    <ImageView android:layout_width="32dp" android:layout_height="32dp" android:src="@drawable/ic_voice" app:tint="#3F51B5" />
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="6dp" android:text="Voice Doubt" android:textStyle="bold" android:textColor="#333333" android:textSize="13sp"/>
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
 
-        <Button 
-            android:id="@+id/btnProgress" 
-            android:layout_width="match_parent" 
-            android:layout_height="wrap_content" 
-            android:text="Progress Tracker" 
-            android:layout_marginBottom="8dp"/>
+            <!-- 8. Offline Practice -->
+            <androidx.cardview.widget.CardView
+                android:id="@+id/btnOffline"
+                android:layout_width="0dp"
+                android:layout_height="100dp"
+                android:layout_columnWeight="1"
+                android:layout_margin="6dp"
+                android:clickable="true"
+                android:focusable="true"
+                android:foreground="?attr/selectableItemBackground"
+                app:cardCornerRadius="12dp"
+                app:cardElevation="3dp"
+                app:cardBackgroundColor="#FFFFFF">
+                <LinearLayout android:layout_width="match_parent" android:layout_height="match_parent" android:gravity="center" android:orientation="vertical" android:padding="8dp">
+                    <ImageView android:layout_width="32dp" android:layout_height="32dp" android:src="@drawable/ic_offline" app:tint="#3F51B5" />
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="6dp" android:text="Offline Practice" android:textStyle="bold" android:textColor="#333333" android:textSize="12sp" android:gravity="center"/>
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
 
-        <Button 
-            android:id="@+id/btnBadges" 
-            android:layout_width="match_parent" 
-            android:layout_height="wrap_content" 
-            android:text="Badges &amp; Rewards" 
-            android:layout_marginBottom="8dp"/>
+            <!-- 9. Progress Tracker -->
+            <androidx.cardview.widget.CardView
+                android:id="@+id/btnProgress"
+                android:layout_width="0dp"
+                android:layout_height="100dp"
+                android:layout_columnWeight="1"
+                android:layout_margin="6dp"
+                android:clickable="true"
+                android:focusable="true"
+                android:foreground="?attr/selectableItemBackground"
+                app:cardCornerRadius="12dp"
+                app:cardElevation="3dp"
+                app:cardBackgroundColor="#FFFFFF">
+                <LinearLayout android:layout_width="match_parent" android:layout_height="match_parent" android:gravity="center" android:orientation="vertical" android:padding="8dp">
+                    <ImageView android:layout_width="32dp" android:layout_height="32dp" android:src="@drawable/ic_progress" app:tint="#3F51B5" />
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="6dp" android:text="Progress Tracker" android:textStyle="bold" android:textColor="#333333" android:textSize="12sp" android:gravity="center"/>
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
 
-        <Button 
-            android:id="@+id/btnDailyChallenge" 
-            android:layout_width="match_parent" 
-            android:layout_height="wrap_content" 
-            android:text="Daily Challenge" 
-            android:layout_marginBottom="8dp"/>
+            <!-- 10. Badges & Rewards -->
+            <androidx.cardview.widget.CardView
+                android:id="@+id/btnBadges"
+                android:layout_width="0dp"
+                android:layout_height="100dp"
+                android:layout_columnWeight="1"
+                android:layout_margin="6dp"
+                android:clickable="true"
+                android:focusable="true"
+                android:foreground="?attr/selectableItemBackground"
+                app:cardCornerRadius="12dp"
+                app:cardElevation="3dp"
+                app:cardBackgroundColor="#FFFFFF">
+                <LinearLayout android:layout_width="match_parent" android:layout_height="match_parent" android:gravity="center" android:orientation="vertical" android:padding="8dp">
+                    <ImageView android:layout_width="32dp" android:layout_height="32dp" android:src="@drawable/ic_badge" app:tint="#3F51B5" />
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="6dp" android:text="Badges &amp; Rewards" android:textStyle="bold" android:textColor="#333333" android:textSize="12sp" android:gravity="center"/>
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
 
-        <Button 
-            android:id="@+id/btnCalculator" 
-            android:layout_width="match_parent" 
-            android:layout_height="wrap_content" 
-            android:text="Math Calculator" 
-            android:layout_marginBottom="8dp"/>
+            <!-- 11. Daily Challenge -->
+            <androidx.cardview.widget.CardView
+                android:id="@+id/btnDailyChallenge"
+                android:layout_width="0dp"
+                android:layout_height="100dp"
+                android:layout_columnWeight="1"
+                android:layout_margin="6dp"
+                android:clickable="true"
+                android:focusable="true"
+                android:foreground="?attr/selectableItemBackground"
+                app:cardCornerRadius="12dp"
+                app:cardElevation="3dp"
+                app:cardBackgroundColor="#FFFFFF">
+                <LinearLayout android:layout_width="match_parent" android:layout_height="match_parent" android:gravity="center" android:orientation="vertical" android:padding="8dp">
+                    <ImageView android:layout_width="32dp" android:layout_height="32dp" android:src="@drawable/ic_challenge" app:tint="#3F51B5" />
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="6dp" android:text="Daily Challenge" android:textStyle="bold" android:textColor="#333333" android:textSize="12sp" android:gravity="center"/>
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
 
-        <Button 
-            android:id="@+id/btnWhatsapp" 
-            android:layout_width="match_parent" 
-            android:layout_height="wrap_content" 
-            android:text="WhatsApp Doubt" 
-            android:layout_marginBottom="8dp"/>
+            <!-- 12. Math Calculator -->
+            <androidx.cardview.widget.CardView
+                android:id="@+id/btnCalculator"
+                android:layout_width="0dp"
+                android:layout_height="100dp"
+                android:layout_columnWeight="1"
+                android:layout_margin="6dp"
+                android:clickable="true"
+                android:focusable="true"
+                android:foreground="?attr/selectableItemBackground"
+                app:cardCornerRadius="12dp"
+                app:cardElevation="3dp"
+                app:cardBackgroundColor="#FFFFFF">
+                <LinearLayout android:layout_width="match_parent" android:layout_height="match_parent" android:gravity="center" android:orientation="vertical" android:padding="8dp">
+                    <ImageView android:layout_width="32dp" android:layout_height="32dp" android:src="@drawable/ic_calculator" app:tint="#3F51B5" />
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="6dp" android:text="Math Calculator" android:textStyle="bold" android:textColor="#333333" android:textSize="12sp" android:gravity="center"/>
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
 
-        <Button 
-            android:id="@+id/btnCall" 
-            android:layout_width="match_parent" 
-            android:layout_height="wrap_content" 
-            android:text="Call Teacher" 
-            android:layout_marginBottom="8dp"/>
+            <!-- 13. WhatsApp Doubt -->
+            <androidx.cardview.widget.CardView
+                android:id="@+id/btnWhatsapp"
+                android:layout_width="0dp"
+                android:layout_height="100dp"
+                android:layout_columnWeight="1"
+                android:layout_margin="6dp"
+                android:clickable="true"
+                android:focusable="true"
+                android:foreground="?attr/selectableItemBackground"
+                app:cardCornerRadius="12dp"
+                app:cardElevation="3dp"
+                app:cardBackgroundColor="#FFFFFF">
+                <LinearLayout android:layout_width="match_parent" android:layout_height="match_parent" android:gravity="center" android:orientation="vertical" android:padding="8dp">
+                    <ImageView android:layout_width="32dp" android:layout_height="32dp" android:src="@drawable/ic_whatsapp" app:tint="#25D366" />
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="6dp" android:text="WhatsApp Doubt" android:textStyle="bold" android:textColor="#333333" android:textSize="12sp" android:gravity="center"/>
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
 
-        <Button 
-            android:id="@+id/btnShare" 
-            android:layout_width="match_parent" 
-            android:layout_height="wrap_content" 
-            android:text="Share App" 
-            android:layout_marginBottom="8dp"/>
+            <!-- 14. Call Teacher -->
+            <androidx.cardview.widget.CardView
+                android:id="@+id/btnCall"
+                android:layout_width="0dp"
+                android:layout_height="100dp"
+                android:layout_columnWeight="1"
+                android:layout_margin="6dp"
+                android:clickable="true"
+                android:focusable="true"
+                android:foreground="?attr/selectableItemBackground"
+                app:cardCornerRadius="12dp"
+                app:cardElevation="3dp"
+                app:cardBackgroundColor="#FFFFFF">
+                <LinearLayout android:layout_width="match_parent" android:layout_height="match_parent" android:gravity="center" android:orientation="vertical" android:padding="8dp">
+                    <ImageView android:layout_width="32dp" android:layout_height="32dp" android:src="@drawable/ic_call" app:tint="#4CAF50" />
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="6dp" android:text="Call Teacher" android:textStyle="bold" android:textColor="#333333" android:textSize="12sp" android:gravity="center"/>
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
 
+            <!-- 15. Share App -->
+            <androidx.cardview.widget.CardView
+                android:id="@+id/btnShare"
+                android:layout_width="0dp"
+                android:layout_height="100dp"
+                android:layout_columnWeight="1"
+                android:layout_margin="6dp"
+                android:clickable="true"
+                android:focusable="true"
+                android:foreground="?attr/selectableItemBackground"
+                app:cardCornerRadius="12dp"
+                app:cardElevation="3dp"
+                app:cardBackgroundColor="#FFFFFF">
+                <LinearLayout android:layout_width="match_parent" android:layout_height="match_parent" android:gravity="center" android:orientation="vertical" android:padding="8dp">
+                    <ImageView android:layout_width="32dp" android:layout_height="32dp" android:src="@drawable/ic_share" app:tint="#3F51B5" />
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="6dp" android:text="Share App" android:textStyle="bold" android:textColor="#333333" android:textSize="13sp"/>
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+        </GridLayout>
+
+        <!-- Dark Mode Switch -->
         <Switch
             android:id="@+id/switchDarkMode"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Dark Mode (இரவு முறை)"
             android:textSize="16sp"
-            android:padding="12dp"
-            android:layout_marginBottom="8dp" />
+            android:padding="14dp"
+            android:layout_marginTop="12dp"
+            android:layout_marginBottom="8dp"
+            android:background="#FFFFFF" />
 
+        <!-- Logout Button -->
         <Button 
             android:id="@+id/btnLogout" 
             android:layout_width="match_parent" 
             android:layout_height="wrap_content" 
             android:text="Logout" 
             android:backgroundTint="#D32F2F" 
-            android:textColor="#FFFFFF"/>
+            android:textColor="#FFFFFF"
+            android:layout_marginBottom="16dp"/>
 
     </LinearLayout>
 </ScrollView>
