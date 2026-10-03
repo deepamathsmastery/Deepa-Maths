@@ -7,12 +7,21 @@
     android:background="#1A237E"
     android:padding="24dp">
 
-    <!-- App Title -->
+    <!-- ஆப் லோகோ -->
+    <ImageView
+        android:id="@+id/imgLogo"
+        android:layout_width="120dp"
+        android:layout_height="120dp"
+        android:src="@drawable/app_logo"
+        android:layout_marginBottom="16dp" />
+
+    <!-- ஆப் பெயர் (அனிமேஷன் வர) -->
     <TextView
+        android:id="@+id/tvAppName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Deepa Maths Mastery"
-        android:textSize="28sp"
+        android:textSize="26sp"
         android:textStyle="bold"
         android:textColor="#FFFFFF"
         android:gravity="center"
@@ -23,7 +32,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Best Online Maths Classes for 9 to 12, CBSE, ICSE, State Board, JEE &amp; IGCSE"
-        android:textSize="14sp"
+        android:textSize="13sp"
         android:textColor="#E0E0E0"
         android:gravity="center" />
 
