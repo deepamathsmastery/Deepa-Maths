@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="20dp"
+    android:background="#FFFFFF">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <!-- Title -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Instant Formula &amp; Math Calculator"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:textColor="#3F51B5"
+            android:layout_gravity="center"
+            android:layout_marginBottom="20dp" />
+
+        <!-- Input Number 1 -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="மதிப்பு 1 (Number 1 / Radius):"
+            android:textStyle="bold"
+            android:textColor="#333333"
+            android:layout_marginBottom="4dp" />
+
+        <EditText
+            android:id="@+id/etNum1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="எ.கா: 12"
+            android:inputType="numberDecimal"
+            android:padding="12dp"
+            android:background="@android:drawable/editbox_background_normal"
+            android:layout_marginBottom="12dp" />
+
+        <!-- Input Number 2 -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="மதிப்பு 2 (Number 2 - LCM/GCD-க்கு மட்டும்):"
+            android:textStyle="bold"
+            android:textColor="#333333"
+            android:layout_marginBottom="4dp" />
+
+        <EditText
+            android:id="@+id/etNum2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="எ.கா: 18"
+            android:inputType="numberDecimal"
+            android:padding="12dp"
+            android:background="@android:drawable/editbox_background_normal"
+            android:layout_marginBottom="20dp" />
+
+        <!-- Calculation Buttons -->
+        <Button
+            android:id="@+id/btnLcmGcd"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="LCM &amp; GCD காண்க"
+            android:backgroundTint="#3F51B5"
+            android:textColor="#FFFFFF"
+            android:padding="10dp"
+            android:layout_marginBottom="10dp" />
+
+        <Button
+            android:id="@+id/btnSquareRoot"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="வர்க்கமூலம் காண்க (Square Root)"
+            android:backgroundTint="#3F51B5"
+            android:textColor="#FFFFFF"
+            android:padding="10dp"
+            android:layout_marginBottom="10dp" />
+
+        <Button
+            android:id="@+id/btnCircleArea"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="வட்டத்தின் பரப்பளவு (Circle Area = πr²)"
+            android:backgroundTint="#3F51B5"
+            android:textColor="#FFFFFF"
+            android:padding="10dp"
+            android:layout_marginBottom="20dp" />
+
+        <!-- Result Display Section -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="கணக்கீட்டு முடிவு (Result):"
+            android:textStyle="bold"
+            android:textSize="16sp"
+            android:textColor="#333333"
+            android:layout_marginBottom="6dp" />
+
+        <TextView
+            android:id="@+id/tvCalcResult"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="முடிவுகள் இங்கே தோன்றும்..."
+            android:textSize="16sp"
+            android:textColor="#4CAF50"
+            android:textStyle="bold"
+            android:background="#F5F5F5"
+            android:padding="16dp"
+            android:layout_marginBottom="20dp" />
+
+        <!-- Back Button -->
+        <Button
+            android:id="@+id/btnCalcBack"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="முகப்புக்குச் செல் (Back to Home)"
+            android:backgroundTint="#757575"
+            android:textColor="#FFFFFF"
+            android:padding="12dp" />
+
+    </LinearLayout>
+</ScrollView>
