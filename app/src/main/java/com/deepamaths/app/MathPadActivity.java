@@ -1,49 +1,64 @@
 package com.deepamaths.app;
 
 import android.os.Bundle;
-import android.webkit.WebSettings;
-import android.webkit.WebView;
-import android.webkit.WebViewClient;
+import android.view.View;
+import android:widget.Button;
+import android.widget.EditText;
+import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 
 public class MathPadActivity extends AppCompatActivity {
-    private WebView webView;
+
+    private EditText etProblem, etStep1, etStep2, etFinalAnswer;
+    private Button btnCheckAnswer, btnClearPad, btnMathPadBack;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_math_pad);
 
-        webView = findViewById(R.id.webviewMathPad);
-        WebSettings webSettings = webView.getSettings();
-        
-        // அடிப்படை மற்றும் நவீன வெப் அமைப்புகள்
-        webSettings.setJavaScriptEnabled(true);
-        webSettings.setDomStorageEnabled(true);
-        webSettings.setLoadsImagesAutomatically(true);
-        webSettings.setMixedContentMode(WebSettings.MIXED_CONTENT_ALWAYS_ALLOW); // HTTP/HTTPS பாதுகாப்பு அனுமதி
+        etProblem = findViewById(R.id.etProblem);
+        etStep1 = findViewById(R.id.etStep1);
+        etStep2 = findViewById(R.id.etStep2);
+        etFinalAnswer = findViewById(R.id.etFinalAnswer);
+        btnCheckAnswer = findViewById(R.id.btnCheckAnswer);
+        btnClearPad = findViewById(R.id.btnClearPad);
+        btnMathPadBack = findViewById(R.id.btnMathPadBack);
 
-        // WebViewClient அமைத்தல் (வெளி பிரவுசருக்குச் செல்லாமல் ஆப்பிற்குள்ளேயே லிங்க் திறக்கப்பட)
-        webView.setWebViewClient(new WebViewClient() {
+        // பதிலைச் சரிபார்க்கும் பட்டன்
+        btnCheckAnswer.setOnClickListener(new View.OnClickListener() {
             @Override
-            public boolean shouldOverrideUrlLoading(WebView view, String url) {
-                view.loadUrl(url);
-                return true;
+            public void onClick(View v) {
+                String problem = etProblem.getText().toString().trim();
+                String step1 = etStep1.getText().toString().trim();
+                String answer = etFinalAnswer.getText().toString().trim();
+
+                if (problem.isEmpty() || answer.isEmpty()) {
+                    Toast.makeText(MathPadActivity.this, "தயவுசெய்து கணக்கையும் விடையையும் நிரப்பவும்!", Toast.LENGTH_SHORT).show();
+                } else {
+                    Toast.makeText(MathPadActivity.this, "அருமை! உங்களது கணக்கு முறை சேமிக்கப்பட்டது.", Toast.LENGTH_LONG).show();
+                }
             }
         });
 
-        // உங்களது Math Pad வெப்சைட் லிங்க்
-        webView.loadUrl("https://deepamaths.com/math-pad"); 
-    }
+        // ஃபார்மை அழிக்க (Clear)
+        btnClearPad.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                etProblem.setText("");
+                etStep1.setText("");
+                etStep2.setText("");
+                etFinalAnswer.setText("");
+                Toast.makeText(MathPadActivity.this, "Math Pad அழிக்கப்பட்டது!", Toast.LENGTH_SHORT).show();
+            }
+        });
 
-    // பேக் பட்டனை அழுத்தும்போது ஆப் மூடப்படாமல் முந்தைய வெப் பக்கத்திற்குச் செல்ல
-    @Override
-    public void onBackPressed() {
-        if (webView != null && webView.canGoBack()) {
-            webView.goBack();
-        } else {
-            super.onBackPressed();
-        }
+        // பின் செல்ல (Back)
+        btnMathPadBack.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
     }
 }
-
