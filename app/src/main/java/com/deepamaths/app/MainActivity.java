@@ -192,3 +192,10 @@ findViewById(R.id.btnProgress).setOnClickListener(v -> {
         redirectToLogin();
     }
 });
+findViewById(R.id.btnCalculator).setOnClickListener(v -> {
+    if (sharedPreferences.getBoolean("isLoggedIn", false)) {
+        startActivity(new Intent(MainActivity.this, MathCalculatorActivity.class));
+    } else {
+        redirectToLogin();
+    }
+});
