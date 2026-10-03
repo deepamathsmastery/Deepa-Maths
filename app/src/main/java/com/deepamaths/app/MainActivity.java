@@ -199,3 +199,10 @@ findViewById(R.id.btnCalculator).setOnClickListener(v -> {
         redirectToLogin();
     }
 });
+findViewById(R.id.btnExamMock).setOnClickListener(v -> {
+    if (sharedPreferences.getBoolean("isLoggedIn", false)) {
+        startActivity(new Intent(MainActivity.this, ExamMockActivity.class));
+    } else {
+        redirectToLogin();
+    }
+});
