@@ -45,7 +45,7 @@
                 app:cardElevation="3dp"
                 app:cardBackgroundColor="#FFFFFF">
                 <LinearLayout android:layout_width="match_parent" android:layout_height="match_parent" android:gravity="center" android:orientation="vertical" android:padding="8dp">
-                    <ImageView android:layout_width="32dp" android:layout_height="32dp" android:src="@drawable/ic_home" app:tint="#3F51B5" />
+                    <ImageView android:layout_width="32dp" android:layout_height="32dp" android:src="@android:drawable/ic_menu_myplaces" app:tint="#3F51B5" />
                     <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="6dp" android:text="Home" android:textStyle="bold" android:textColor="#333333" android:textSize="13sp"/>
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
@@ -64,7 +64,7 @@
                 app:cardElevation="3dp"
                 app:cardBackgroundColor="#FFFFFF">
                 <LinearLayout android:layout_width="match_parent" android:layout_height="match_parent" android:gravity="center" android:orientation="vertical" android:padding="8dp">
-                    <ImageView android:layout_width="32dp" android:layout_height="32dp" android:src="@drawable/ic_dashboard" app:tint="#3F51B5" />
+                    <ImageView android:layout_width="32dp" android:layout_height="32dp" android:src="@android:drawable/ic_menu_agenda" app:tint="#3F51B5" />
                     <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="6dp" android:text="Dashboard" android:textStyle="bold" android:textColor="#333333" android:textSize="13sp"/>
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
@@ -83,7 +83,7 @@
                 app:cardElevation="3dp"
                 app:cardBackgroundColor="#FFFFFF">
                 <LinearLayout android:layout_width="match_parent" android:layout_height="match_parent" android:gravity="center" android:orientation="vertical" android:padding="8dp">
-                    <ImageView android:layout_width="32dp" android:layout_height="32dp" android:src="@drawable/ic_math_pad" app:tint="#3F51B5" />
+                    <ImageView android:layout_width="32dp" android:layout_height="32dp" android:src="@android:drawable/ic_menu_edit" app:tint="#3F51B5" />
                     <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="6dp" android:text="Student Math Pad" android:textStyle="bold" android:textColor="#333333" android:textSize="12sp" android:gravity="center"/>
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
@@ -102,7 +102,7 @@
                 app:cardElevation="3dp"
                 app:cardBackgroundColor="#FFFFFF">
                 <LinearLayout android:layout_width="match_parent" android:layout_height="match_parent" android:gravity="center" android:orientation="vertical" android:padding="8dp">
-                    <ImageView android:layout_width="32dp" android:layout_height="32dp" android:src="@drawable/ic_ai_teacher" app:tint="#3F51B5" />
+                    <ImageView android:layout_width="32dp" android:layout_height="32dp" android:src="@android:drawable/ic_menu_day" app:tint="#3F51B5" />
                     <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="6dp" android:text="AI Lady Teacher" android:textStyle="bold" android:textColor="#333333" android:textSize="12sp" android:gravity="center"/>
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
@@ -121,7 +121,7 @@
                 app:cardElevation="3dp"
                 app:cardBackgroundColor="#FFFFFF">
                 <LinearLayout android:layout_width="match_parent" android:layout_height="match_parent" android:gravity="center" android:orientation="vertical" android:padding="8dp">
-                    <ImageView android:layout_width="32dp" android:layout_height="32dp" android:src="@drawable/ic_quiz" app:tint="#3F51B5" />
+                    <ImageView android:layout_width="32dp" android:layout_height="32dp" android:src="@android:drawable/ic_menu_compass" app:tint="#3F51B5" />
                     <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="6dp" android:text="Quiz Game" android:textStyle="bold" android:textColor="#333333" android:textSize="13sp"/>
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
@@ -140,7 +140,7 @@
                 app:cardElevation="3dp"
                 app:cardBackgroundColor="#FFFFFF">
                 <LinearLayout android:layout_width="match_parent" android:layout_height="match_parent" android:gravity="center" android:orientation="vertical" android:padding="8dp">
-                    <ImageView android:layout_width="32dp" android:layout_height="32dp" android:src="@drawable/ic_exam" app:tint="#3F51B5" />
+                    <ImageView android:layout_width="32dp" android:layout_height="32dp" android:src="@android:drawable/ic_menu_manage" app:tint="#3F51B5" />
                     <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="6dp" android:text="Exam Mock Test" android:textStyle="bold" android:textColor="#333333" android:textSize="12sp" android:gravity="center"/>
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
@@ -159,7 +159,7 @@
                 app:cardElevation="3dp"
                 app:cardBackgroundColor="#FFFFFF">
                 <LinearLayout android:layout_width="match_parent" android:layout_height="match_parent" android:gravity="center" android:orientation="vertical" android:padding="8dp">
-                    <ImageView android:layout_width="32dp" android:layout_height="32dp" android:src="@drawable/ic_voice" app:tint="#3F51B5" />
+                    <ImageView android:layout_width="32dp" android:layout_height="32dp" android:src="@android:drawable/ic_btn_speak_now" app:tint="#3F51B5" />
                     <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="6dp" android:text="Voice Doubt" android:textStyle="bold" android:textColor="#333333" android:textSize="13sp"/>
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
@@ -178,7 +178,7 @@
                 app:cardElevation="3dp"
                 app:cardBackgroundColor="#FFFFFF">
                 <LinearLayout android:layout_width="match_parent" android:layout_height="match_parent" android:gravity="center" android:orientation="vertical" android:padding="8dp">
-                    <ImageView android:layout_width="32dp" android:layout_height="32dp" android:src="@drawable/ic_offline" app:tint="#3F51B5" />
+                    <ImageView android:layout_width="32dp" android:layout_height="32dp" android:src="@android:drawable/ic_menu_save" app:tint="#3F51B5" />
                     <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="6dp" android:text="Offline Practice" android:textStyle="bold" android:textColor="#333333" android:textSize="12sp" android:gravity="center"/>
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
@@ -197,7 +197,7 @@
                 app:cardElevation="3dp"
                 app:cardBackgroundColor="#FFFFFF">
                 <LinearLayout android:layout_width="match_parent" android:layout_height="match_parent" android:gravity="center" android:orientation="vertical" android:padding="8dp">
-                    <ImageView android:layout_width="32dp" android:layout_height="32dp" android:src="@drawable/ic_progress" app:tint="#3F51B5" />
+                    <ImageView android:layout_width="32dp" android:layout_height="32dp" android:src="@android:drawable/ic_menu_upload" app:tint="#3F51B5" />
                     <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="6dp" android:text="Progress Tracker" android:textStyle="bold" android:textColor="#333333" android:textSize="12sp" android:gravity="center"/>
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
@@ -216,7 +216,7 @@
                 app:cardElevation="3dp"
                 app:cardBackgroundColor="#FFFFFF">
                 <LinearLayout android:layout_width="match_parent" android:layout_height="match_parent" android:gravity="center" android:orientation="vertical" android:padding="8dp">
-                    <ImageView android:layout_width="32dp" android:layout_height="32dp" android:src="@drawable/ic_badge" app:tint="#3F51B5" />
+                    <ImageView android:layout_width="32dp" android:layout_height="32dp" android:src="@android:drawable/ic_menu_award" app:tint="#3F51B5" />
                     <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="6dp" android:text="Badges &amp; Rewards" android:textStyle="bold" android:textColor="#333333" android:textSize="12sp" android:gravity="center"/>
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
@@ -235,7 +235,7 @@
                 app:cardElevation="3dp"
                 app:cardBackgroundColor="#FFFFFF">
                 <LinearLayout android:layout_width="match_parent" android:layout_height="match_parent" android:gravity="center" android:orientation="vertical" android:padding="8dp">
-                    <ImageView android:layout_width="32dp" android:layout_height="32dp" android:src="@drawable/ic_challenge" app:tint="#3F51B5" />
+                    <ImageView android:layout_width="32dp" android:layout_height="32dp" android:src="@android:drawable/ic_menu_today" app:tint="#3F51B5" />
                     <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="6dp" android:text="Daily Challenge" android:textStyle="bold" android:textColor="#333333" android:textSize="12sp" android:gravity="center"/>
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
@@ -254,7 +254,7 @@
                 app:cardElevation="3dp"
                 app:cardBackgroundColor="#FFFFFF">
                 <LinearLayout android:layout_width="match_parent" android:layout_height="match_parent" android:gravity="center" android:orientation="vertical" android:padding="8dp">
-                    <ImageView android:layout_width="32dp" android:layout_height="32dp" android:src="@drawable/ic_calculator" app:tint="#3F51B5" />
+                    <ImageView android:layout_width="32dp" android:layout_height="32dp" android:src="@android:drawable/ic_calculator_complex" app:tint="#3F51B5" />
                     <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="6dp" android:text="Math Calculator" android:textStyle="bold" android:textColor="#333333" android:textSize="12sp" android:gravity="center"/>
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
@@ -273,7 +273,7 @@
                 app:cardElevation="3dp"
                 app:cardBackgroundColor="#FFFFFF">
                 <LinearLayout android:layout_width="match_parent" android:layout_height="match_parent" android:gravity="center" android:orientation="vertical" android:padding="8dp">
-                    <ImageView android:layout_width="32dp" android:layout_height="32dp" android:src="@drawable/ic_whatsapp" app:tint="#25D366" />
+                    <ImageView android:layout_width="32dp" android:layout_height="32dp" android:src="@android:drawable/ic_menu_send" app:tint="#25D366" />
                     <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="6dp" android:text="WhatsApp Doubt" android:textStyle="bold" android:textColor="#333333" android:textSize="12sp" android:gravity="center"/>
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
@@ -292,7 +292,7 @@
                 app:cardElevation="3dp"
                 app:cardBackgroundColor="#FFFFFF">
                 <LinearLayout android:layout_width="match_parent" android:layout_height="match_parent" android:gravity="center" android:orientation="vertical" android:padding="8dp">
-                    <ImageView android:layout_width="32dp" android:layout_height="32dp" android:src="@drawable/ic_call" app:tint="#4CAF50" />
+                    <ImageView android:layout_width="32dp" android:layout_height="32dp" android:src="@android:drawable/ic_menu_call" app:tint="#4CAF50" />
                     <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="6dp" android:text="Call Teacher" android:textStyle="bold" android:textColor="#333333" android:textSize="12sp" android:gravity="center"/>
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
@@ -311,7 +311,7 @@
                 app:cardElevation="3dp"
                 app:cardBackgroundColor="#FFFFFF">
                 <LinearLayout android:layout_width="match_parent" android:layout_height="match_parent" android:gravity="center" android:orientation="vertical" android:padding="8dp">
-                    <ImageView android:layout_width="32dp" android:layout_height="32dp" android:src="@drawable/ic_share" app:tint="#3F51B5" />
+                    <ImageView android:layout_width="32dp" android:layout_height="32dp" android:src="@android:drawable/ic_menu_share" app:tint="#3F51B5" />
                     <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="6dp" android:text="Share App" android:textStyle="bold" android:textColor="#333333" android:textSize="13sp"/>
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
