@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center"
+    android:padding="24dp"
+    android:background="#FFFFFF">
+
+    <!-- Title -->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Voice-Based Doubt Support"
+        android:textSize="22sp"
+        android:textStyle="bold"
+        android:textColor="#3F51B5"
+        android:layout_marginBottom="32dp"
+        android:gravity="center" />
+
+    <!-- Instruction Text -->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="கீழë உள்ள மைக் பட்டனை அழுத்திப் பேசவும்:"
+        android:textSize="16sp"
+        android:textColor="#333333"
+        android:layout_marginBottom="24dp" />
+
+    <!-- Recognized Voice Text Display -->
+    <TextView
+        android:id="@+id/tvVoiceOutput"
+        android:layout_width="match_parent"
+        android:layout_height="120dp"
+        android:text="உங்கள் குரல் இங்கே வாசகமாக மாறும்..."
+        android:textSize="16sp"
+        android:textColor="#555555"
+        android:background="#F5F5F5"
+        android:padding="16dp"
+        android:gravity="top"
+        android:layout_marginBottom="32dp" />
+
+    <!-- Mic Button -->
+    <Button
+        android:id="@+id/btnSpeak"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="🎙️ பேசத் தொடங்கு (Start Speaking)"
+        android:textSize="16sp"
+        android:backgroundTint="#3F51B5"
+        android:textColor="#FFFFFF"
+        android:padding="14dp"
+        android:layout_marginBottom="16dp" />
+
+    <!-- Back Button -->
+    <Button
+        android:id="@+id/btnVoiceBack"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="முகப்புக்குச் செல் (Back to Home)"
+        android:textSize="16sp"
+        android:backgroundTint="#757575"
+        android:textColor="#FFFFFF"
+        android:padding="14dp" />
+
+</LinearLayout>
