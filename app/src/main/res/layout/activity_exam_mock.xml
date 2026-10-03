@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="20dp"
+    android:background="#FFFFFF">
+
+    <!-- Title -->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Exam Mock Test Mode"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:textColor="#3F51B5"
+        android:layout_gravity="center"
+        android:layout_marginBottom="12dp" />
+
+    <!-- Timer Display -->
+    <TextView
+        android:id="@+id/tvTimer"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="மீதமுள்ள நேரம்: 02:00"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        android:textColor="#FFFFFF"
+        android:background="#FF5722"
+        android:padding="10dp"
+        android:gravity="center"
+        android:layout_marginBottom="16dp" />
+
+    <!-- Question Text -->
+    <TextView
+        android:id="@+id/tvExamQuestion"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="கேள்வி இங்கே தோன்றும்..."
+        android:textSize="18sp"
+        android:textColor="#333333"
+        android:textStyle="bold"
+        android:layout_marginBottom="20dp" />
+
+    <!-- Options -->
+    <RadioGroup
+        android:id="@+id/rgExamOptions"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_marginBottom="24dp">
+
+        <RadioButton
+            android:id="@+id/rbExamOpt1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Option 1"
+            android:textSize="16sp"
+            android:padding="8dp" />
+
+        <RadioButton
+            android:id="@+id/rbExamOpt2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Option 2"
+            android:textSize="16sp"
+            android:padding="8dp" />
+
+        <RadioButton
+            android:id="@+id/rbExamOpt3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Option 3"
+            android:textSize="16sp"
+            android:padding="8dp" />
+
+        <RadioButton
+            android:id="@+id/rbExamOpt4"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Option 4"
+            android:textSize="16sp"
+            android:padding="8dp" />
+    </RadioGroup>
+
+    <!-- Next / Submit Button -->
+    <Button
+        android:id="@+id/btnExamNext"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="அடுத்து (Next Question)"
+        android:backgroundTint="#3F51B5"
+        android:textColor="#FFFFFF"
+        android:padding="12dp"
+        android:layout_marginBottom="12dp" />
+
+    <!-- Back Button -->
+    <Button
+        android:id="@+id/btnExamBack"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="முகப்புக்குச் செல் (Back to Home)"
+        android:backgroundTint="#757575"
+        android:textColor="#FFFFFF"
+        android:padding="12dp" />
+
+</LinearLayout>
