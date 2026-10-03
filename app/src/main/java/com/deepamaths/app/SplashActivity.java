@@ -27,9 +27,9 @@ public class SplashActivity extends AppCompatActivity {
         imgLogo.startAnimation(fadeIn);
         tvAppName.startAnimation(fadeIn);
 
-        // 2.5 விநாடிகள் கழித்து LoginActivity-க்கு தானாகச் செல்லுதல்
+        // 2.5 விநாடிகள் கழித்து நேராக MainActivity-க்குச் செல்லுதல் (இப்போது லாகின் கேட்காது)
         new Handler(Looper.getMainLooper()).postDelayed(() -> {
-            Intent intent = new Intent(SplashActivity.this, LoginActivity.class);
+            Intent intent = new Intent(SplashActivity.this, MainActivity.class);
             startActivity(intent);
             finish(); // இந்த ஆக்டிவிட்டியை மூடிவிடுவது (மீண்டும் பின்னால் வராமல் இருக்க)
         }, 2500);
