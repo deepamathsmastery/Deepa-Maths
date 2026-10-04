@@ -6,13 +6,13 @@
 <uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS" />
 
     <application
-        android:allowBackup="true"
-        android:icon="@drawable/app_logo"
-        android:roundIcon="@drawable/app_logo"
-        android:label="Deepa Maths"
-        android:usesCleartextTraffic="true"
-        android:supportsRtl="true"
-        android:theme="@style/Theme.AppCompat.Light.NoActionBar">
+    android:allowBackup="true"
+    android:icon="@drawable/app_logo"
+    android:roundIcon="@drawable/app_logo"
+    android:label="Deepa Maths"
+    android:usesCleartextTraffic="true"
+    android:supportsRtl="true"
+    android:theme="@style/Theme.MaterialComponents.DayNight.NoActionBar">
 
         <!-- 1. Splash Activity -->
         <activity
