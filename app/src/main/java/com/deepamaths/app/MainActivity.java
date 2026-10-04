@@ -9,7 +9,6 @@ import android.os.Bundle;
 import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
-import android.webkit.CookieManager;
 import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -25,8 +24,12 @@ public class MainActivity extends AppCompatActivity {
 
     // கார்டைக் கிளிக் செய்யும்போது 'துள்ளி வரும்' (Bounce) அனிமேஷனை இயக்குவதற்கான முறை
     private void playClickAnimationAndRun(View view, Runnable action) {
-        Animation animation = AnimationUtils.loadAnimation(this, R.anim.card_bounce);
-        view.startAnimation(animation);
+        try {
+            Animation animation = AnimationUtils.loadAnimation(this, R.anim.card_bounce);
+            view.startAnimation(animation);
+        } catch (Exception e) {
+            // அனிமேஷன் ஃபைலில் பிழை இருந்தாலும் ஆப் நிக்காது
+        }
         
         view.postDelayed(() -> {
             if (action != null) {
@@ -233,30 +236,11 @@ public class MainActivity extends AppCompatActivity {
             startActivity(Intent.createChooser(intent, "Deepa Maths-ஐப் பகிர (Share via):"));
         });
 
-        // Dynamic Login / Logout Button Click Listener
+        // Login / Dashboard Button Click Listener (மறுபடியும் லாகின் தொல்லை இருக்காது)
         setupCardWithAnimation(R.id.btnLogout, v -> {
-            CookieManager cookieManager = CookieManager.getInstance();
-            String cookies = cookieManager.getCookie("https://deepamaths.com/");
-            boolean isWebLoggedIn = cookies != null && !cookies.isEmpty();
-
-            if (isWebLoggedIn) {
-                cookieManager.removeAllCookies(null);
-                cookieManager.flush();
-
-                SharedPreferences.Editor editor = sharedPreferences.edit();
-                editor.clear();
-                editor.apply();
-
-                Toast.makeText(MainActivity.this, "Logged out successfully", Toast.LENGTH_SHORT).show();
-                
-                Intent intent = new Intent(MainActivity.this, MainActivity.class);
-                startActivity(intent);
-                finish();
-            } else {
-                Intent intent = new Intent(MainActivity.this, WebViewActivity.class);
-                intent.putExtra("url", "https://deepamaths.com/student-dashboard");
-                startActivity(intent);
-            }
+            Intent intent = new Intent(MainActivity.this, WebViewActivity.class);
+            intent.putExtra("url", "https://deepamaths.com/student-dashboard");
+            startActivity(intent);
         });
     }
 
@@ -267,29 +251,20 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void updateLoginLogoutButton() {
-        CookieManager cookieManager = CookieManager.getInstance();
-        String cookies = cookieManager.getCookie("https://deepamaths.com/");
-        boolean isWebLoggedIn = cookies != null && !cookies.isEmpty();
-
-        View btnLoginLogout = findViewById(R.id.btnLogout);
-        if (btnLoginLogout != null) {
-            if (btnLoginLogout instanceof Button) {
-                Button button = (Button) btnLoginLogout;
-                if (isWebLoggedIn) {
-                    button.setBackgroundColor(Color.parseColor("#D32F2F"));
-                    button.setText("Logout");
-                } else {
+        try {
+            View btnLoginLogout = findViewById(R.id.btnLogout);
+            if (btnLoginLogout != null) {
+                if (btnLoginLogout instanceof Button) {
+                    Button button = (Button) btnLoginLogout;
                     button.setBackgroundColor(Color.parseColor("#4CAF50"));
-                    button.setText("Login");
-                }
-            } else if (btnLoginLogout instanceof TextView) {
-                TextView textView = (TextView) btnLoginLogout;
-                if (isWebLoggedIn) {
-                    textView.setText("Logout");
-                } else {
-                    textView.setText("Login");
+                    button.setText("Student Dashboard");
+                } else if (btnLoginLogout instanceof TextView) {
+                    TextView textView = (TextView) btnLoginLogout;
+                    textView.setText("Student Dashboard");
                 }
             }
+        } catch (Exception e) {
+            // எந்தப் பிழையும் வராமல் பாதுகாக்கிறது
         }
     }
 
