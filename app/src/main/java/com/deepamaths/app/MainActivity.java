@@ -41,7 +41,7 @@ public class MainActivity extends AppCompatActivity {
     private SharedPreferences sharedPreferences;
     private SwitchCompat switchDarkMode;
 
-    // கார்டைக் கிளிக் செய்யும்போது 'துள்ளி வரும்' (Bounce) அனிமேஷனை இயக்குவதற்கான முறை
+   // கார்டைக் கிளிக் செய்யும்போது 'துள்ளி வரும்' (Bounce) அனிமேஷனை இயக்குவதற்கான முறை
     private void playClickAnimationAndRun(View view, Runnable action) {
         Animation animation = AnimationUtils.loadAnimation(this, R.anim.card_bounce);
         view.startAnimation(animation);
@@ -228,13 +228,13 @@ public class MainActivity extends AppCompatActivity {
             startActivity(intent);
         });
 
-        // WhatsApp Doubt
+        // WhatsApp Doubt (இப்போது லாகின் தேவையில்லை, நேரடியாக வாட்ஸ்அப் ஓபன் ஆகும்)
         setupCardWithAnimation(R.id.btnWhatsapp, v -> {
             Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://wa.me/919876543210?text=Hello%20Teacher,%20I%20have%20a%20maths%20doubt."));
             startActivity(intent);
         });
 
-        // Call Teacher
+        // Call Teacher (இப்போது லாகின் தேவையில்லை, நேரடியாக டயலர் ஓபன் ஆகும்)
         setupCardWithAnimation(R.id.btnCall, v -> {
             Intent intent = new Intent(Intent.ACTION_DIAL, Uri.parse("tel:+919345934899"));
             startActivity(intent);
