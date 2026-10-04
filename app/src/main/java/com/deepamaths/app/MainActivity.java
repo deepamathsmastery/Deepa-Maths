@@ -40,7 +40,7 @@ public class MainActivity extends AppCompatActivity {
     private SharedPreferences sharedPreferences;
     private Switch switchDarkMode;
 
-    // கார்டைக் கிளிக் செய்யும்போது 'துள்ளி வரும்' (Bounce) அனிமேஷனை இயக்குவதற்கான முறை
+   // கார்டைக் கிளிக் செய்யும்போது 'துள்ளி வரும்' (Bounce) அனிமேஷனை இயக்குவதற்கான முறை
     private void playClickAnimationAndRun(View view, Runnable action) {
         Animation animation = AnimationUtils.loadAnimation(this, R.anim.card_bounce);
         view.startAnimation(animation);
@@ -98,7 +98,7 @@ public class MainActivity extends AppCompatActivity {
 
         // --- ALL CARD / BUTTON CLICK LISTENERS WITH BOUNCE ANIMATION ---
 
-       // 1. Home Button -> Opens Website
+        // 1. Home Button -> Opens Website
         setupCardWithAnimation(R.id.btnHome, v -> {
             Intent intent = new Intent(MainActivity.this, WebViewActivity.class);
             intent.putExtra("url", "https://deepamaths.com");
@@ -122,7 +122,7 @@ public class MainActivity extends AppCompatActivity {
         // 4. Student Math Pad
         setupCardWithAnimation(R.id.btnMathPad, v -> {
             Intent intent = new Intent(MainActivity.this, WebViewActivity.class);
-            intent.putExtra("url", "https://deepamaths.com/math-pad"); // உங்கள் தளத்தின் சரியான URL-ஐ மாற்றிக்கொள்ளலாம்
+            intent.putExtra("url", "https://deepamaths.com/math-pad");
             startActivity(intent);
         });
 
@@ -140,11 +140,12 @@ public class MainActivity extends AppCompatActivity {
             startActivity(intent);
         });
 
-       setupCardWithAnimation(R.id.btnVoiceDoubt, v -> {
-    Intent intent = new Intent(MainActivity.this, WebViewActivity.class);
-    intent.putExtra("url", "https://deepamaths.com/voice-doubt.php");
-    startActivity(intent);
-});
+        // 7. Voice Doubt Support
+        setupCardWithAnimation(R.id.btnVoiceDoubt, v -> {
+            Intent intent = new Intent(MainActivity.this, WebViewActivity.class);
+            intent.putExtra("url", "https://deepamaths.com/voice-doubt-php");
+            startActivity(intent);
+        });
 
         // 8. Offline Mode
         setupCardWithAnimation(R.id.btnOffline, v -> {
@@ -226,24 +227,16 @@ public class MainActivity extends AppCompatActivity {
             startActivity(intent);
         });
 
-        // WhatsApp Doubt
+        // WhatsApp Doubt (இப்போது லாகின் தேவையில்லை, நேரடியாக வாட்ஸ்அப் ஓபன் ஆகும்)
         setupCardWithAnimation(R.id.btnWhatsapp, v -> {
-            if (sharedPreferences.getBoolean("isLoggedIn", false)) {
-                Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://wa.me/919876543210?text=Hello%20Teacher,%20I%20have%20a%20maths%20doubt."));
-                startActivity(intent);
-            } else {
-                redirectToLogin();
-            }
+            Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://wa.me/919876543210?text=Hello%20Teacher,%20I%20have%20a%20maths%20doubt."));
+            startActivity(intent);
         });
 
-        // Call Teacher
+        // Call Teacher (இப்போது லாகின் தேவையில்லை, நேரடியாக டயலர் ஓபன் ஆகும்)
         setupCardWithAnimation(R.id.btnCall, v -> {
-            if (sharedPreferences.getBoolean("isLoggedIn", false)) {
-                Intent intent = new Intent(Intent.ACTION_DIAL, Uri.parse("tel:+91 9345934899"));
-                startActivity(intent);
-            } else {
-                redirectToLogin();
-            }
+            Intent intent = new Intent(Intent.ACTION_DIAL, Uri.parse("tel:+919345934899"));
+            startActivity(intent);
         });
 
         // Share App
@@ -312,22 +305,5 @@ public class MainActivity extends AppCompatActivity {
         if (view != null) {
             view.setOnClickListener(v -> playClickAnimationAndRun(v, () -> actionListener.onClick(v)));
         }
-    }
-
-    private void checkLoginAndOpen(Class<?> targetActivityClass) {
-        boolean isLoggedIn = sharedPreferences.getBoolean("isLoggedIn", false);
-
-        if (isLoggedIn) {
-            Intent intent = new Intent(MainActivity.this, targetActivityClass);
-            startActivity(intent);
-        } else {
-            redirectToLogin();
-        }
-    }
-
-   private void redirectToLogin() {
-        Intent intent = new Intent(MainActivity.this, WebViewActivity.class);
-        intent.putExtra("url", "https://deepamaths.com/student-dashboard");
-        startActivity(intent);
     }
 }
