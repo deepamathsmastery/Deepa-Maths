@@ -82,135 +82,97 @@ public class MainActivity extends AppCompatActivity {
             }
         }
 
-        // --- ALL CARD / BUTTON CLICK LISTENERS WITH BOUNCE ANIMATION ---
+        // --- EACH CARD WITH ITS OWN CORRECT UNIQUE URL ---
 
-        // 1. Home Button -> Opens Website
+        // 1. Home Button -> Website Home
         setupCardWithAnimation(R.id.btnHome, v -> {
-            Intent intent = new Intent(MainActivity.this, WebViewActivity.class);
-            intent.putExtra("url", "https://deepamaths.com");
-            startActivity(intent);
+            openWebView("https://deepamaths.com");
         });
 
-        // 2. Dashboard / Login Button
+        // 2. Dashboard / Login Button -> Dashboard
         setupCardWithAnimation(R.id.btnDashboard, v -> {
-            Intent intent = new Intent(MainActivity.this, WebViewActivity.class);
-            intent.putExtra("url", "https://deepamaths.com/student-dashboard");
-            startActivity(intent);
+            openWebView("https://deepamaths.com/student-dashboard");
         });
 
-        // 3. Homework Portal
+        // 3. Homework Portal -> Homework
         setupCardWithAnimation(R.id.btnHomework, v -> {
-            Intent intent = new Intent(MainActivity.this, WebViewActivity.class);
-            intent.putExtra("url", "https://deepamaths.com/homework");
-            startActivity(intent);
+            openWebView("https://deepamaths.com/homework");
         });
 
-        // 4. Student Math Pad
+        // 4. Student Math Pad -> Math Pad
         setupCardWithAnimation(R.id.btnMathPad, v -> {
-            Intent intent = new Intent(MainActivity.this, WebViewActivity.class);
-            intent.putExtra("url", "https://deepamaths.com/math-pad");
-            startActivity(intent);
+            openWebView("https://deepamaths.com/math-pad");
         });
 
-        // 5. AI Lady Teacher
+        // 5. AI Lady Teacher -> AI Teacher
         setupCardWithAnimation(R.id.btnAiTeacher, v -> {
-            Intent intent = new Intent(MainActivity.this, WebViewActivity.class);
-            intent.putExtra("url", "https://deepamaths.com/ai-teacher");
-            startActivity(intent);
+            openWebView("https://deepamaths.com/ai-teacher");
         });
 
-        // 6. Quiz Game
+        // 6. Quiz Game -> Quiz
         setupCardWithAnimation(R.id.btnQuiz, v -> {
-            Intent intent = new Intent(MainActivity.this, WebViewActivity.class);
-            intent.putExtra("url", "https://deepamaths.com/quiz");
-            startActivity(intent);
+            openWebView("https://deepamaths.com/quiz");
         });
 
-        // 7. Voice Doubt Support
+        // 7. Voice Doubt Support -> Voice Doubt
         setupCardWithAnimation(R.id.btnVoiceDoubt, v -> {
-            Intent intent = new Intent(MainActivity.this, WebViewActivity.class);
-            intent.putExtra("url", "https://deepamaths.com/voice-doubt-php");
-            startActivity(intent);
+            openWebView("https://deepamaths.com/voice-doubt-php");
         });
 
-        // 8. Offline Mode
+        // 8. Offline Mode -> Offline Mode
         setupCardWithAnimation(R.id.btnOffline, v -> {
-            Intent intent = new Intent(MainActivity.this, WebViewActivity.class);
-            intent.putExtra("url", "https://deepamaths.com/offline-mode");
-            startActivity(intent);
+            openWebView("https://deepamaths.com/offline-mode");
         });
 
-        // 9. Progress Tracker
+        // 9. Progress Tracker -> Progress
         setupCardWithAnimation(R.id.btnProgress, v -> {
-            Intent intent = new Intent(MainActivity.this, WebViewActivity.class);
-            intent.putExtra("url", "https://deepamaths.com/progress");
-            startActivity(intent);
+            openWebView("https://deepamaths.com/progress");
         });
 
-        // 10. Badges & Achievements
+        // 10. Badges & Achievements -> Badges
         setupCardWithAnimation(R.id.btnBadges, v -> {
-            Intent intent = new Intent(MainActivity.this, WebViewActivity.class);
-            intent.putExtra("url", "https://deepamaths.com/badges");
-            startActivity(intent);
+            openWebView("https://deepamaths.com/badges");
         });
 
-        // 11. Daily Challenge
+        // 11. Daily Challenge -> Daily Challenge
         setupCardWithAnimation(R.id.btnDailyChallenge, v -> {
-            Intent intent = new Intent(MainActivity.this, WebViewActivity.class);
-            intent.putExtra("url", "https://deepamaths.com/daily-challenge");
-            startActivity(intent);
+            openWebView("https://deepamaths.com/daily-challenge");
         });
 
-        // 12. Export PDF Notes
+        // 12. Export PDF Notes -> Export PDF
         setupCardWithAnimation(R.id.btnExportPdf, v -> {
-            Intent intent = new Intent(MainActivity.this, WebViewActivity.class);
-            intent.putExtra("url", "https://deepamaths.com/export-pdf");
-            startActivity(intent);
+            openWebView("https://deepamaths.com/export-pdf");
         });
 
-        // 13. Instant Math Calculator
+        // 13. Instant Math Calculator -> Calculator
         setupCardWithAnimation(R.id.btnCalculator, v -> {
-            Intent intent = new Intent(MainActivity.this, WebViewActivity.class);
-            intent.putExtra("url", "https://deepamaths.com/calculator");
-            startActivity(intent);
+            openWebView("https://deepamaths.com/calculator");
         });
 
-        // 14. Exam Mock Test Mode
+        // 14. Exam Mock Test Mode -> Mock Test
         setupCardWithAnimation(R.id.btnExamMock, v -> {
-            Intent intent = new Intent(MainActivity.this, WebViewActivity.class);
-            intent.putExtra("url", "https://deepamaths.com/maths-mock-test");
-            startActivity(intent);
+            openWebView("https://deepamaths.com/maths-mock-test");
         });
 
         // --- FORMULAS & SHORTCUTS ACTIVITIES ---
         setupCardWithAnimation(R.id.btnAlgebra, v -> {
-            Intent intent = new Intent(MainActivity.this, WebViewActivity.class);
-            intent.putExtra("url", "https://deepamaths.com/algebra");
-            startActivity(intent);
+            openWebView("https://deepamaths.com/algebra");
         });
 
         setupCardWithAnimation(R.id.btnTrigonometry, v -> {
-            Intent intent = new Intent(MainActivity.this, WebViewActivity.class);
-            intent.putExtra("url", "https://deepamaths.com/trigonometry");
-            startActivity(intent);
+            openWebView("https://deepamaths.com/trigonometry");
         });
 
         setupCardWithAnimation(R.id.btnCalculus, v -> {
-            Intent intent = new Intent(MainActivity.this, WebViewActivity.class);
-            intent.putExtra("url", "https://deepamaths.com/calculus");
-            startActivity(intent);
+            openWebView("https://deepamaths.com/calculus");
         });
 
         setupCardWithAnimation(R.id.btnCoordinate, v -> {
-            Intent intent = new Intent(MainActivity.this, WebViewActivity.class);
-            intent.putExtra("url", "https://deepamaths.com/coordinate-geometry");
-            startActivity(intent);
+            openWebView("https://deepamaths.com/coordinate-geometry");
         });
 
         setupCardWithAnimation(R.id.btnVideoTutorials, v -> {
-            Intent intent = new Intent(MainActivity.this, WebViewActivity.class);
-            intent.putExtra("url", "https://deepamaths.com/video-tutorials");
-            startActivity(intent);
+            openWebView("https://deepamaths.com/video-tutorials");
         });
 
         // WhatsApp Doubt
@@ -236,12 +198,16 @@ public class MainActivity extends AppCompatActivity {
             startActivity(Intent.createChooser(intent, "Deepa Maths-ஐப் பகிர (Share via):"));
         });
 
-        // Login / Dashboard Button Click Listener (மறுபடியும் லாகின் தொல்லை இருக்காது)
+        // Bottom Button -> Dashboard
         setupCardWithAnimation(R.id.btnLogout, v -> {
-            Intent intent = new Intent(MainActivity.this, WebViewActivity.class);
-            intent.putExtra("url", "https://deepamaths.com/student-dashboard");
-            startActivity(intent);
+            openWebView("https://deepamaths.com/student-dashboard");
         });
+    }
+
+    private void openWebView(String url) {
+        Intent intent = new Intent(MainActivity.this, WebViewActivity.class);
+        intent.putExtra("url", url);
+        startActivity(intent);
     }
 
     @Override
@@ -264,7 +230,7 @@ public class MainActivity extends AppCompatActivity {
                 }
             }
         } catch (Exception e) {
-            // எந்தப் பிழையும் வராமல் பாதுகாக்கிறது
+            // பிழை வராமல் தவிர்க்க
         }
     }
 
