@@ -15,28 +15,47 @@ public class SplashActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_splash);
+        
+        try {
+            setContentView(R.layout.activity_splash);
 
-        ImageView imgLogo = findViewById(R.id.imgLogo);
-        TextView tvAppName = findViewById(R.id.tvAppName);
+            ImageView imgLogo = findViewById(R.id.imgLogo);
+            TextView tvAppName = findViewById(R.id.tvAppName);
 
-        // ஃபேட்-இன் (Fade-in) அனிமேஷனை லோகோ மற்றும் பெயருக்கு வழங்குதல்
-        Animation fadeIn = AnimationUtils.loadAnimation(this, android.R.anim.fade_in);
-        fadeIn.setDuration(1500); // 1.5 விநாடிகள் அனிமேஷன் நேரம்
+            // அனிமேஷன் பாதுகாப்புடன் வழங்கப்படுகிறது
+            try {
+                Animation fadeIn = AnimationUtils.loadAnimation(this, android.R.anim.fade_in);
+                fadeIn.setDuration(1500);
 
-        // Null Check: ஐடி சரியாக இருந்தால் மட்டும் அனிமேஷன் நடக்கும் (Crash தவிர்க்கப்படும்)
-        if (imgLogo != null) {
-            imgLogo.startAnimation(fadeIn);
+                if (imgLogo != null) {
+                    imgLogo.startAnimation(fadeIn);
+                }
+                if (tvAppName != null) {
+                    tvAppName.startAnimation(fadeIn);
+                }
+            } catch (Exception e) {
+                // அனிமேஷனில் பிழை இருந்தாலும் ஆப் நிக்காது
+            }
+
+        } catch (Exception e) {
+            // லேஅவுட்டில் பிழை இருந்தால் நேரடியாக MainActivity-க்குத் தாவுவதற்கு
+            navigateToMain();
+            return;
         }
-        if (tvAppName != null) {
-            tvAppName.startAnimation(fadeIn);
-        }
 
-        // 2.5 விநாடிகள் கழித்து நேராக MainActivity-க்குச் செல்லுதல்
+        // 2.5 விநாடிகள் கழித்து MainActivity-க்குச் செல்லுதல்
         new Handler(Looper.getMainLooper()).postDelayed(() -> {
+            navigateToMain();
+        }, 2500);
+    }
+
+    private void navigateToMain() {
+        try {
             Intent intent = new Intent(SplashActivity.this, MainActivity.class);
             startActivity(intent);
-            finish(); // இந்த ஆக்டிவிட்டியை மூடிவிடுவது
-        }, 2500);
+            finish();
+        } catch (Exception e) {
+            // இறுதிப் பாதுகாப்பு
+        }
     }
 }
