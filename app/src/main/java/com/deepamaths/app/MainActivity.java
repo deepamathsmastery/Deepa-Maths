@@ -140,12 +140,11 @@ public class MainActivity extends AppCompatActivity {
             startActivity(intent);
         });
 
-        // 7. Voice Doubt Support
-        setupCardWithAnimation(R.id.btnVoiceDoubt, v -> {
-            Intent intent = new Intent(MainActivity.this, WebViewActivity.class);
-            intent.putExtra("url", "https://deepamaths.com/voice-doubt");
-            startActivity(intent);
-        });
+       setupCardWithAnimation(R.id.btnVoiceDoubt, v -> {
+    Intent intent = new Intent(MainActivity.this, WebViewActivity.class);
+    intent.putExtra("url", "https://deepamaths.com/voice-doubt.php");
+    startActivity(intent);
+});
 
         // 8. Offline Mode
         setupCardWithAnimation(R.id.btnOffline, v -> {
