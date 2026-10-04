@@ -18,30 +18,12 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.app.AppCompatDelegate;
 import androidx.appcompat.widget.SwitchCompat;
 
-// அனைத்து ஆக்டிவிட்டி இம்போர்ட்டுகள்
-import com.deepamaths.app.AITeacherActivity;
-import com.deepamaths.app.AIChatWebActivity;
-import com.deepamaths.app.QuizActivity;
-import com.deepamaths.app.VoiceDoubtActivity;
-import com.deepamaths.app.OfflineModeActivity;
-import com.deepamaths.app.ProgressTrackerActivity;
-import com.deepamaths.app.BadgesActivity;
-import com.deepamaths.app.DailyChallengeActivity;
-import com.deepamaths.app.ExportPdfActivity;
-import com.deepamaths.app.MathCalculatorActivity;
-import com.deepamaths.app.AlgebraActivity;
-import com.deepamaths.app.TrigonometryActivity;
-import com.deepamaths.app.CalculusActivity;
-import com.deepamaths.app.CoordinateActivity;
-import com.deepamaths.app.VideoTutorialsActivity;
-import com.deepamaths.app.WebViewActivity;
-
 public class MainActivity extends AppCompatActivity {
 
     private SharedPreferences sharedPreferences;
     private SwitchCompat switchDarkMode;
 
-   // கார்டைக் கிளிக் செய்யும்போது 'துள்ளி வரும்' (Bounce) அனிமேஷனை இயக்குவதற்கான முறை
+    // கார்டைக் கிளிக் செய்யும்போது 'துள்ளி வரும்' (Bounce) அனிமேஷனை இயக்குவதற்கான முறை
     private void playClickAnimationAndRun(View view, Runnable action) {
         Animation animation = AnimationUtils.loadAnimation(this, R.anim.card_bounce);
         view.startAnimation(animation);
@@ -228,13 +210,13 @@ public class MainActivity extends AppCompatActivity {
             startActivity(intent);
         });
 
-        // WhatsApp Doubt (இப்போது லாகின் தேவையில்லை, நேரடியாக வாட்ஸ்அப் ஓபன் ஆகும்)
+        // WhatsApp Doubt
         setupCardWithAnimation(R.id.btnWhatsapp, v -> {
             Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://wa.me/919876543210?text=Hello%20Teacher,%20I%20have%20a%20maths%20doubt."));
             startActivity(intent);
         });
 
-        // Call Teacher (இப்போது லாகின் தேவையில்லை, நேரடியாக டயலர் ஓபன் ஆகும்)
+        // Call Teacher
         setupCardWithAnimation(R.id.btnCall, v -> {
             Intent intent = new Intent(Intent.ACTION_DIAL, Uri.parse("tel:+919345934899"));
             startActivity(intent);
@@ -289,14 +271,24 @@ public class MainActivity extends AppCompatActivity {
         String cookies = cookieManager.getCookie("https://deepamaths.com/");
         boolean isWebLoggedIn = cookies != null && !cookies.isEmpty();
 
-        Button btnLoginLogout = findViewById(R.id.btnLogout);
+        View btnLoginLogout = findViewById(R.id.btnLogout);
         if (btnLoginLogout != null) {
-            if (isWebLoggedIn) {
-                btnLoginLogout.setBackgroundColor(Color.parseColor("#D32F2F"));
-                btnLoginLogout.setText("Logout");
-            } else {
-                btnLoginLogout.setBackgroundColor(Color.parseColor("#4CAF50"));
-                btnLoginLogout.setText("Login");
+            if (btnLoginLogout instanceof Button) {
+                Button button = (Button) btnLoginLogout;
+                if (isWebLoggedIn) {
+                    button.setBackgroundColor(Color.parseColor("#D32F2F"));
+                    button.setText("Logout");
+                } else {
+                    button.setBackgroundColor(Color.parseColor("#4CAF50"));
+                    button.setText("Login");
+                }
+            } else if (btnLoginLogout instanceof TextView) {
+                TextView textView = (TextView) btnLoginLogout;
+                if (isWebLoggedIn) {
+                    textView.setText("Logout");
+                } else {
+                    textView.setText("Login");
+                }
             }
         }
     }
