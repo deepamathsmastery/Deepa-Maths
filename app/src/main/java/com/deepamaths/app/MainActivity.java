@@ -40,46 +40,48 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        sharedPreferences = getSharedPreferences("MathsAppPrefs", Context.MODE_PRIVATE);
-        boolean isDarkMode = sharedPreferences.getBoolean("isDarkMode", false);
-
-        if (isDarkMode) {
-            AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
-        } else {
-            AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
-        }
-
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        
+        try {
+            sharedPreferences = getSharedPreferences("MathsAppPrefs", Context.MODE_PRIVATE);
+            boolean isDarkMode = sharedPreferences.getBoolean("isDarkMode", false);
 
-        // 2. Dark Mode Switch Setup
-        switchDarkMode = findViewById(R.id.switchDarkMode);
-        if (switchDarkMode != null) {
-            switchDarkMode.setChecked(isDarkMode);
-
-            switchDarkMode.setOnCheckedChangeListener((buttonView, isChecked) -> {
-                SharedPreferences.Editor editor = sharedPreferences.edit();
-                editor.putBoolean("isDarkMode", isChecked);
-                editor.apply();
-
-                if (isChecked) {
-                    AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
-                } else {
-                    AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
-                }
-            });
-        }
-
-        // 3. Welcome Message Setup
-        TextView tvWelcome = findViewById(R.id.tvWelcome);
-        if (tvWelcome != null) {
-            boolean isLoggedIn = sharedPreferences.getBoolean("isLoggedIn", false);
-            if (isLoggedIn) {
-                String studentName = sharedPreferences.getString("studentName", "Student");
-                tvWelcome.setText("Welcome, " + studentName + "!");
+            if (isDarkMode) {
+                AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
             } else {
-                tvWelcome.setText("Welcome, Guest!");
+                AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
             }
+
+            setContentView(R.layout.activity_main);
+
+            // 2. Dark Mode Switch Setup
+            switchDarkMode = findViewById(R.id.switchDarkMode);
+            if (switchDarkMode != null) {
+                switchDarkMode.setChecked(isDarkMode);
+
+                switchDarkMode.setOnCheckedChangeListener((buttonView, isChecked) -> {
+                    SharedPreferences.Editor editor = sharedPreferences.edit();
+                    editor.putBoolean("isDarkMode", isChecked);
+                    editor.apply();
+
+                    if (isChecked) {
+                        AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
+                    } else {
+                        AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
+                    }
+                });
+            }
+
+            // 3. Welcome Message Setup
+            TextView tvWelcome = findViewById(R.id.tvWelcome);
+            if (tvWelcome != null) {
+                boolean isLoggedIn = sharedPreferences.getBoolean("isLoggedIn", false);
+                if (isLoggedIn) {
+                    String studentName = sharedPreferences.getString("studentName", "Student");
+                    tvWelcome.setText("Welcome, " + studentName + "!");
+                } else {
+                    tvWelcome.setText("Welcome, Guest!");
+                }
         }
 
         // --- EACH CARD WITH ITS OWN CORRECT UNIQUE URL ---
