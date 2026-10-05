@@ -20,7 +20,7 @@
             android:gravity="center_vertical"
             android:layout_marginBottom="16dp"
             android:padding="8dp"
-            android:background="@drawable/header_bg"
+            android:background="#FFFFFF"
             android:elevation="1dp">
 
             <ImageView
