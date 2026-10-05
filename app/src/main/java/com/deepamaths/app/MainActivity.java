@@ -171,9 +171,11 @@ public class MainActivity extends AppCompatActivity {
                     textView.setText("Student Dashboard");
                 }
             }
-        } catch (Exception e) {
-            // பிழை வராமல் தவிர்க்க
-        }
+      } catch (Exception e) {
+        e.printStackTrace();
+        // எந்த வரியில் எரர் வருகிறது என்று பார்க்க
+        Toast.makeText(this, "Crash Reason: " + e.toString(), Toast.LENGTH_LONG).show();
+    }
     }
 
     private void setupCardWithAnimation(int viewId, View.OnClickListener actionListener) {
