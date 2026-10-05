@@ -55,7 +55,7 @@ public class SplashActivity extends AppCompatActivity {
             startActivity(intent);
             finish();
         } catch (Exception e) {
-            // இறுதிப் பாதுகாப்பு
+            e.printStackTrace();
         }
     }
 }
