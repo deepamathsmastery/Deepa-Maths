@@ -20,7 +20,7 @@ import androidx.appcompat.widget.SwitchCompat;
 public class MainActivity extends AppCompatActivity {
 
     private SharedPreferences sharedPreferences;
-    private SwitchCompat switchDarkMode;
+    private android.widget.Switch switchDarkMode;
 
     // கார்டைக் கிளிக் செய்யும்போது 'துள்ளி வரும்' (Bounce) அனிமேஷனை இயக்குவதற்கான முறை
     private void playClickAnimationAndRun(View view, Runnable action) {
