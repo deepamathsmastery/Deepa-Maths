@@ -140,15 +140,17 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-    private void openWebView(String url) {
-        try {
-            Intent intent = new Intent(MainActivity.this, WebViewActivity.class);
-            intent.putExtra("url", url);
-            startActivity(intent);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+  private void openWebView(String url) {
+    try {
+        Intent intent = new Intent(MainActivity.this, WebViewActivity.class);
+        intent.putExtra("url", url);
+        startActivity(intent);
+    } catch (Exception e) {
+        e.printStackTrace();
+        // இதை தற்காலிகமாக சேர்த்துப் பார்த்தால் என்ன எரர் என்று தெரியும்
+        Toast.makeText(this, "Error: " + e.getMessage(), Toast.LENGTH_LONG).show();
     }
+}
 
     @Override
     protected void onResume() {
