@@ -43,6 +43,8 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         
         try {
+            setContentView(R.layout.activity_main);
+
             sharedPreferences = getSharedPreferences("MathsAppPrefs", Context.MODE_PRIVATE);
             boolean isDarkMode = sharedPreferences.getBoolean("isDarkMode", false);
 
@@ -51,8 +53,6 @@ public class MainActivity extends AppCompatActivity {
             } else {
                 AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
             }
-
-            setContentView(R.layout.activity_main);
 
             // 2. Dark Mode Switch Setup
             switchDarkMode = findViewById(R.id.switchDarkMode);
@@ -82,134 +82,72 @@ public class MainActivity extends AppCompatActivity {
                 } else {
                     tvWelcome.setText("Welcome, Guest!");
                 }
+            }
+
+            // --- EACH CARD WITH ITS OWN CORRECT UNIQUE URL ---
+
+            setupCardWithAnimation(R.id.btnHome, v -> openWebView("https://deepamaths.com"));
+            setupCardWithAnimation(R.id.btnDashboard, v -> openWebView("https://deepamaths.com/student-dashboard"));
+            setupCardWithAnimation(R.id.btnHomework, v -> openWebView("https://deepamaths.com/homework"));
+            setupCardWithAnimation(R.id.btnMathPad, v -> openWebView("https://deepamaths.com/math-pad"));
+            setupCardWithAnimation(R.id.btnAiTeacher, v -> openWebView("https://deepamaths.com/ai-teacher"));
+            setupCardWithAnimation(R.id.btnQuiz, v -> openWebView("https://deepamaths.com/quiz"));
+            setupCardWithAnimation(R.id.btnVoiceDoubt, v -> openWebView("https://deepamaths.com/voice-doubt-php"));
+            setupCardWithAnimation(R.id.btnOffline, v -> openWebView("https://deepamaths.com/offline-mode"));
+            setupCardWithAnimation(R.id.btnProgress, v -> openWebView("https://deepamaths.com/progress"));
+            setupCardWithAnimation(R.id.btnBadges, v -> openWebView("https://deepamaths.com/badges"));
+            setupCardWithAnimation(R.id.btnDailyChallenge, v -> openWebView("https://deepamaths.com/daily-challenge"));
+            setupCardWithAnimation(R.id.btnExportPdf, v -> openWebView("https://deepamaths.com/export-pdf"));
+            setupCardWithAnimation(R.id.btnCalculator, v -> openWebView("https://deepamaths.com/calculator"));
+            setupCardWithAnimation(R.id.btnExamMock, v -> openWebView("https://deepamaths.com/maths-mock-test"));
+
+            // --- FORMULAS & SHORTCUTS ACTIVITIES ---
+            setupCardWithAnimation(R.id.btnAlgebra, v -> openWebView("https://deepamaths.com/algebra"));
+            setupCardWithAnimation(R.id.btnTrigonometry, v -> openWebView("https://deepamaths.com/trigonometry"));
+            setupCardWithAnimation(R.id.btnCalculus, v -> openWebView("https://deepamaths.com/calculus"));
+            setupCardWithAnimation(R.id.btnCoordinate, v -> openWebView("https://deepamaths.com/coordinate-geometry"));
+            setupCardWithAnimation(R.id.btnVideoTutorials, v -> openWebView("https://deepamaths.com/video-tutorials"));
+
+            // WhatsApp Doubt
+            setupCardWithAnimation(R.id.btnWhatsapp, v -> {
+                Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://wa.me/919876543210?text=Hello%20Teacher,%20I%20have%20a%20maths%20doubt."));
+                startActivity(intent);
+            });
+
+            // Call Teacher
+            setupCardWithAnimation(R.id.btnCall, v -> {
+                Intent intent = new Intent(Intent.ACTION_DIAL, Uri.parse("tel:+919345934899"));
+                startActivity(intent);
+            });
+
+            // Share App
+            setupCardWithAnimation(R.id.btnShare, v -> {
+                String shareMessage = "Deepa Maths ஆப் மூலம் எளிதாக கணிதத்தைக் கற்றுக்கொள்ளுங்கள்! மாணவர்களுக்கான சிறந்த செயலி.\n\n" +
+                        "டவுன்லோட் செய்ய லிங்க்:\n" +
+                        "https://play.google.com/store/apps/details?id=com.deepamaths.app";
+                Intent intent = new Intent(Intent.ACTION_SEND);
+                intent.setType("text/plain");
+                intent.putExtra(Intent.EXTRA_TEXT, shareMessage);
+                startActivity(Intent.createChooser(intent, "Deepa Maths-ஐப் பகிர (Share via):"));
+            });
+
+            // Bottom Button -> Dashboard
+            setupCardWithAnimation(R.id.btnLogout, v -> openWebView("https://deepamaths.com/student-dashboard"));
+
+        } catch (Exception e) {
+            e.printStackTrace();
+            Toast.makeText(this, "Error in MainActivity: " + e.getMessage(), Toast.LENGTH_LONG).show();
         }
-
-        // --- EACH CARD WITH ITS OWN CORRECT UNIQUE URL ---
-
-        // 1. Home Button -> Website Home
-        setupCardWithAnimation(R.id.btnHome, v -> {
-            openWebView("https://deepamaths.com");
-        });
-
-        // 2. Dashboard / Login Button -> Dashboard
-        setupCardWithAnimation(R.id.btnDashboard, v -> {
-            openWebView("https://deepamaths.com/student-dashboard");
-        });
-
-        // 3. Homework Portal -> Homework
-        setupCardWithAnimation(R.id.btnHomework, v -> {
-            openWebView("https://deepamaths.com/homework");
-        });
-
-        // 4. Student Math Pad -> Math Pad
-        setupCardWithAnimation(R.id.btnMathPad, v -> {
-            openWebView("https://deepamaths.com/math-pad");
-        });
-
-        // 5. AI Lady Teacher -> AI Teacher
-        setupCardWithAnimation(R.id.btnAiTeacher, v -> {
-            openWebView("https://deepamaths.com/ai-teacher");
-        });
-
-        // 6. Quiz Game -> Quiz
-        setupCardWithAnimation(R.id.btnQuiz, v -> {
-            openWebView("https://deepamaths.com/quiz");
-        });
-
-        // 7. Voice Doubt Support -> Voice Doubt
-        setupCardWithAnimation(R.id.btnVoiceDoubt, v -> {
-            openWebView("https://deepamaths.com/voice-doubt-php");
-        });
-
-        // 8. Offline Mode -> Offline Mode
-        setupCardWithAnimation(R.id.btnOffline, v -> {
-            openWebView("https://deepamaths.com/offline-mode");
-        });
-
-        // 9. Progress Tracker -> Progress
-        setupCardWithAnimation(R.id.btnProgress, v -> {
-            openWebView("https://deepamaths.com/progress");
-        });
-
-        // 10. Badges & Achievements -> Badges
-        setupCardWithAnimation(R.id.btnBadges, v -> {
-            openWebView("https://deepamaths.com/badges");
-        });
-
-        // 11. Daily Challenge -> Daily Challenge
-        setupCardWithAnimation(R.id.btnDailyChallenge, v -> {
-            openWebView("https://deepamaths.com/daily-challenge");
-        });
-
-        // 12. Export PDF Notes -> Export PDF
-        setupCardWithAnimation(R.id.btnExportPdf, v -> {
-            openWebView("https://deepamaths.com/export-pdf");
-        });
-
-        // 13. Instant Math Calculator -> Calculator
-        setupCardWithAnimation(R.id.btnCalculator, v -> {
-            openWebView("https://deepamaths.com/calculator");
-        });
-
-        // 14. Exam Mock Test Mode -> Mock Test
-        setupCardWithAnimation(R.id.btnExamMock, v -> {
-            openWebView("https://deepamaths.com/maths-mock-test");
-        });
-
-        // --- FORMULAS & SHORTCUTS ACTIVITIES ---
-        setupCardWithAnimation(R.id.btnAlgebra, v -> {
-            openWebView("https://deepamaths.com/algebra");
-        });
-
-        setupCardWithAnimation(R.id.btnTrigonometry, v -> {
-            openWebView("https://deepamaths.com/trigonometry");
-        });
-
-        setupCardWithAnimation(R.id.btnCalculus, v -> {
-            openWebView("https://deepamaths.com/calculus");
-        });
-
-        setupCardWithAnimation(R.id.btnCoordinate, v -> {
-            openWebView("https://deepamaths.com/coordinate-geometry");
-        });
-
-        setupCardWithAnimation(R.id.btnVideoTutorials, v -> {
-            openWebView("https://deepamaths.com/video-tutorials");
-        });
-
-        // WhatsApp Doubt
-        setupCardWithAnimation(R.id.btnWhatsapp, v -> {
-            Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://wa.me/919876543210?text=Hello%20Teacher,%20I%20have%20a%20maths%20doubt."));
-            startActivity(intent);
-        });
-
-        // Call Teacher
-        setupCardWithAnimation(R.id.btnCall, v -> {
-            Intent intent = new Intent(Intent.ACTION_DIAL, Uri.parse("tel:+919345934899"));
-            startActivity(intent);
-        });
-
-        // Share App
-        setupCardWithAnimation(R.id.btnShare, v -> {
-            String shareMessage = "Deepa Maths ஆப் மூலம் எளிதாக கணிதத்தைக் கற்றுக்கொள்ளுங்கள்! மாணவர்களுக்கான சிறந்த செயலி.\n\n" +
-                    "டவுன்லோட் செய்ய லிங்க்:\n" +
-                    "https://play.google.com/store/apps/details?id=com.deepamaths.app";
-            Intent intent = new Intent(Intent.ACTION_SEND);
-            intent.setType("text/plain");
-            intent.putExtra(Intent.EXTRA_TEXT, shareMessage);
-            startActivity(Intent.createChooser(intent, "Deepa Maths-ஐப் பகிர (Share via):"));
-        });
-
-        // Bottom Button -> Dashboard
-        setupCardWithAnimation(R.id.btnLogout, v -> {
-            openWebView("https://deepamaths.com/student-dashboard");
-        });
     }
 
     private void openWebView(String url) {
-        Intent intent = new Intent(MainActivity.this, WebViewActivity.class);
-        intent.putExtra("url", url);
-        startActivity(intent);
+        try {
+            Intent intent = new Intent(MainActivity.this, WebViewActivity.class);
+            intent.putExtra("url", url);
+            startActivity(intent);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
     @Override
@@ -237,9 +175,13 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void setupCardWithAnimation(int viewId, View.OnClickListener actionListener) {
-        View view = findViewById(viewId);
-        if (view != null) {
-            view.setOnClickListener(v -> playClickAnimationAndRun(v, () -> actionListener.onClick(v)));
+        try {
+            View view = findViewById(viewId);
+            if (view != null) {
+                view.setOnClickListener(v -> playClickAnimationAndRun(v, () -> actionListener.onClick(v)));
+            }
+        } catch (Exception e) {
+            // பிழைகளைக் கையாளுதல்
         }
     }
 }
