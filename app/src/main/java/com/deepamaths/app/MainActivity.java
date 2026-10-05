@@ -15,23 +15,24 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.app.AppCompatDelegate;
-import androidx.appcompat.widget.SwitchCompat;
 
 public class MainActivity extends AppCompatActivity {
 
     private SharedPreferences sharedPreferences;
-    private android.widget.Switch switchDarkMode;
 
     // கார்டைக் கிளிக் செய்யும்போது 'துள்ளி வரும்' (Bounce) அனிமேஷனை இயக்குவதற்கான முறை
     private void playClickAnimationAndRun(View view, Runnable action) {
         try {
             Animation animation = AnimationUtils.loadAnimation(this, R.anim.card_bounce);
-            view.startAnimation(animation);
+            if (view != null && animation != null) {
+                view.startAnimation(animation);
+            }
         } catch (Exception e) {
             // அனிமேஷன் ஃபைலில் பிழை இருந்தாலும் ஆப் நிக்காது
         }
         
-        view.postDelayed(() -> {
+        View targetView = (view != null) ? view : getWindow().getDecorView();
+        targetView.postDelayed(() -> {
             if (action != null) {
                 action.run();
             }
@@ -54,22 +55,18 @@ public class MainActivity extends AppCompatActivity {
                 AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
             }
 
-            // 2. Dark Mode Switch Setup
-            switchDarkMode = findViewById(R.id.switchDarkMode);
-            if (switchDarkMode != null) {
-                switchDarkMode.setChecked(isDarkMode);
-
-                switchDarkMode.setOnCheckedChangeListener((buttonView, isChecked) -> {
-                    SharedPreferences.Editor editor = sharedPreferences.edit();
-                    editor.putBoolean("isDarkMode", isChecked);
-                    editor.apply();
-
-                    if (isChecked) {
-                        AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
-                    } else {
-                        AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
-                    }
-                });
+            // 2. Safe Dark Mode Switch Setup (எந்த எரரும் வராதபடி பாதுகாப்பான முறை)
+            View switchView = findViewById(R.id.switchDarkMode);
+            if (switchView != null) {
+                if (switchView instanceof androidx.appcompat.widget.SwitchCompat) {
+                    androidx.appcompat.widget.SwitchCompat switchCompat = (androidx.appcompat.widget.SwitchCompat) switchView;
+                    switchCompat.setChecked(isDarkMode);
+                    switchCompat.setOnCheckedChangeListener((buttonView, isChecked) -> handleDarkModeChange(isChecked));
+                } else if (switchView instanceof android.widget.Switch) {
+                    android.widget.Switch standardSwitch = (android.widget.Switch) switchView;
+                    standardSwitch.setChecked(isDarkMode);
+                    standardSwitch.setOnCheckedChangeListener((buttonView, isChecked) -> handleDarkModeChange(isChecked));
+                }
             }
 
             // 3. Welcome Message Setup
@@ -110,25 +107,33 @@ public class MainActivity extends AppCompatActivity {
 
             // WhatsApp Doubt
             setupCardWithAnimation(R.id.btnWhatsapp, v -> {
-                Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://wa.me/919876543210?text=Hello%20Teacher,%20I%20have%20a%20maths%20doubt."));
-                startActivity(intent);
+                try {
+                    Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://wa.me/919876543210?text=Hello%20Teacher,%20I%20have%20a%20maths%20doubt."));
+                    startActivity(intent);
+                } catch (Exception e) {
+                    Toast.makeText(this, "WhatsApp not installed", Toast.LENGTH_SHORT).show();
+                }
             });
 
             // Call Teacher
             setupCardWithAnimation(R.id.btnCall, v -> {
-                Intent intent = new Intent(Intent.ACTION_DIAL, Uri.parse("tel:+919345934899"));
-                startActivity(intent);
+                try {
+                    Intent intent = new Intent(Intent.ACTION_DIAL, Uri.parse("tel:+919345934899"));
+                    startActivity(intent);
+                } catch (Exception e) {}
             });
 
             // Share App
             setupCardWithAnimation(R.id.btnShare, v -> {
-                String shareMessage = "Deepa Maths ஆப் மூலம் எளிதாக கணிதத்தைக் கற்றுக்கொள்ளுங்கள்! மாணவர்களுக்கான சிறந்த செயலி.\n\n" +
-                        "டவுன்லோட் செய்ய லிங்க்:\n" +
-                        "https://play.google.com/store/apps/details?id=com.deepamaths.app";
-                Intent intent = new Intent(Intent.ACTION_SEND);
-                intent.setType("text/plain");
-                intent.putExtra(Intent.EXTRA_TEXT, shareMessage);
-                startActivity(Intent.createChooser(intent, "Deepa Maths-ஐப் பகிர (Share via):"));
+                try {
+                    String shareMessage = "Deepa Maths ஆப் மூலம் எளிதாக கணிதத்தைக் கற்றுக்கொள்ளுங்கள்! மாணவர்களுக்கான சிறந்த செயலி.\n\n" +
+                            "டவுன்லோட் செய்ய லிங்க்:\n" +
+                            "https://play.google.com/store/apps/details?id=com.deepamaths.app";
+                    Intent intent = new Intent(Intent.ACTION_SEND);
+                    intent.setType("text/plain");
+                    intent.putExtra(Intent.EXTRA_TEXT, shareMessage);
+                    startActivity(Intent.createChooser(intent, "Deepa Maths-ஐப் பகிர (Share via):"));
+                } catch (Exception e) {}
             });
 
             // Bottom Button -> Dashboard
@@ -140,17 +145,30 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-  private void openWebView(String url) {
-    try {
-        Intent intent = new Intent(MainActivity.this, WebViewActivity.class);
-        intent.putExtra("url", url);
-        startActivity(intent);
-    } catch (Exception e) {
-        e.printStackTrace();
-        // இதை தற்காலிகமாக சேர்த்துப் பார்த்தால் என்ன எரர் என்று தெரியும்
-        Toast.makeText(this, "Error: " + e.getMessage(), Toast.LENGTH_LONG).show();
+    private void handleDarkModeChange(boolean isChecked) {
+        try {
+            SharedPreferences.Editor editor = sharedPreferences.edit();
+            editor.putBoolean("isDarkMode", isChecked);
+            editor.apply();
+
+            if (isChecked) {
+                AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
+            } else {
+                AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
+            }
+        } catch (Exception ignored) {}
     }
-}
+
+    private void openWebView(String url) {
+        try {
+            Intent intent = new Intent(MainActivity.this, WebViewActivity.class);
+            intent.putExtra("url", url);
+            startActivity(intent);
+        } catch (Exception e) {
+            e.printStackTrace();
+            Toast.makeText(this, "Error: " + e.getMessage(), Toast.LENGTH_LONG).show();
+        }
+    }
 
     @Override
     protected void onResume() {
@@ -171,11 +189,9 @@ public class MainActivity extends AppCompatActivity {
                     textView.setText("Student Dashboard");
                 }
             }
-      } catch (Exception e) {
-        e.printStackTrace();
-        // எந்த வரியில் எரர் வருகிறது என்று பார்க்க
-        Toast.makeText(this, "Crash Reason: " + e.toString(), Toast.LENGTH_LONG).show();
-    }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
     private void setupCardWithAnimation(int viewId, View.OnClickListener actionListener) {
