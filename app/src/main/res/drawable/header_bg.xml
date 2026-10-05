@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<shape xmlns:android="http://schemas.android.com/apk/res/android"
+    android:shape="rectangle">
+    
+    <!-- ஹெடர் பாக்ஸின் பின்னணி நிறம் -->
+    <solid android:color="#FFFFFF" />
+    
+    <!-- கார்னர்களை வளைக்க (Rounded Corners) -->
+    <corners android:radius="16dp" />
+    
+    <!-- மெல்லிய பார்டர் -->
+    <stroke 
+        android:width="1dp" 
+        android:color="#E0E0E0" />
+        
+</shape>
