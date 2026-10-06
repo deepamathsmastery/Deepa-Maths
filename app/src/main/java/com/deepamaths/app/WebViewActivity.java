@@ -33,7 +33,7 @@ public class WebViewActivity extends AppCompatActivity {
             webSettings.setCacheMode(WebSettings.LOAD_DEFAULT);
             webSettings.setLoadsImagesAutomatically(true);
 
-            // --- மிக முக்கிய மாற்றம் (Login & Logout Status-ஐ கண்காணிக்க) ---
+            // Login & Logout Status-ஐ கண்காணிக்க
             webView.setWebViewClient(new WebViewClient() {
                 @Override
                 public boolean shouldOverrideUrlLoading(WebView view, String url) {
@@ -71,22 +71,23 @@ public class WebViewActivity extends AppCompatActivity {
         });
     }
 
-       // WebViewActivity.java-க்குள் உள்ள இந்த முறையை மாற்றவும்:
-private void checkLoginStatusFromUrl(String url) {
-    if (url == null) return;
+    // வெப்சைட்டின் URL-ஐ வைத்து லாகின்/லாக் அவுட்டை ஆப் புரிந்து கொள்ளும் முறை
+    private void checkLoginStatusFromUrl(String url) {
+        if (url == null) return;
 
-    SharedPreferences sharedPreferences = getSharedPreferences("MathsAppPrefs", Context.MODE_PRIVATE);
-    SharedPreferences.Editor editor = sharedPreferences.edit();
+        SharedPreferences sharedPreferences = getSharedPreferences("MathsAppPrefs", Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor = sharedPreferences.edit();
 
-    // 1. டேஷ்போர்டுக்குச் சென்றால் லாகின் ஆனதாகக் கொள்ளும்
-    if (url.contains("student-dashboard") && !url.contains("login") && !url.contains("logout")) {
-        editor.putBoolean("isLoggedIn", true);
-        editor.apply();
-    } 
-    // 2. வேர்ட்பிரஸ் லாக் அவுட் லிங்கை அடையாளம் காணுதல்
-    else if (url.contains("action=logout") || url.contains("loggedout=true") || url.contains("wp-login.php?action=logout")) {
-        editor.putBoolean("isLoggedIn", false);
-        editor.remove("studentName");
-        editor.apply();
+        // 1. டேஷ்போர்டுக்குச் சென்றால் லாகின் ஆனதாகக் கொள்ளும்
+        if (url.contains("student-dashboard") && !url.contains("login") && !url.contains("logout")) {
+            editor.putBoolean("isLoggedIn", true);
+            editor.apply();
+        } 
+        // 2. வேர்ட்பிரஸ் லாக் அவுட் ஆனதை அடையாளம் காணுதல்
+        else if (url.contains("action=logout") || url.contains("loggedout=true") || url.contains("wp-login.php?action=logout")) {
+            editor.putBoolean("isLoggedIn", false);
+            editor.remove("studentName");
+            editor.apply();
+        }
     }
 }
