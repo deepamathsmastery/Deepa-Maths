@@ -71,23 +71,22 @@ public class WebViewActivity extends AppCompatActivity {
         });
     }
 
-    // வெப்சைட்டின் URL-ஐ வைத்து லாகின்/லாக் அவுட்டை ஆப் புரிந்து கொள்ளும் முறை
-    private void checkLoginStatusFromUrl(String url) {
-        if (url == null) return;
+       // WebViewActivity.java-க்குள் உள்ள இந்த முறையை மாற்றவும்:
+private void checkLoginStatusFromUrl(String url) {
+    if (url == null) return;
 
-        SharedPreferences sharedPreferences = getSharedPreferences("MathsAppPrefs", Context.MODE_PRIVATE);
-        SharedPreferences.Editor editor = sharedPreferences.edit();
+    SharedPreferences sharedPreferences = getSharedPreferences("MathsAppPrefs", Context.MODE_PRIVATE);
+    SharedPreferences.Editor editor = sharedPreferences.edit();
 
-        // 1. லாகின் ஆன பிறகு வரும் URL (உதாரணமாக உங்கள் டேஷ்போர்டு URL-ல் 'dashboard' அல்லது 'student-dashboard' இருந்தால்)
-        if (url.contains("student-dashboard") && !url.contains("login") && !url.contains("logout")) {
-            editor.putBoolean("isLoggedIn", true);
-            editor.apply();
-        } 
-        // 2. லாக் அவுட் ஆன பிறகு வரும் URL (உங்கள் வெப்சைட் logout URL-ல் 'logout' இருந்தால்)
-        else if (url.contains("logout")) {
-            editor.putBoolean("isLoggedIn", false);
-            editor.remove("studentName");
-            editor.apply();
-        }
+    // 1. டேஷ்போர்டுக்குச் சென்றால் லாகின் ஆனதாகக் கொள்ளும்
+    if (url.contains("student-dashboard") && !url.contains("login") && !url.contains("logout")) {
+        editor.putBoolean("isLoggedIn", true);
+        editor.apply();
+    } 
+    // 2. வேர்ட்பிரஸ் லாக் அவுட் லிங்கை அடையாளம் காணுதல்
+    else if (url.contains("action=logout") || url.contains("loggedout=true") || url.contains("wp-login.php?action=logout")) {
+        editor.putBoolean("isLoggedIn", false);
+        editor.remove("studentName");
+        editor.apply();
     }
 }
