@@ -1,5 +1,7 @@
 package com.deepamaths.app;
 
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
@@ -20,21 +22,33 @@ public class WebViewActivity extends AppCompatActivity {
         if (webView != null) {
             // மொபைல் வியூவிற்கான முக்கியமான செட்டிங்ஸ்
             WebSettings webSettings = webView.getSettings();
-            webSettings.setJavaScriptEnabled(true); // ஜாவாஸ்கிரிப்ட் இயங்க
-            webSettings.setDomStorageEnabled(true); // லோக்கல் ஸ்டோரேஜ் வேலை செய்ய
+            webSettings.setJavaScriptEnabled(true); 
+            webSettings.setDomStorageEnabled(true); 
             webSettings.setLoadWithOverviewMode(true); 
-            webSettings.setUseWideViewPort(true); // மொபைல் ஸ்கிரீனுக்கு ஏற்ப வெப்சைட் அட்ஜஸ்ட் ஆக
-            webSettings.setSupportZoom(true); // ஜூம் செய்யும் வசதி
+            webSettings.setUseWideViewPort(true); 
+            webSettings.setSupportZoom(true); 
             webSettings.setBuiltInZoomControls(true);
-            webSettings.setDisplayZoomControls(false); // ஜூம் பட்டன்களை மறைக்க
+            webSettings.setDisplayZoomControls(false); 
             
-            // கேச் மற்றும் நெட்வொர்க் செட்டிங்ஸ் (பாதுகாப்பிற்காக)
             webSettings.setCacheMode(WebSettings.LOAD_DEFAULT);
             webSettings.setLoadsImagesAutomatically(true);
 
-            webView.setWebViewClient(new WebViewClient());
+            // --- மிக முக்கிய மாற்றம் (Login & Logout Status-ஐ கண்காணிக்க) ---
+            webView.setWebViewClient(new WebViewClient() {
+                @Override
+                public boolean shouldOverrideUrlLoading(WebView view, String url) {
+                    checkLoginStatusFromUrl(url);
+                    return false;
+                }
 
-            // MainActivity-ல் இருந்து அனுப்பப்பட்ட URL-ஐ வாங்குதல் (இல்லாவிட்டால் முகவரிக்குச் செல்லும்)
+                @Override
+                public void onPageFinished(WebView view, String url) {
+                    super.onPageFinished(view, url);
+                    checkLoginStatusFromUrl(url);
+                }
+            });
+
+            // MainActivity-ல் இருந்து அனுப்பப்பட்ட URL-ஐ வாங்குதல்
             String url = getIntent().getStringExtra("url");
             if (url == null || url.isEmpty()) {
                 url = "https://deepamaths.com";
@@ -43,7 +57,7 @@ public class WebViewActivity extends AppCompatActivity {
             webView.loadUrl(url);
         }
 
-        // நவீன ஆண்ட்ராய்டு வெர்ஷன்களுக்கான பேக் (Back) பட்டன் ஹேண்ட்லர்
+        // பேக் பட்டன் ஹேண்ட்லர்
         getOnBackPressedDispatcher().addCallback(this, new OnBackPressedCallback(true) {
             @Override
             public void handleOnBackPressed() {
@@ -55,5 +69,25 @@ public class WebViewActivity extends AppCompatActivity {
                 }
             }
         });
+    }
+
+    // வெப்சைட்டின் URL-ஐ வைத்து லாகின்/லாக் அவுட்டை ஆப் புரிந்து கொள்ளும் முறை
+    private void checkLoginStatusFromUrl(String url) {
+        if (url == null) return;
+
+        SharedPreferences sharedPreferences = getSharedPreferences("MathsAppPrefs", Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+
+        // 1. லாகின் ஆன பிறகு வரும் URL (உதாரணமாக உங்கள் டேஷ்போர்டு URL-ல் 'dashboard' அல்லது 'student-dashboard' இருந்தால்)
+        if (url.contains("student-dashboard") && !url.contains("login") && !url.contains("logout")) {
+            editor.putBoolean("isLoggedIn", true);
+            editor.apply();
+        } 
+        // 2. லாக் அவுட் ஆன பிறகு வரும் URL (உங்கள் வெப்சைட் logout URL-ல் 'logout' இருந்தால்)
+        else if (url.contains("logout")) {
+            editor.putBoolean("isLoggedIn", false);
+            editor.remove("studentName");
+            editor.apply();
+        }
     }
 }
