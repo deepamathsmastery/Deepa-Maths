@@ -95,7 +95,7 @@ public class MainActivity extends AppCompatActivity {
             setupCardWithAnimation(R.id.btnBadges, v -> openWebView("https://deepamaths.com/badges"));
             setupCardWithAnimation(R.id.btnDailyChallenge, v -> openWebView("https://deepamaths.com/daily-challenge"));
             setupCardWithAnimation(R.id.btnExportPdf, v -> openWebView("https://deepamaths.com/export-pdf"));
-            setupCardWithAnimation(R.id.btnCalculator, v -> openWebView("https://deepamaths.com/calculator"));
+            setupCardWithAnimation(R.id.btnCalculator, v -> openWebView("https://deepamaths.com/maths-magic-lab"));
             setupCardWithAnimation(R.id.btnExamMock, v -> openWebView("https://deepamaths.com/maths-mock-test"));
 
             // --- FORMULAS & SHORTCUTS ACTIVITIES ---
