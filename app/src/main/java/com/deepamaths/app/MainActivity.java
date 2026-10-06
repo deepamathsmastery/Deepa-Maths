@@ -174,9 +174,10 @@ public class MainActivity extends AppCompatActivity {
     }
 
     // Dynamic Login/Logout Button Handler
+   // Dynamic Login/Logout Button Handler
     private void updateLoginLogoutButton() {
         try {
-            View btnLoginLogout = findViewById(R.id.btnDashboard);
+            View btnLoginLogout = findViewById(R.id.btnLogout);
             if (btnLoginLogout != null) {
                 
                 boolean isLoggedIn = sharedPreferences.getBoolean("isLoggedIn", false);
@@ -204,17 +205,17 @@ public class MainActivity extends AppCompatActivity {
                     }));
 
                 } else {
-                    // 2. லாகின் செய்யவில்லை என்றால் -> மாணவர் டேஷ்போர்டு / லாகின் பட்டனாக காட்டும்
+                    // 2. லாகின் செய்யவில்லை என்றால் -> "Login" பட்டனாக காட்டும்
                     if (btnLoginLogout instanceof Button) {
                         Button button = (Button) btnLoginLogout;
-                        button.setText("Student Dashboard");
+                        button.setText("Login"); // Ingu "Login" enru maatriyullathu
                         button.setBackgroundColor(Color.parseColor("#3F51B5")); // Blue color
                     } else if (btnLoginLogout instanceof TextView) {
                         TextView textView = (TextView) btnLoginLogout;
-                        textView.setText("Student Dashboard");
+                        textView.setText("Login");
                     }
                     
-                    // கிளிக் செய்தால் டேஷ்போர்டு அல்லது லாகின் பக்கத்தை திறக்கும்
+                    // கிளிக் செய்தால் லாகின் பக்கம் அல்லது டேஷ்போர்டை திறக்கும்
                     btnLoginLogout.setOnClickListener(v -> playClickAnimationAndRun(v, () -> {
                         openWebView("https://deepamaths.com/student-dashboard");
                     }));
