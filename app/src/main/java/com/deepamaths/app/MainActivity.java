@@ -55,7 +55,7 @@ public class MainActivity extends AppCompatActivity {
                 AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
             }
 
-            // 2. Safe Dark Mode Switch Setup (எந்த எரரும் வராதபடி பாதுகாப்பான முறை)
+            // 2. Safe Dark Mode Switch Setup
             View switchView = findViewById(R.id.switchDarkMode);
             if (switchView != null) {
                 if (switchView instanceof androidx.appcompat.widget.SwitchCompat) {
@@ -136,9 +136,6 @@ public class MainActivity extends AppCompatActivity {
                 } catch (Exception e) {}
             });
 
-            // Bottom Button -> Dashboard
-            setupCardWithAnimation(R.id.btnLogout, v -> openWebView("https://deepamaths.com/student-dashboard"));
-
         } catch (Exception e) {
             e.printStackTrace();
             Toast.makeText(this, "Error in MainActivity: " + e.getMessage(), Toast.LENGTH_LONG).show();
@@ -176,17 +173,51 @@ public class MainActivity extends AppCompatActivity {
         updateLoginLogoutButton();
     }
 
+    // Dynamic Login/Logout Button Handler
     private void updateLoginLogoutButton() {
         try {
             View btnLoginLogout = findViewById(R.id.btnLogout);
             if (btnLoginLogout != null) {
-                if (btnLoginLogout instanceof Button) {
-                    Button button = (Button) btnLoginLogout;
-                    button.setBackgroundColor(Color.parseColor("#4CAF50"));
-                    button.setText("Student Dashboard");
-                } else if (btnLoginLogout instanceof TextView) {
-                    TextView textView = (TextView) btnLoginLogout;
-                    textView.setText("Student Dashboard");
+                
+                boolean isLoggedIn = sharedPreferences.getBoolean("isLoggedIn", false);
+                
+                if (isLoggedIn) {
+                    // 1. ஏற்கெனவே லாகின் செய்திருந்தால் -> "Logout" பட்டனாக மாற்றும்
+                    if (btnLoginLogout instanceof Button) {
+                        Button button = (Button) btnLoginLogout;
+                        button.setText("Logout");
+                        button.setBackgroundColor(Color.parseColor("#F44336")); // Red color
+                    } else if (btnLoginLogout instanceof TextView) {
+                        TextView textView = (TextView) btnLoginLogout;
+                        textView.setText("Logout");
+                    }
+                    
+                    // Logout கிளிக் செய்தால் செஷனை கிளியர் செய்துவிட்டு ரெப்ரெஷ் செய்யும்
+                    btnLoginLogout.setOnClickListener(v -> playClickAnimationAndRun(v, () -> {
+                        SharedPreferences.Editor editor = sharedPreferences.edit();
+                        editor.putBoolean("isLoggedIn", false);
+                        editor.remove("studentName");
+                        editor.apply();
+
+                        Toast.makeText(MainActivity.this, "Successfully Logged Out!", Toast.LENGTH_SHORT).show();
+                        recreate(); // UI-ஐப் புதுப்பிக்க
+                    }));
+
+                } else {
+                    // 2. லாகின் செய்யவில்லை என்றால் -> மாணவர் டேஷ்போர்டு / லாகின் பட்டனாக காட்டும்
+                    if (btnLoginLogout instanceof Button) {
+                        Button button = (Button) btnLoginLogout;
+                        button.setText("Student Dashboard");
+                        button.setBackgroundColor(Color.parseColor("#3F51B5")); // Blue color
+                    } else if (btnLoginLogout instanceof TextView) {
+                        TextView textView = (TextView) btnLoginLogout;
+                        textView.setText("Student Dashboard");
+                    }
+                    
+                    // கிளிக் செய்தால் டேஷ்போர்டு அல்லது லாகின் பக்கத்தை திறக்கும்
+                    btnLoginLogout.setOnClickListener(v -> playClickAnimationAndRun(v, () -> {
+                        openWebView("https://deepamaths.com/student-dashboard");
+                    }));
                 }
             }
         } catch (Exception e) {
