@@ -173,8 +173,7 @@ public class MainActivity extends AppCompatActivity {
         updateLoginLogoutButton();
     }
 
-    // Dynamic Login/Logout Button Handler
-   // Dynamic Login/Logout Button Handler
+    // Dynamic Login / Logout Button Handler
     private void updateLoginLogoutButton() {
         try {
             View btnLoginLogout = findViewById(R.id.btnLogout);
@@ -183,17 +182,17 @@ public class MainActivity extends AppCompatActivity {
                 boolean isLoggedIn = sharedPreferences.getBoolean("isLoggedIn", false);
                 
                 if (isLoggedIn) {
-                    // 1. ஏற்கெனவே லாகின் செய்திருந்தால் -> "Logout" பட்டனாக மாற்றும்
+                    // 1. ஏற்கெனவே லாகின் செய்திருந்தால் -> "Logout" பட்டனாக மாற்றும் (Red Color)
                     if (btnLoginLogout instanceof Button) {
                         Button button = (Button) btnLoginLogout;
                         button.setText("Logout");
-                        button.setBackgroundColor(Color.parseColor("#F44336")); // Red color
+                        button.setBackgroundColor(Color.parseColor("#F44336")); 
                     } else if (btnLoginLogout instanceof TextView) {
                         TextView textView = (TextView) btnLoginLogout;
                         textView.setText("Logout");
                     }
                     
-                    // Logout கிளிக் செய்தால் செஷனை கிளியர் செய்துவிட்டு ரெப்ரெஷ் செய்யும்
+                    // Logout கிளிக் செய்தால் செஷனை கிளியர் செய்துவிட்டு வெப்சைட் logout URL-ஐ திறக்கும்
                     btnLoginLogout.setOnClickListener(v -> playClickAnimationAndRun(v, () -> {
                         SharedPreferences.Editor editor = sharedPreferences.edit();
                         editor.putBoolean("isLoggedIn", false);
@@ -201,21 +200,26 @@ public class MainActivity extends AppCompatActivity {
                         editor.apply();
 
                         Toast.makeText(MainActivity.this, "Successfully Logged Out!", Toast.LENGTH_SHORT).show();
-                        recreate(); // UI-ஐப் புதுப்பிக்க
+                        
+                        // வெப்சைட்டிலும் லாகின் கலைக்க logout URL-ஐ திறக்கவும்
+                        openWebView("https://deepamaths.com/logout");
+                        
+                        // UI-ஐ உடனே ரெப்ரெஷ் செய்ய
+                        recreate();
                     }));
 
                 } else {
-                    // 2. லாகின் செய்யவில்லை என்றால் -> "Login" பட்டனாக காட்டும்
+                    // 2. லாகின் செய்யவில்லை என்றால் -> "Student Dashboard" (Login) பட்டனாக காட்டும் (Blue Color)
                     if (btnLoginLogout instanceof Button) {
                         Button button = (Button) btnLoginLogout;
-                        button.setText("Login"); // Ingu "Login" enru maatriyullathu
-                        button.setBackgroundColor(Color.parseColor("#3F51B5")); // Blue color
+                        button.setText("Student Dashboard");
+                        button.setBackgroundColor(Color.parseColor("#3F51B5")); 
                     } else if (btnLoginLogout instanceof TextView) {
                         TextView textView = (TextView) btnLoginLogout;
-                        textView.setText("Login");
+                        textView.setText("Student Dashboard");
                     }
                     
-                    // கிளிக் செய்தால் லாகின் பக்கம் அல்லது டேஷ்போர்டை திறக்கும்
+                    // கிளிக் செய்தால் டேஷ்போர்டு / லாகின் பக்கத்தை திறக்கும்
                     btnLoginLogout.setOnClickListener(v -> playClickAnimationAndRun(v, () -> {
                         openWebView("https://deepamaths.com/student-dashboard");
                     }));
