@@ -176,7 +176,7 @@ public class MainActivity extends AppCompatActivity {
     // Dynamic Login/Logout Button Handler
     private void updateLoginLogoutButton() {
         try {
-            View btnLoginLogout = findViewById(R.id.btnLogout);
+            View btnLoginLogout = findViewById(R.id.btnDashboard);
             if (btnLoginLogout != null) {
                 
                 boolean isLoggedIn = sharedPreferences.getBoolean("isLoggedIn", false);
