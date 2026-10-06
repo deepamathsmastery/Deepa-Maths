@@ -193,20 +193,20 @@ public class MainActivity extends AppCompatActivity {
                     }
                     
                     // Logout கிளிக் செய்தால் செஷனை கிளியர் செய்துவிட்டு வெப்சைட் logout URL-ஐ திறக்கும்
-                    btnLoginLogout.setOnClickListener(v -> playClickAnimationAndRun(v, () -> {
-                        SharedPreferences.Editor editor = sharedPreferences.edit();
-                        editor.putBoolean("isLoggedIn", false);
-                        editor.remove("studentName");
-                        editor.apply();
+                  // MainActivity.java-ல் உள்ள Logout பகுதி:
+btnLoginLogout.setOnClickListener(v -> playClickAnimationAndRun(v, () -> {
+    SharedPreferences.Editor editor = sharedPreferences.edit();
+    editor.putBoolean("isLoggedIn", false);
+    editor.remove("studentName");
+    editor.apply();
 
-                        Toast.makeText(MainActivity.this, "Successfully Logged Out!", Toast.LENGTH_SHORT).show();
-                        
-                        // வெப்சைட்டிலும் லாகின் கலைக்க logout URL-ஐ திறக்கவும்
-                        openWebView("https://deepamaths.com/logout");
-                        
-                        // UI-ஐ உடனே ரெப்ரெஷ் செய்ய
-                        recreate();
-                    }));
+    Toast.makeText(MainActivity.this, "Successfully Logged Out!", Toast.LENGTH_SHORT).show();
+    
+    // வேர்ட்பிரஸின் உண்மையான Logout URL-ஐ இங்கே கொடுக்கவும்:
+    openWebView("https://deepamaths.com/wp-login.php?action=logout");
+    
+    recreate();
+}));
 
                 } else {
                     // 2. லாகின் செய்யவில்லை என்றால் -> "Student Dashboard" (Login) பட்டனாக காட்டும் (Blue Color)
