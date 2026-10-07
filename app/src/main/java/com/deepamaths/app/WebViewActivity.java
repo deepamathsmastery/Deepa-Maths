@@ -1,8 +1,13 @@
 package com.deepamaths.app;
 
+import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
+import android.net.Uri;
 import android.os.Bundle;
+import android.webkit.ValueCallback;
+import android.webkit.WebChromeClient;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
@@ -11,6 +16,10 @@ import androidx.appcompat.app.AppCompatActivity;
 
 public class WebViewActivity extends AppCompatActivity {
     private WebView webView;
+    
+    // ஃபைல் அப்லோட்டிற்கான மாறிகள் (Variables for File Upload)
+    private ValueCallback<Uri[]> uploadMessage;
+    private final static int FILE_CHOOSER_RESULT_CODE = 1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,6 +38,7 @@ public class WebViewActivity extends AppCompatActivity {
             webSettings.setSupportZoom(true); 
             webSettings.setBuiltInZoomControls(true);
             webSettings.setDisplayZoomControls(false); 
+            webSettings.setAllowFileAccess(true); // ஃபைல் அணுகலை அனுமதிக்க
             
             webSettings.setCacheMode(WebSettings.LOAD_DEFAULT);
             webSettings.setLoadsImagesAutomatically(true);
@@ -45,6 +55,27 @@ public class WebViewActivity extends AppCompatActivity {
                 public void onPageFinished(WebView view, String url) {
                     super.onPageFinished(view, url);
                     checkLoginStatusFromUrl(url);
+                }
+            });
+
+            // "Choose Files" வேலை செய்ய WebChromeClient அவசியம்
+            webView.setWebChromeClient(new WebChromeClient() {
+                @Override
+                public boolean onShowFileChooser(WebView webView, ValueCallback<Uri[]> filePathCallback, FileChooserParams fileChooserParams) {
+                    if (uploadMessage != null) {
+                        uploadMessage.onReceiveValue(null);
+                        uploadMessage = null;
+                    }
+                    uploadMessage = filePathCallback;
+
+                    Intent intent = fileChooserParams.createIntent();
+                    try {
+                        startActivityForResult(intent, FILE_CHOOSER_RESULT_CODE);
+                    } catch (Exception e) {
+                        uploadMessage = null;
+                        return false;
+                    }
+                    return true;
                 }
             });
 
@@ -69,6 +100,32 @@ public class WebViewActivity extends AppCompatActivity {
                 }
             }
         });
+    }
+
+    // போனில் இருந்து ஃபைலைத் தேர்ந்தெடுத்த பிறகு அதை WebView-க்கு அனுப்பும் முறை
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent intent) {
+        super.onActivityResult(requestCode, resultCode, intent);
+        if (requestCode == FILE_CHOOSER_RESULT_CODE) {
+            if (uploadMessage == null) return;
+            Uri[] results = null;
+            if (resultCode == Activity.RESULT_OK) {
+                if (intent != null) {
+                    String dataString = intent.getDataString();
+                    if (dataString != null) {
+                        results = new Uri[]{Uri.parse(dataString)};
+                    } else if (intent.getClipData() != null) {
+                        int count = intent.getClipData().getItemCount();
+                        results = new Uri[count];
+                        for (int i = 0; i < count; i++) {
+                            results[i] = intent.getClipData().getItemAt(i).getUri();
+                        }
+                    }
+                }
+            }
+            uploadMessage.onReceiveValue(results);
+            uploadMessage = null;
+        }
     }
 
     // வெப்சைட்டின் URL-ஐ வைத்து லாகின்/லாக் அவுட்டை ஆப் புரிந்து கொள்ளும் முறை
