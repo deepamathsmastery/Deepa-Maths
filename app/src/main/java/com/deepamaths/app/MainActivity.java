@@ -230,14 +230,18 @@ btnLoginLogout.setOnClickListener(v -> playClickAnimationAndRun(v, () -> {
         }
     }
 
-    private void setupCardWithAnimation(int viewId, View.OnClickListener actionListener) {
-        try {
-            View view = findViewById(viewId);
-            if (view != null) {
-                view.setOnClickListener(v -> playClickAnimationAndRun(v, () -> actionListener.onClick(v)));
-            }
-        } catch (Exception e) {
-            // பிழைகளைக் கையாளுதல்
-        }
+ private void setupCardWithAnimation(int cardId, View.OnClickListener action) {
+    androidx.cardview.widget.CardView card = findViewById(cardId);
+    if (card != null) {
+        card.setOnClickListener(v -> {
+            // 1. கிளிக் செய்யும் போது சிறிய வைப்ரேஷன்/ஃபீல் (Click Feedback) வர
+            v.performHapticFeedback(android.view.HapticFeedbackConstants.VIRTUAL_KEY);
+
+            // 2. சின்ன அனிமேஷன் மற்றும் செயல்பாடு
+            v.animate().scaleX(0.95f).scaleY(0.95f).setDuration(100).withEndAction(() -> {
+                v.animate().scaleX(1f).scaleY(1f).setDuration(100).start();
+                action.onClick(v);
+            }).start();
+        });
     }
 }
