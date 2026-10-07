@@ -103,7 +103,7 @@ public class MainActivity extends AppCompatActivity {
             setupCardWithAnimation(R.id.btnTrigonometry, v -> openWebView("https://deepamaths.com/trigonometry"));
             setupCardWithAnimation(R.id.btnCalculus, v -> openWebView("https://deepamaths.com/calculus"));
             setupCardWithAnimation(R.id.btnCoordinate, v -> openWebView("https://deepamaths.com/coordinate-geometry"));
-            setupCardWithAnimation(R.id.btnVideoTutorials, v -> openWebView("https://deepamaths.com/video-tutorials"));
+            setupCardWithAnimation(R.id.btnVideoTutorials, v -> openWebView("https://www.youtube.com/channel/UCzRuYY0ufMb0noxwzN-vL1w"));
 
             // WhatsApp Doubt
             setupCardWithAnimation(R.id.btnWhatsapp, v -> {
