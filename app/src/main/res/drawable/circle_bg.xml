@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<shape xmlns:android="http://schemas.com/apk/res/android"
+    android:shape="oval">
+    <!-- ஐகானின் பின்புள்ள வட்டத்தின் நிறம் (Theme Primary-ன் லைட் ஷேட்) -->
+    <solid android:color="#E8EAF6" /> 
+</shape>
