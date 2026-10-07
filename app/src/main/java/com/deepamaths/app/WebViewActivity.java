@@ -29,7 +29,7 @@ public class WebViewActivity extends AppCompatActivity {
         webView = findViewById(R.id.webView);
         
         if (webView != null) {
-            // மொபைல் வியூவிற்கான முக்கியமான செட்டிங்ஸ்
+            // மொபைல் வியூ மற்றும் மீடியா பிளேபேக்கிற்கான முக்கியமான செட்டிங்ஸ்
             WebSettings webSettings = webView.getSettings();
             webSettings.setJavaScriptEnabled(true); 
             webSettings.setDomStorageEnabled(true); 
@@ -40,15 +40,20 @@ public class WebViewActivity extends AppCompatActivity {
             webSettings.setDisplayZoomControls(false); 
             webSettings.setAllowFileAccess(true); // ஃபைல் அணுகலை அனுமதிக்க
             
+            // ஆப்பிற்குள்ளேயே வீடியோக்கள் பிளே ஆக இது உதவும்
+            webSettings.setMediaPlaybackRequiresUserGesture(false); 
+            
             webSettings.setCacheMode(WebSettings.LOAD_DEFAULT);
             webSettings.setLoadsImagesAutomatically(true);
 
-            // Login & Logout Status-ஐ கண்காணிக்க
+            // Login & Logout Status மற்றும் வெப்வ்யூவிலேயே லிங்க்களைத் திறக்க
             webView.setWebViewClient(new WebViewClient() {
                 @Override
                 public boolean shouldOverrideUrlLoading(WebView view, String url) {
+                    // இங்கே யூடியூப் ஆப்பிற்கு மாற்றும் கோட் நீக்கப்பட்டுவிட்டது. 
+                    // எனவே, அத்தனை லிங்க்களும் (YouTube உட்பட) ஆப்பிற்குள்ளேயே ஓபன் ஆகும்.
                     checkLoginStatusFromUrl(url);
-                    return false;
+                    return false; 
                 }
 
                 @Override
@@ -81,10 +86,17 @@ public class WebViewActivity extends AppCompatActivity {
 
             // MainActivity-ல் இருந்து அனுப்பப்பட்ட URL-ஐ வாங்குதல்
             String url = getIntent().getStringExtra("url");
+            
+            // "video-tutorials" என வந்தால் நேரடியாக YouTube Channel லிங்க்கை WebView-க்குள் லோட் செய்ய
+            if (url != null && url.equals("https://deepamaths.com/video-tutorials")) {
+                url = "https://www.youtube.com/channel/UCzRuYY0ufMb0noxwzN-vL1w";
+            }
+
             if (url == null || url.isEmpty()) {
                 url = "https://deepamaths.com";
             }
             
+            // இப்போது அத்தனையும் ஆப்பிற்குள்ளேயே (WebView) திறக்கும்
             webView.loadUrl(url);
         }
 
