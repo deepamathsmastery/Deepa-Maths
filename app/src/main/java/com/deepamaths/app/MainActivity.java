@@ -108,7 +108,7 @@ public class MainActivity extends AppCompatActivity {
             // WhatsApp Doubt
             setupCardWithAnimation(R.id.btnWhatsapp, v -> {
                 try {
-                    Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://wa.me/919876543210?text=Hello%20Teacher,%20I%20have%20a%20maths%20doubt."));
+                    Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://wa.me/919345934899?text=Hello%20Teacher,%20I%20have%20a%20maths%20doubt."));
                     startActivity(intent);
                 } catch (Exception e) {
                     Toast.makeText(this, "WhatsApp not installed", Toast.LENGTH_SHORT).show();
@@ -193,20 +193,19 @@ public class MainActivity extends AppCompatActivity {
                     }
                     
                     // Logout கிளிக் செய்தால் செஷனை கிளியர் செய்துவிட்டு வெப்சைட் logout URL-ஐ திறக்கும்
-                  // MainActivity.java-ல் உள்ள Logout பகுதி:
-btnLoginLogout.setOnClickListener(v -> playClickAnimationAndRun(v, () -> {
-    SharedPreferences.Editor editor = sharedPreferences.edit();
-    editor.putBoolean("isLoggedIn", false);
-    editor.remove("studentName");
-    editor.apply();
+                    btnLoginLogout.setOnClickListener(v -> playClickAnimationAndRun(v, () -> {
+                        SharedPreferences.Editor editor = sharedPreferences.edit();
+                        editor.putBoolean("isLoggedIn", false);
+                        editor.remove("studentName");
+                        editor.apply();
 
-    Toast.makeText(MainActivity.this, "Successfully Logged Out!", Toast.LENGTH_SHORT).show();
-    
-    // வேர்ட்பிரஸின் உண்மையான Logout URL-ஐ இங்கே கொடுக்கவும்:
-    openWebView("https://deepamaths.com/wp-login.php?action=logout");
-    
-    recreate();
-}));
+                        Toast.makeText(MainActivity.this, "Successfully Logged Out!", Toast.LENGTH_SHORT).show();
+                        
+                        // வெப்சைட்டின் Logout URL-ஐ திறக்கும்
+                        openWebView("https://deepamaths.com/wp-login.php?action=logout");
+                        
+                        recreate();
+                    }));
 
                 } else {
                     // 2. லாகின் செய்யவில்லை என்றால் -> "Student Dashboard" (Login) பட்டனாக காட்டும் (Blue Color)
@@ -230,18 +229,19 @@ btnLoginLogout.setOnClickListener(v -> playClickAnimationAndRun(v, () -> {
         }
     }
 
- private void setupCardWithAnimation(int cardId, View.OnClickListener action) {
-    androidx.cardview.widget.CardView card = findViewById(cardId);
-    if (card != null) {
-        card.setOnClickListener(v -> {
-            // 1. கிளிக் செய்யும் போது சிறிய வைப்ரேஷன்/ஃபீல் (Click Feedback) வர
-            v.performHapticFeedback(android.view.HapticFeedbackConstants.VIRTUAL_KEY);
+    private void setupCardWithAnimation(int cardId, View.OnClickListener action) {
+        androidx.cardview.widget.CardView card = findViewById(cardId);
+        if (card != null) {
+            card.setOnClickListener(v -> {
+                // 1. கிளிக் செய்யும் போது சிறிய வைப்ரேஷன்/ஃபீல் (Click Feedback) வர
+                v.performHapticFeedback(android.view.HapticFeedbackConstants.VIRTUAL_KEY);
 
-            // 2. சின்ன அனிமேஷன் மற்றும் செயல்பாடு
-            v.animate().scaleX(0.95f).scaleY(0.95f).setDuration(100).withEndAction(() -> {
-                v.animate().scaleX(1f).scaleY(1f).setDuration(100).start();
-                action.onClick(v);
-            }).start();
-        });
+                // 2. சின்ன அனிமேஷன் மற்றும் செயல்பாடு
+                v.animate().scaleX(0.95f).scaleY(0.95f).setDuration(100).withEndAction(() -> {
+                    v.animate().scaleX(1f).scaleY(1f).setDuration(100).start();
+                    action.onClick(v);
+                }).start();
+            });
+        }
     }
-}
+} // <--- மிக முக்கியமானது: MainActivity கிளாஸை முடிக்க இந்த பிராக்கெட் இருக்க வேண்டும்!
