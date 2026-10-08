@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="24dp"
+    android:background="#FFFFFF"
+    android:gravity="center">
+
+    <!-- தலைப்பு -->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Rate &amp; Feedback"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:textColor="#3F51B5"
+        android:gravity="center" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+       android:text="If you like the Deepa Maths app, please give us a rating or share your feedback via WhatsApp!"
+        android:textSize="14sp"
+        android:textColor="#666666"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="24dp"
+        android:gravity="center" />
+
+    <!-- 1. Play Store Rate Button -->
+    <Button
+        android:id="@+id/btnRatePlayStore"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="⭐ Rate on Play Store"
+        android:textColor="#FFFFFF"
+        android:backgroundTint="#FF9800"
+        android:layout_marginBottom="12dp" />
+
+    <!-- 2. WhatsApp Feedback Button -->
+    <Button
+        android:id="@+id/btnSendWhatsappFeedback"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="💬 Send WhatsApp Feedback"
+        android:textColor="#FFFFFF"
+        android:backgroundTint="#4CAF50" />
+
+</LinearLayout>
