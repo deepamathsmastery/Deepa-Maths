@@ -1,0 +1,37 @@
+<style name="GridItemStyle">
+    <item name="android:layout_width">0dp</item>
+    <item name="android:layout_height">wrap_content</item>
+    <item name="android:layout_columnWeight">1</item>
+    <item name="android:orientation">vertical</item>
+    <item name="android:gravity">center</item>
+    <item name="android:layout_margin">8dp</item>
+    <item name="android:clickable">true</item>
+    <item name="android:focusable">true</item>
+    <item name="android:background">?attr/selectableItemBackground</item>
+    <item name="android:padding">6dp</item>
+</style>
+
+<style name="CircleIconStyle">
+    <item name="android:layout_width">56dp</item>
+    <item name="android:layout_height">56dp</item>
+    <item name="android:background">@drawable/circle_bg</item>
+    <item name="android:elevation">3dp</item>
+</style>
+
+<style name="SvgIconStyle">
+    <item name="android:layout_width">28dp</item>
+    <item name="android:layout_height">28dp</item>
+    <item name="android:layout_gravity">center</item>
+    <item name="android:tint">#FFFFFF</item>
+</style>
+
+<style name="GridLabelStyle">
+    <item name="android:layout_width">wrap_content</item>
+    <item name="android:layout_height">wrap_content</item>
+    <item name="android:layout_marginTop">6dp</item>
+    <item name="android:textSize">12sp</item>
+    <item name="android:textStyle">bold</item>
+    <item name="android:gravity">center</item>
+    <item name="android:textColor">?android:attr/textColorPrimary</item>
+    <item name="android:maxLines">2</item>
+</style>
