@@ -96,12 +96,15 @@ public class MainActivity extends AppCompatActivity {
             setupCardWithAnimation(R.id.btnProgress, v -> openWebView("https://deepamaths.com/progress"));
             setupCardWithAnimation(R.id.btnBadges, v -> openWebView("https://deepamaths.com/badges"));
             setupCardWithAnimation(R.id.btnDailyChallenge, v -> openWebView("https://deepamaths.com/daily-challenge"));
+            setupCardWithAnimation(R.id.btnExportPdf, v -> openWebView("https://deepamaths.com/export-pdf"));
             setupCardWithAnimation(R.id.btnCalculator, v -> openWebView("https://deepamaths.com/maths-magic-lab"));
+            setupCardWithAnimation(R.id.btnExamMock, v -> openWebView("https://deepamaths.com/maths-mock-test"));
 
-            // --- FORMULAS & SHORTCUTS ACTIVITIES ---
+            // --- FORMULAS & GEOMETRY ACTIVITIES ---
             setupCardWithAnimation(R.id.btnAlgebra, v -> openWebView("https://deepamaths.com/algebra"));
             setupCardWithAnimation(R.id.btnTrigonometry, v -> openWebView("https://deepamaths.com/trigonometry"));
             setupCardWithAnimation(R.id.btnCalculus, v -> openWebView("https://deepamaths.com/calculus"));
+            setupCardWithAnimation(R.id.btnCoordinate, v -> openWebView("https://deepamaths.com/coordinate-geometry"));
             setupCardWithAnimation(R.id.btnVideoTutorials, v -> openWebView("https://www.youtube.com/channel/UCzRuYY0ufMb0noxwzN-vL1w"));
 
             // WhatsApp Doubt
@@ -120,6 +123,26 @@ public class MainActivity extends AppCompatActivity {
                     Intent intent = new Intent(Intent.ACTION_DIAL, Uri.parse("tel:+919345934899"));
                     startActivity(intent);
                 } catch (Exception e) {}
+            });
+
+            // Share App
+            setupCardWithAnimation(R.id.btnShare, v -> {
+                try {
+                    Intent intent = new Intent(Intent.ACTION_SEND);
+                    intent.setType("text/plain");
+                    intent.putExtra(Intent.EXTRA_TEXT, "Deepa Maths ஆப் மூலம் எளிதாக கணிதத்தைக் கற்றுக்கொள்ளுங்கள்!\nhttps://play.google.com/store/apps/details?id=" + getPackageName());
+                    startActivity(Intent.createChooser(intent, "Share Deepa Maths:"));
+                } catch (Exception e) {}
+            });
+
+            // Feedback
+            setupCardWithAnimation(R.id.btnFeedback, v -> {
+                try {
+                    Uri uri = Uri.parse("market://details?id=" + getPackageName());
+                    startActivity(new Intent(Intent.ACTION_VIEW, uri));
+                } catch (Exception e) {
+                    startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("https://play.google.com/store/apps/details?id=" + getPackageName())));
+                }
             });
 
         } catch (Exception e) {
