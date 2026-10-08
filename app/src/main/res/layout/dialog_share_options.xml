@@ -1,0 +1,187 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:background="@drawable/dialog_background"
+    android:padding="20dp">
+
+    <!-- தலைப்பு -->
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Deepa Maths-ஐப் பகிர (Share via)"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:textColor="#000000"
+        android:gravity="center"
+        android:paddingBottom="15dp"/>
+
+    <!-- 6 சோஷியல் மீடியா பட்டன்களுக்கான கட்டமைப்பு (Grid style) -->
+    <GridLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:columnCount="3"
+        android:alignmentMode="alignMargins"
+        android:columnOrderPreserved="false"
+        android:gravity="center">
+
+        <!-- 1. WhatsApp -->
+        <LinearLayout
+            android:id="@+id/btnShareWhatsApp"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_columnWeight="1"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:padding="10dp"
+            android:clickable="true"
+            android:focusable="true">
+            <ImageView
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:background="@drawable/circle_whatsapp"
+                android:padding="10dp"
+                android:src="@drawable/ic_whatsapp" /> <!-- உங்கள் WhatsApp ஐகான் -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="WhatsApp"
+                android:textSize="12sp"
+                android:textColor="#333333"
+                android:paddingTop="5dp"/>
+        </LinearLayout>
+
+        <!-- 2. LinkedIn -->
+        <LinearLayout
+            android:id="@+id/btnShareLinkedIn"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_columnWeight="1"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:padding="10dp"
+            android:clickable="true"
+            android:focusable="true">
+            <ImageView
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:background="@drawable/circle_linkedin"
+                android:padding="10dp"
+                android:src="@drawable/ic_linkedin" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="LinkedIn"
+                android:textSize="12sp"
+                android:textColor="#333333"
+                android:paddingTop="5dp"/>
+        </LinearLayout>
+
+        <!-- 3. Facebook -->
+        <LinearLayout
+            android:id="@+id/btnShareFacebook"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_columnWeight="1"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:padding="10dp"
+            android:clickable="true"
+            android:focusable="true">
+            <ImageView
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:background="@drawable/circle_facebook"
+                android:padding="10dp"
+                android:src="@drawable/ic_facebook" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Facebook"
+                android:textSize="12sp"
+                android:textColor="#333333"
+                android:paddingTop="5dp"/>
+        </LinearLayout>
+
+        <!-- 4. Twitter / X -->
+        <LinearLayout
+            android:id="@+id/btnShareTwitter"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_columnWeight="1"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:padding="10dp"
+            android:clickable="true"
+            android:focusable="true">
+            <ImageView
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:background="@drawable/circle_twitter"
+                android:padding="10dp"
+                android:src="@drawable/ic_twitter" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Twitter"
+                android:textSize="12sp"
+                android:textColor="#333333"
+                android:paddingTop="5dp"/>
+        </LinearLayout>
+
+        <!-- 5. Instagram -->
+        <LinearLayout
+            android:id="@+id/btnShareInstagram"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_columnWeight="1"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:padding="10dp"
+            android:clickable="true"
+            android:focusable="true">
+            <ImageView
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:background="@drawable/circle_instagram"
+                android:padding="10dp"
+                android:src="@drawable/ic_instagram" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Instagram"
+                android:textSize="12sp"
+                android:textColor="#333333"
+                android:paddingTop="5dp"/>
+        </LinearLayout>
+
+        <!-- 6. YouTube -->
+        <LinearLayout
+            android:id="@+id/btnShareYouTube"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_columnWeight="1"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:padding="10dp"
+            android:clickable="true"
+            android:focusable="true">
+            <ImageView
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:background="@drawable/circle_youtube"
+                print:padding="10dp"
+                android:src="@drawable/ic_youtube" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="YouTube"
+                android:textSize="12sp"
+                android:textColor="#333333"
+                android:paddingTop="5dp"/>
+        </LinearLayout>
+
+    </GridLayout>
+
+</LinearLayout>
