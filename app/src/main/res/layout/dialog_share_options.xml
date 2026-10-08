@@ -42,7 +42,7 @@
                 android:layout_height="48dp"
                 android:background="@drawable/circle_whatsapp"
                 android:padding="10dp"
-                android:src="@drawable/ic_whatsapp" /> <!-- உங்கள் WhatsApp ஐகான் -->
+                android:src="@drawable/ic_whatsapp" />
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -171,7 +171,7 @@
                 android:layout_width="48dp"
                 android:layout_height="48dp"
                 android:background="@drawable/circle_youtube"
-                print:padding="10dp"
+                android:padding="10dp"
                 android:src="@drawable/ic_youtube" />
             <TextView
                 android:layout_width="wrap_content"
