@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<shape xmlns:android="http://schemas.com/apk/res/android"
+<shape xmlns:android="http://schemas.android.com/apk/res/android"
     android:shape="oval">
-    <!-- ஐகானின் பின்புள்ள வட்டத்தின் நிறம் (Theme Primary-ன் லைட் ஷேட்) -->
+    <!-- சர்க்கிள் ஐகானுக்கான லேசான ப்ளூ கலர் பின்புலம் -->
     <solid android:color="#E8EAF6" /> 
 </shape>
