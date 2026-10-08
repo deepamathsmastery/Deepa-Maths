@@ -4,6 +4,8 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Color;
+import android.net.ConnectivityManager;
+import android.net.NetworkCapabilities;
 import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
@@ -224,11 +226,35 @@ public class MainActivity extends AppCompatActivity {
         } catch (Exception ignored) {}
     }
 
+    // 1. இணைய இணைப்பு உள்ளதா எனச் சோதிக்கும் முறை
+    private boolean isNetworkAvailable() {
+        try {
+            ConnectivityManager connectivityManager = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
+            if (connectivityManager != null) {
+                NetworkCapabilities capabilities = connectivityManager.getNetworkCapabilities(connectivityManager.getActiveNetwork());
+                return capabilities != null && (
+                        capabilities.hasTransport(NetworkCapabilities.TRANSPORT_WIFI) ||
+                        capabilities.hasTransport(NetworkCapabilities.TRANSPORT_CELLULAR) ||
+                        capabilities.hasTransport(NetworkCapabilities.TRANSPORT_ETHERNET)
+                );
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return false;
+    }
+
+    // 2. மாற்றப்பட்ட openWebView முறை (இன்டர்நெட் இருந்தால் மட்டுமே ஓபன் ஆகும்)
     private void openWebView(String url) {
         try {
-            Intent intent = new Intent(MainActivity.this, WebViewActivity.class);
-            intent.putExtra("url", url);
-            startActivity(intent);
+            if (isNetworkAvailable()) {
+                Intent intent = new Intent(MainActivity.this, WebViewActivity.class);
+                intent.putExtra("url", url);
+                startActivity(intent);
+            } else {
+                // இன்டர்நெட் இல்லை என்றால் மாணவர்களுக்கு எச்சரிக்கை செய்தி காட்டும்
+                Toast.makeText(this, "இணைய இணைப்பு இல்லை! தயவுசெய்து இன்டர்நெட்டை ஆன் செய்யவும்.", Toast.LENGTH_LONG).show();
+            }
         } catch (Exception e) {
             e.printStackTrace();
             Toast.makeText(this, "Error: " + e.getMessage(), Toast.LENGTH_LONG).show();
