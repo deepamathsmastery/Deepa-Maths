@@ -162,7 +162,7 @@ public class MainActivity extends AppCompatActivity {
     private void openWebView(String url) {
         try {
             if (isNetworkAvailable()) {
-                Intent intent = new Intent(MainActivity.this, WebViewActivity.java.equals("WebViewActivity.java") ? WebViewActivity.class : WebViewActivity.class);
+                Intent intent = new Intent(MainActivity.this, WebViewActivity.class);
                 intent.putExtra("url", url);
                 startActivity(intent);
             } else {
