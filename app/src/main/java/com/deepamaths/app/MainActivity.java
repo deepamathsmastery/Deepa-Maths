@@ -123,22 +123,90 @@ public class MainActivity extends AppCompatActivity {
                 } catch (Exception e) {}
             });
 
-            // Share App
+            // Share App - Opens Custom Dialog with 6 Options
             setupCardWithAnimation(R.id.btnShare, v -> {
-                try {
-                    String shareMessage = "Deepa Maths ஆப் மூலம் எளிதாக கணிதத்தைக் கற்றுக்கொள்ளுங்கள்! மாணவர்களுக்கான சிறந்த செயலி.\n\n" +
-                            "டவுன்லோட் செய்ய லிங்க்:\n" +
-                            "https://play.google.com/store/apps/details?id=com.deepamaths.app";
-                    Intent intent = new Intent(Intent.ACTION_SEND);
-                    intent.setType("text/plain");
-                    intent.putExtra(Intent.EXTRA_TEXT, shareMessage);
-                    startActivity(Intent.createChooser(intent, "Deepa Maths-ஐப் பகிர (Share via):"));
-                } catch (Exception e) {}
+                showShareDialog();
             });
 
         } catch (Exception e) {
             e.printStackTrace();
             Toast.makeText(this, "Error in MainActivity: " + e.getMessage(), Toast.LENGTH_LONG).show();
+        }
+    }
+
+    // ஷேர் பட்டனை அழுத்தியவுடன் 6 ஆப்ஷன்களைக் காட்டும் டயலாக் மெத்தட்
+    private void showShareDialog() {
+        try {
+            final android.app.Dialog dialog = new android.app.Dialog(this);
+            dialog.setContentView(R.layout.dialog_share_options);
+            
+            if (dialog.getWindow() != null) {
+                dialog.getWindow().setBackgroundDrawable(new android.graphics.drawable.ColorDrawable(Color.TRANSPARENT));
+            }
+
+            String shareMessage = "Deepa Maths ஆப் மூலம் எளிதாக கணிதத்தைக் கற்றுக்கொள்ளுங்கள்! மாணவர்களுக்கான சிறந்த செயலி.\n\n" +
+                    "டவுன்லோட் செய்ய லிங்க்:\n" +
+                    "https://play.google.com/store/apps/details?id=com.deepamaths.app";
+
+            // 1. WhatsApp
+            dialog.findViewById(R.id.btnShareWhatsApp).setOnClickListener(view -> {
+                shareToSpecificApp("com.whatsapp", shareMessage);
+                dialog.dismiss();
+            });
+
+            // 2. LinkedIn
+            dialog.findViewById(R.id.btnShareLinkedIn).setOnClickListener(view -> {
+                shareToSpecificApp("com.linkedin.android", shareMessage);
+                dialog.dismiss();
+            });
+
+            // 3. Facebook
+            dialog.findViewById(R.id.btnShareFacebook).setOnClickListener(view -> {
+                shareToSpecificApp("com.facebook.katana", shareMessage);
+                dialog.dismiss();
+            });
+
+            // 4. Twitter / X
+            dialog.findViewById(R.id.btnShareTwitter).setOnClickListener(view -> {
+                shareToSpecificApp("com.twitter.android", shareMessage);
+                dialog.dismiss();
+            });
+
+            // 5. Instagram
+            dialog.findViewById(R.id.btnShareInstagram).setOnClickListener(view -> {
+                shareToSpecificApp("com.instagram.android", shareMessage);
+                dialog.dismiss();
+            });
+
+            // 6. YouTube (அல்லது பொதுவான ஷேர் Chooser)
+            dialog.findViewById(R.id.btnShareYouTube).setOnClickListener(view -> {
+                Intent intent = new Intent(Intent.ACTION_SEND);
+                intent.setType("text/plain");
+                intent.putExtra(Intent.EXTRA_TEXT, shareMessage);
+                startActivity(Intent.createChooser(intent, "Deepa Maths-ஐப் பகிர:"));
+                dialog.dismiss();
+            });
+
+            dialog.show();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    // குறிப்பிட்ட ஆப்பிற்கு மெசேஜை அனுப்பும் ஹெல்பர் மெத்தட்
+    private void shareToSpecificApp(String packageName, String message) {
+        try {
+            Intent intent = new Intent(Intent.ACTION_SEND);
+            intent.setType("text/plain");
+            intent.setPackage(packageName);
+            intent.putExtra(Intent.EXTRA_TEXT, message);
+            startActivity(intent);
+        } catch (Exception e) {
+            // ஒருவேளை அந்த ஆப் யூசர் போனில் இல்லை என்றால் ஜெனரல் ஷேர் ஓபன் ஆகும்
+            Intent intent = new Intent(Intent.ACTION_SEND);
+            intent.setType("text/plain");
+            intent.putExtra(Intent.EXTRA_TEXT, message);
+            startActivity(Intent.createChooser(intent, "Deepa Maths-ஐப் பகிர:"));
         }
     }
 
@@ -182,7 +250,6 @@ public class MainActivity extends AppCompatActivity {
                 boolean isLoggedIn = sharedPreferences.getBoolean("isLoggedIn", false);
                 
                 if (isLoggedIn) {
-                    // 1. ஏற்கெனவே லாகின் செய்திருந்தால் -> "Logout" பட்டனாக மாற்றும் (Red Color)
                     if (btnLoginLogout instanceof Button) {
                         Button button = (Button) btnLoginLogout;
                         button.setText("Logout");
@@ -192,7 +259,6 @@ public class MainActivity extends AppCompatActivity {
                         textView.setText("Logout");
                     }
                     
-                    // Logout கிளிக் செய்தால் செஷனை கிளியர் செய்துவிட்டு வெப்சைட் logout URL-ஐ திறக்கும்
                     btnLoginLogout.setOnClickListener(v -> playClickAnimationAndRun(v, () -> {
                         SharedPreferences.Editor editor = sharedPreferences.edit();
                         editor.putBoolean("isLoggedIn", false);
@@ -201,14 +267,12 @@ public class MainActivity extends AppCompatActivity {
 
                         Toast.makeText(MainActivity.this, "Successfully Logged Out!", Toast.LENGTH_SHORT).show();
                         
-                        // வெப்சைட்டின் Logout URL-ஐ திறக்கும்
                         openWebView("https://deepamaths.com/wp-login.php?action=logout");
                         
                         recreate();
                     }));
 
                 } else {
-                    // 2. லாகின் செய்யவில்லை என்றால் -> "Student Dashboard" (Login) பட்டனாக காட்டும் (Blue Color)
                     if (btnLoginLogout instanceof Button) {
                         Button button = (Button) btnLoginLogout;
                         button.setText("Student Dashboard");
@@ -218,7 +282,6 @@ public class MainActivity extends AppCompatActivity {
                         textView.setText("Student Dashboard");
                     }
                     
-                    // கிளிக் செய்தால் டேஷ்போர்டு / லாகின் பக்கத்தை திறக்கும்
                     btnLoginLogout.setOnClickListener(v -> playClickAnimationAndRun(v, () -> {
                         openWebView("https://deepamaths.com/student-dashboard");
                     }));
@@ -233,10 +296,8 @@ public class MainActivity extends AppCompatActivity {
         androidx.cardview.widget.CardView card = findViewById(cardId);
         if (card != null) {
             card.setOnClickListener(v -> {
-                // 1. கிளிக் செய்யும் போது சிறிய வைப்ரேஷன்/ஃபீல் (Click Feedback) வர
                 v.performHapticFeedback(android.view.HapticFeedbackConstants.VIRTUAL_KEY);
 
-                // 2. சின்ன அனிமேஷன் மற்றும் செயல்பாடு
                 v.animate().scaleX(0.95f).scaleY(0.95f).setDuration(100).withEndAction(() -> {
                     v.animate().scaleX(1f).scaleY(1f).setDuration(100).start();
                     action.onClick(v);
@@ -244,4 +305,4 @@ public class MainActivity extends AppCompatActivity {
             });
         }
     }
-} // <--- மிக முக்கியமானது: MainActivity கிளாஸை முடிக்க இந்த பிராக்கெட் இருக்க வேண்டும்!
+}
