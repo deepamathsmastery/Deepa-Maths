@@ -130,6 +130,11 @@ public class MainActivity extends AppCompatActivity {
                 showShareDialog();
             });
 
+            // Feedback Button Setup (Added with Animation)
+            setupCardWithAnimation(R.id.btnFeedback, v -> {
+                showFeedbackDialog();
+            });
+
         } catch (Exception e) {
             e.printStackTrace();
             Toast.makeText(this, "Error in MainActivity: " + e.getMessage(), Toast.LENGTH_LONG).show();
@@ -195,6 +200,48 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
+    // Feedback டயலாக் மெத்தட்
+    private void showFeedbackDialog() {
+        try {
+            final android.app.Dialog dialog = new android.app.Dialog(this);
+            dialog.setContentView(R.layout.dialog_feedback);
+            
+            if (dialog.getWindow() != null) {
+                dialog.getWindow().setBackgroundDrawable(new android.graphics.drawable.ColorDrawable(Color.TRANSPARENT));
+            }
+
+            View btnRate = dialog.findViewById(R.id.btnRatePlayStore);
+            if (btnRate != null) {
+                btnRate.setOnClickListener(view -> {
+                    try {
+                        Uri uri = Uri.parse("market://details?id=" + getPackageName());
+                        startActivity(new Intent(Intent.ACTION_VIEW, uri));
+                    } catch (Exception e) {
+                        startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("https://play.google.com/store/apps/details?id=" + getPackageName())));
+                    }
+                    dialog.dismiss();
+                });
+            }
+
+            View btnWhatsapp = dialog.findViewById(R.id.btnSendWhatsappFeedback);
+            if (btnWhatsapp != null) {
+                btnWhatsapp.setOnClickListener(view -> {
+                    try {
+                        String whatsappMessage = "Hello Teacher, Here is my feedback for Deepa Maths App:";
+                        startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("https://wa.me/919345934899?text=" + Uri.encode(whatsappMessage))));
+                    } catch (Exception e) {
+                        Toast.makeText(this, "WhatsApp not installed", Toast.LENGTH_SHORT).show();
+                    }
+                    dialog.dismiss();
+                });
+            }
+
+            dialog.show();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
     // குறிப்பிட்ட ஆப்பிற்கு மெசேஜை அனுப்பும் ஹெல்பர் மெத்தட்
     private void shareToSpecificApp(String packageName, String message) {
         try {
@@ -204,7 +251,6 @@ public class MainActivity extends AppCompatActivity {
             intent.putExtra(Intent.EXTRA_TEXT, message);
             startActivity(intent);
         } catch (Exception e) {
-            // ஒருவேளை அந்த ஆப் யூசர் போனில் இல்லை என்றால் ஜெனரல் ஷேர் ஓபன் ஆகும்
             Intent intent = new Intent(Intent.ACTION_SEND);
             intent.setType("text/plain");
             intent.putExtra(Intent.EXTRA_TEXT, message);
@@ -226,7 +272,6 @@ public class MainActivity extends AppCompatActivity {
         } catch (Exception ignored) {}
     }
 
-    // 1. இணைய இணைப்பு உள்ளதா எனச் சோதிக்கும் முறை
     private boolean isNetworkAvailable() {
         try {
             ConnectivityManager connectivityManager = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
@@ -244,7 +289,6 @@ public class MainActivity extends AppCompatActivity {
         return false;
     }
 
-    // 2. மாற்றப்பட்ட openWebView முறை (இன்டர்நெட் இருந்தால் மட்டுமே ஓபன் ஆகும்)
     private void openWebView(String url) {
         try {
             if (isNetworkAvailable()) {
@@ -252,7 +296,6 @@ public class MainActivity extends AppCompatActivity {
                 intent.putExtra("url", url);
                 startActivity(intent);
             } else {
-                // இன்டர்நெட் இல்லை என்றால் மாணவர்களுக்கு எச்சரிக்கை செய்தி காட்டும்
                 Toast.makeText(this, "இணைய இணைப்பு இல்லை! தயவுசெய்து இன்டர்நெட்டை ஆன் செய்யவும்.", Toast.LENGTH_LONG).show();
             }
         } catch (Exception e) {
@@ -267,7 +310,6 @@ public class MainActivity extends AppCompatActivity {
         updateLoginLogoutButton();
     }
 
-    // Dynamic Login / Logout Button Handler
     private void updateLoginLogoutButton() {
         try {
             View btnLoginLogout = findViewById(R.id.btnLogout);
@@ -320,6 +362,10 @@ public class MainActivity extends AppCompatActivity {
 
     private void setupCardWithAnimation(int cardId, View.OnClickListener action) {
         androidx.cardview.widget.CardView card = findViewById(cardId);
+        idCardClickSetup(card, action);
+    }
+
+    private void idCardClickSetup(androidx.cardview.widget.CardView card, View.OnClickListener action) {
         if (card != null) {
             card.setOnClickListener(v -> {
                 v.performHapticFeedback(android.view.HapticFeedbackConstants.VIRTUAL_KEY);
