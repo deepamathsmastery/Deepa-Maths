@@ -3,8 +3,8 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#F8FAFC"
-    android:fillViewport="true">
+    android:fillViewport="true"
+    android:background="?android:attr/windowBackground">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -12,453 +12,264 @@
         android:orientation="vertical"
         android:padding="16dp">
 
-        <!-- ==================== HEADER: APP LOGO & SEO TITLE ==================== -->
+        <!-- HEADER SECTION: Logo, Welcome Guest Text, Dark Mode Switch -->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
             android:gravity="center_vertical"
             android:layout_marginBottom="20dp"
-            android:background="@drawable/circle_background"
-            android:padding="12dp">
+            android:padding="12dp"
+            android:background="@drawable/header_bg"
+            android:elevation="2dp">
 
-            <!-- Circle App Logo -->
-            <androidx.cardview.widget.CardView
-                android:layout_width="60dp"
-                android:layout_height="60dp"
-                app:cardCornerRadius="30dp"
-                app:cardElevation="4dp"
-                app:cardBackgroundColor="#FFFFFF"
-                app:cardPreventCornerOverlap="false"
-                android:layout_marginEnd="12dp">
+            <!-- App Logo -->
+            <ImageView
+                android:id="@+id/imgLogo"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:src="@mipmap/ic_launcher"
+                android:contentDescription="App Logo" />
 
-                <ImageView
-                    android:id="@+id/imgAppLogo"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:scaleType="centerCrop"
-                    android:src="@android:drawable/ic_menu_agenda" />
-            </androidx.cardview.widget.CardView>
-
-            <!-- SEO Title & Subtitle -->
+            <!-- Welcome Guest Text -->
             <LinearLayout
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:orientation="vertical">
-
-                <TextView
-                    android:id="@+id/tvPlatformTitle"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="Deepa Maths Mastery"
-                    android:textSize="18sp"
-                    android:textStyle="bold"
-                    android:textColor="#1E1B4B" />
-
-                <TextView
-                    android:id="@+id/tvPlatformSubtitle"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="Online Teaching Platform"
-                    android:textSize="13sp"
-                    android:textColor="#64748B"
-                    android:layout_marginTop="2dp" />
+                android:orientation="vertical"
+                android:layout_marginStart="12dp">
 
                 <TextView
                     android:id="@+id/tvWelcome"
-                    android:layout_width="match_parent"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Welcome, Student! 🎓"
-                    android:textSize="12sp"
+                    android:text="Welcome, Guest!"
+                    android:textSize="18sp"
                     android:textStyle="bold"
-                    android:textColor="#4F46E5"
-                    android:layout_marginTop="4dp" />
+                    android:textColor="#1E293B" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Deepa Maths Learning Hub"
+                    android:textSize="12sp"
+                    android:textColor="#64748B" />
             </LinearLayout>
 
             <!-- Dark Mode Switch -->
             <androidx.appcompat.widget.SwitchCompat
                 android:id="@+id/switchDarkMode"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textColor="#475569" />
+                android:layout_height="wrap_content" />
         </LinearLayout>
 
-        <!-- Dashboard Action Button -->
+        <!-- GRID LAYOUT (3 Columns with Different Vibrant Colors & Circular SVG Icons) -->
+        <GridLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:columnCount="3"
+            android:alignmentMode="alignMargins"
+            android:columnOrderPreserved="false">
+
+            <!-- 1. Home -->
+            <LinearLayout style="@style/GridItemStyle" android:id="@+id/btnHome">
+                <FrameLayout style="@style/CircleIconStyle" android:backgroundTint="#FF5722">
+                    <ImageView style="@style/SvgIconStyle" android:src="@drawable/ic_home" />
+                </FrameLayout>
+                <TextView style="@style/GridLabelStyle" android:text="Home" />
+            </LinearLayout>
+
+            <!-- 2. Dashboard -->
+            <LinearLayout style="@style/GridItemStyle" android:id="@+id/btnDashboard">
+                <FrameLayout style="@style/CircleIconStyle" android:backgroundTint="#3F51B5">
+                    <ImageView style="@style/SvgIconStyle" android:src="@drawable/ic_dashboard" />
+                </FrameLayout>
+                <TextView style="@style/GridLabelStyle" android:text="Dashboard" />
+            </LinearLayout>
+
+            <!-- 3. Homework -->
+            <LinearLayout style="@style/GridItemStyle" android:id="@+id/btnHomework">
+                <FrameLayout style="@style/CircleIconStyle" android:backgroundTint="#009688">
+                    <ImageView style="@style/SvgIconStyle" android:src="@drawable/ic_homework" />
+                </FrameLayout>
+                <TextView style="@style/GridLabelStyle" android:text="Homework" />
+            </LinearLayout>
+
+            <!-- 4. Math Pad -->
+            <LinearLayout style="@style/GridItemStyle" android:id="@+id/btnMathPad">
+                <FrameLayout style="@style/CircleIconStyle" android:backgroundTint="#E91E63">
+                    <ImageView style="@style/SvgIconStyle" android:src="@drawable/ic_mathpad" />
+                </FrameLayout>
+                <TextView style="@style/GridLabelStyle" android:text="Math Pad" />
+            </LinearLayout>
+
+            <!-- 5. AI Teacher -->
+            <LinearLayout style="@style/GridItemStyle" android:id="@+id/btnAiTeacher">
+                <FrameLayout style="@style/CircleIconStyle" android:backgroundTint="#673AB7">
+                    <ImageView style="@style/SvgIconStyle" android:src="@drawable/ic_ai_teacher" />
+                </FrameLayout>
+                <TextView style="@style/GridLabelStyle" android:text="AI Teacher" />
+            </LinearLayout>
+
+            <!-- 6. Quiz -->
+            <LinearLayout style="@style/GridItemStyle" android:id="@+id/btnQuiz">
+                <FrameLayout style="@style/CircleIconStyle" android:backgroundTint="#4CAF50">
+                    <ImageView style="@style/SvgIconStyle" android:src="@drawable/ic_quiz" />
+                </FrameLayout>
+                <TextView style="@style/GridLabelStyle" android:text="Quiz" />
+            </LinearLayout>
+
+            <!-- 7. Voice Doubt -->
+            <LinearLayout style="@style/GridItemStyle" android:id="@+id/btnVoiceDoubt">
+                <FrameLayout style="@style/CircleIconStyle" android:backgroundTint="#00BCD4">
+                    <ImageView style="@style/SvgIconStyle" android:src="@drawable/ic_voice" />
+                </FrameLayout>
+                <TextView style="@style/GridLabelStyle" android:text="Voice Doubt" />
+            </LinearLayout>
+
+            <!-- 8. Offline Mode -->
+            <LinearLayout style="@style/GridItemStyle" android:id="@+id/btnOffline">
+                <FrameLayout style="@style/CircleIconStyle" android:backgroundTint="#607D8B">
+                    <ImageView style="@style/SvgIconStyle" android:src="@drawable/ic_offline" />
+                </FrameLayout>
+                <TextView style="@style/GridLabelStyle" android:text="Offline" />
+            </LinearLayout>
+
+            <!-- 9. Progress -->
+            <LinearLayout style="@style/GridItemStyle" android:id="@+id/btnProgress">
+                <FrameLayout style="@style/CircleIconStyle" android:backgroundTint="#3F51B5">
+                    <ImageView style="@style/SvgIconStyle" android:src="@drawable/ic_progress" />
+                </FrameLayout>
+                <TextView style="@style/GridLabelStyle" android:text="Progress" />
+            </LinearLayout>
+
+            <!-- 10. Badges -->
+            <LinearLayout style="@style/GridItemStyle" android:id="@+id/btnBadges">
+                <FrameLayout style="@style/CircleIconStyle" android:backgroundTint="#FF9800">
+                    <ImageView style="@style/SvgIconStyle" android:src="@drawable/ic_badges" />
+                </FrameLayout>
+                <TextView style="@style/GridLabelStyle" android:text="Badges" />
+            </LinearLayout>
+
+            <!-- 11. Daily Challenge -->
+            <LinearLayout style="@style/GridItemStyle" android:id="@+id/btnDailyChallenge">
+                <FrameLayout style="@style/CircleIconStyle" android:backgroundTint="#9C27B0">
+                    <ImageView style="@style/SvgIconStyle" android:src="@drawable/ic_challenge" />
+                </FrameLayout>
+                <TextView style="@style/GridLabelStyle" android:text="Challenge" />
+            </LinearLayout>
+
+            <!-- 12. Export PDF -->
+            <LinearLayout style="@style/GridItemStyle" android:id="@+id/btnExportPdf">
+                <FrameLayout style="@style/CircleIconStyle" android:backgroundTint="#795548">
+                    <ImageView style="@style/SvgIconStyle" android:src="@drawable/ic_pdf" />
+                </FrameLayout>
+                <TextView style="@style/GridLabelStyle" android:text="Export PDF" />
+            </LinearLayout>
+
+            <!-- 13. Calculator -->
+            <LinearLayout style="@style/GridItemStyle" android:id="@+id/btnCalculator">
+                <FrameLayout style="@style/CircleIconStyle" android:backgroundTint="#E65100">
+                    <ImageView style="@style/SvgIconStyle" android:src="@drawable/ic_calculator" />
+                </FrameLayout>
+                <TextView style="@style/GridLabelStyle" android:text="Calculator" />
+            </LinearLayout>
+
+            <!-- 14. Exam Mock -->
+            <LinearLayout style="@style/GridItemStyle" android:id="@+id/btnExamMock">
+                <FrameLayout style="@style/CircleIconStyle" android:backgroundTint="#C2185B">
+                    <ImageView style="@style/SvgIconStyle" android:src="@drawable/ic_exam" />
+                </FrameLayout>
+                <TextView style="@style/GridLabelStyle" android:text="Exam Mock" />
+            </LinearLayout>
+
+            <!-- 15. Algebra -->
+            <LinearLayout style="@style/GridItemStyle" android:id="@+id/btnAlgebra">
+                <FrameLayout style="@style/CircleIconStyle" android:backgroundTint="#00838F">
+                    <ImageView style="@style/SvgIconStyle" android:src="@drawable/ic_algebra" />
+                </FrameLayout>
+                <TextView style="@style/GridLabelStyle" android:text="Algebra" />
+            </LinearLayout>
+
+            <!-- 16. Trigonometry -->
+            <LinearLayout style="@style/GridItemStyle" android:id="@+id/btnTrigonometry">
+                <FrameLayout style="@style/CircleIconStyle" android:backgroundTint="#2E7D32">
+                    <ImageView style="@style/SvgIconStyle" android:src="@drawable/ic_trigo" />
+                </FrameLayout>
+                <TextView style="@style/GridLabelStyle" android:text="Trigonometry" />
+            </LinearLayout>
+
+            <!-- 17. Calculus -->
+            <LinearLayout style="@style/GridItemStyle" android:id="@+id/btnCalculus">
+                <FrameLayout style="@style/CircleIconStyle" android:backgroundTint="#4527A0">
+                    <ImageView style="@style/SvgIconStyle" android:src="@drawable/ic_calculus" />
+                </FrameLayout>
+                <TextView style="@style/GridLabelStyle" android:text="Calculus" />
+            </LinearLayout>
+
+            <!-- 18. Coordinate Geometry -->
+            <LinearLayout style="@style/GridItemStyle" android:id="@+id/btnCoordinate">
+                <FrameLayout style="@style/CircleIconStyle" android:backgroundTint="#AD1457">
+                    <ImageView style="@style/SvgIconStyle" android:src="@drawable/ic_geometry" />
+                </FrameLayout>
+                <TextView style="@style/GridLabelStyle" android:text="Coordinate" />
+            </LinearLayout>
+
+            <!-- 19. Video Tutorials -->
+            <LinearLayout style="@style/GridItemStyle" android:id="@+id/btnVideoTutorials">
+                <FrameLayout style="@style/CircleIconStyle" android:backgroundTint="#D32F2F">
+                    <ImageView style="@style/SvgIconStyle" android:src="@drawable/ic_video" />
+                </FrameLayout>
+                <TextView style="@style/GridLabelStyle" android:text="Videos" />
+            </LinearLayout>
+
+            <!-- 20. WhatsApp Doubt -->
+            <LinearLayout style="@style/GridItemStyle" android:id="@+id/btnWhatsapp">
+                <FrameLayout style="@style/CircleIconStyle" android:backgroundTint="#25D366">
+                    <ImageView style="@style/SvgIconStyle" android:src="@drawable/ic_whatsapp" />
+                </FrameLayout>
+                <TextView style="@style/GridLabelStyle" android:text="WhatsApp" />
+            </LinearLayout>
+
+            <!-- 21. Call Teacher -->
+            <LinearLayout style="@style/GridItemStyle" android:id="@+id/btnCall">
+                <FrameLayout style="@style/CircleIconStyle" android:backgroundTint="#0288D1">
+                    <ImageView style="@style/SvgIconStyle" android:src="@drawable/ic_call" />
+                </FrameLayout>
+                <TextView style="@style/GridLabelStyle" android:text="Call Teacher" />
+            </LinearLayout>
+
+            <!-- 22. Share App -->
+            <LinearLayout style="@style/GridItemStyle" android:id="@+id/btnShare">
+                <FrameLayout style="@style/CircleIconStyle" android:backgroundTint="#5E35B1">
+                    <ImageView style="@style/SvgIconStyle" android:src="@drawable/ic_share" />
+                </FrameLayout>
+                <TextView style="@style/GridLabelStyle" android:text="Share App" />
+            </LinearLayout>
+
+            <!-- 23. Feedback -->
+            <LinearLayout style="@style/GridItemStyle" android:id="@+id/btnFeedback">
+                <FrameLayout style="@style/CircleIconStyle" android:backgroundTint="#F57C00">
+                    <ImageView style="@style/SvgIconStyle" android:src="@drawable/ic_feedback" />
+                </FrameLayout>
+                <TextView style="@style/GridLabelStyle" android:text="Feedback" />
+            </LinearLayout>
+
+        </GridLayout>
+
+        <!-- 24. Login / Logout Button -->
         <Button
             android:id="@+id/btnLogout"
             android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:text="Student Dashboard"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:layout_marginBottom="16dp"
+            android:text="Login / Logout"
             android:textColor="#FFFFFF"
             android:backgroundTint="#4F46E5"
-            app:cornerRadius="12dp"
-            android:layout_marginBottom="20dp"
-            android:textSize="14sp"
-            android:textStyle="bold" />
-
-        <!-- ==================== ROW 1: Home (Blue), Dashboard (Indigo), Homework (Purple) ==================== -->
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:weightSum="3"
-            android:layout_marginBottom="14dp">
-
-            <!-- Home (Blue Theme) -->
-            <LinearLayout
-                android:id="@+id/btnHome"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:orientation="vertical"
-                android:gravity="center"
-                android:clickable="true"
-                android:focusable="true"
-                android:background="?attr/selectableItemBackground"
-                android:padding="4dp">
-                <FrameLayout android:layout_width="64dp" android:layout_height="64dp" android:background="@drawable/bg_blue_circle" android:elevation="3dp">
-                    <ImageView android:layout_width="34dp" android:layout_height="34dp" android:layout_gravity="center" android:src="@android:drawable/ic_menu_myplaces" app:tint="#FFFFFF" />
-                </FrameLayout>
-                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Home" android:textSize="12sp" android:textStyle="bold" android:textColor="#1F2937" android:layout_marginTop="6dp" android:gravity="center" />
-            </LinearLayout>
-
-            <!-- Dashboard (Indigo Theme) -->
-            <LinearLayout
-                android:id="@+id/btnDashboard"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:orientation="vertical"
-                android:gravity="center"
-                android:clickable="true"
-                android:focusable="true"
-                android:background="?attr/selectableItemBackground"
-                android:padding="4dp">
-                <FrameLayout android:layout_width="64dp" android:layout_height="64dp" android:background="@drawable/bg_indigo_circle" android:elevation="3dp">
-                    <ImageView android:layout_width="34dp" android:layout_height="34dp" android:layout_gravity="center" android:src="@android:drawable/ic_menu_manage" app:tint="#FFFFFF" />
-                </FrameLayout>
-                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Dashboard" android:textSize="12sp" android:textStyle="bold" android:textColor="#1F2937" android:layout_marginTop="6dp" android:gravity="center" />
-            </LinearLayout>
-
-            <!-- Homework (Purple Theme) -->
-            <LinearLayout
-                android:id="@+id/btnHomework"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:orientation="vertical"
-                android:gravity="center"
-                android:clickable="true"
-                android:focusable="true"
-                android:background="?attr/selectableItemBackground"
-                android:padding="4dp">
-                <FrameLayout android:layout_width="64dp" android:layout_height="64dp" android:background="@drawable/bg_purple_circle" android:elevation="3dp">
-                    <ImageView android:layout_width="34dp" android:layout_height="34dp" android:layout_gravity="center" android:src="@android:drawable/ic_menu_edit" app:tint="#FFFFFF" />
-                </FrameLayout>
-                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Homework" android:textSize="12sp" android:textStyle="bold" android:textColor="#1F2937" android:layout_marginTop="6dp" android:gravity="center" />
-            </LinearLayout>
-        </LinearLayout>
-
-        <!-- ==================== ROW 2: Math Pad (Teal), AI Teacher (Green), Quiz (Amber) ==================== -->
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:weightSum="3"
-            android:layout_marginBottom="14dp">
-
-            <LinearLayout
-                android:id="@+id/btnMathPad"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:orientation="vertical"
-                android:gravity="center"
-                android:clickable="true"
-                android:focusable="true"
-                android:background="?attr/selectableItemBackground"
-                android:padding="4dp">
-                <FrameLayout android:layout_width="64dp" android:layout_height="64dp" android:background="@drawable/bg_teal_circle" android:elevation="3dp">
-                    <ImageView android:layout_width="34dp" android:layout_height="34dp" android:layout_gravity="center" android:src="@android:drawable/ic_menu_agenda" app:tint="#FFFFFF" />
-                </FrameLayout>
-                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Math Pad" android:textSize="12sp" android:textStyle="bold" android:textColor="#1F2937" android:layout_marginTop="6dp" android:gravity="center" />
-            </LinearLayout>
-
-            <LinearLayout
-                android:id="@+id/btnAiTeacher"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:orientation="vertical"
-                android:gravity="center"
-                android:clickable="true"
-                android:focusable="true"
-                android:background="?attr/selectableItemBackground"
-                android:padding="4dp">
-                <FrameLayout android:layout_width="64dp" android:layout_height="64dp" android:background="@drawable/bg_green_circle" android:elevation="3dp">
-                    <ImageView android:layout_width="34dp" android:layout_height="34dp" android:layout_gravity="center" android:src="@android:drawable/ic_menu_info_details" app:tint="#FFFFFF" />
-                </FrameLayout>
-                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="AI Teacher" android:textSize="12sp" android:textStyle="bold" android:textColor="#1F2937" android:layout_marginTop="6dp" android:gravity="center" />
-            </LinearLayout>
-
-            <LinearLayout
-                android:id="@+id/btnQuiz"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:orientation="vertical"
-                android:gravity="center"
-                android:clickable="true"
-                android:focusable="true"
-                android:background="?attr/selectableItemBackground"
-                android:padding="4dp">
-                <FrameLayout android:layout_width="64dp" android:layout_height="64dp" android:background="@drawable/bg_amber_circle" android:elevation="3dp">
-                    <ImageView android:layout_width="34dp" android:layout_height="34dp" android:layout_gravity="center" android:src="@android:drawable/btn_star_big_on" app:tint="#FFFFFF" />
-                </FrameLayout>
-                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Quiz" android:textSize="12sp" android:textStyle="bold" android:textColor="#1F2937" android:layout_marginTop="6dp" android:gravity="center" />
-            </LinearLayout>
-        </LinearLayout>
-
-        <!-- ==================== ROW 3: Voice Doubt (Red), Offline (Cyan), Progress (Deep Orange) ==================== -->
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:weightSum="3"
-            android:layout_marginBottom="14dp">
-
-            <LinearLayout
-                android:id="@+id/btnVoiceDoubt"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:orientation="vertical"
-                android:gravity="center"
-                android:clickable="true"
-                android:focusable="true"
-                android:background="?attr/selectableItemBackground"
-                android:padding="4dp">
-                <FrameLayout android:layout_width="64dp" android:layout_height="64dp" android:background="@drawable/bg_red_circle" android:elevation="3dp">
-                    <ImageView android:layout_width="34dp" android:layout_height="34dp" android:layout_gravity="center" android:src="@android:drawable/stat_notify_chat" app:tint="#FFFFFF" />
-                </FrameLayout>
-                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Voice Doubt" android:textSize="12sp" android:textStyle="bold" android:textColor="#1F2937" android:layout_marginTop="6dp" android:gravity="center" />
-            </LinearLayout>
-
-            <LinearLayout
-                android:id="@+id/btnOffline"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:orientation="vertical"
-                android:gravity="center"
-                android:clickable="true"
-                android:focusable="true"
-                android:background="?attr/selectableItemBackground"
-                android:padding="4dp">
-                <FrameLayout android:layout_width="64dp" android:layout_height="64dp" android:background="@drawable/bg_cyan_circle" android:elevation="3dp">
-                    <ImageView android:layout_width="34dp" android:layout_height="34dp" android:layout_gravity="center" android:src="@android:drawable/ic_menu_save" app:tint="#FFFFFF" />
-                </FrameLayout>
-                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Offline" android:textSize="12sp" android:textStyle="bold" android:textColor="#1F2937" android:layout_marginTop="6dp" android:gravity="center" />
-            </LinearLayout>
-
-            <LinearLayout
-                android:id="@+id/btnProgress"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:orientation="vertical"
-                android:gravity="center"
-                android:clickable="true"
-                android:focusable="true"
-                android:background="?attr/selectableItemBackground"
-                android:padding="4dp">
-                <FrameLayout android:layout_width="64dp" android:layout_height="64dp" android:background="@drawable/bg_deep_orange_circle" android:elevation="3dp">
-                    <ImageView android:layout_width="34dp" android:layout_height="34dp" android:layout_gravity="center" android:src="@android:drawable/ic_menu_compass" app:tint="#FFFFFF" />
-                </FrameLayout>
-                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Progress" android:textSize="12sp" android:textStyle="bold" android:textColor="#1F2937" android:layout_marginTop="6dp" android:gravity="center" />
-            </LinearLayout>
-        </LinearLayout>
-
-        <!-- ==================== ROW 4: Badges (Pink), Challenge (Blue Grey), Calculator (Brown) ==================== -->
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:weightSum="3"
-            android:layout_marginBottom="14dp">
-
-            <LinearLayout
-                android:id="@+id/btnBadges"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:orientation="vertical"
-                android:gravity="center"
-                android:clickable="true"
-                android:focusable="true"
-                android:background="?attr/selectableItemBackground"
-                android:padding="4dp">
-                <FrameLayout android:layout_width="64dp" android:layout_height="64dp" android:background="@drawable/bg_pink_circle" android:elevation="3dp">
-                    <ImageView android:layout_width="34dp" android:layout_height="34dp" android:layout_gravity="center" android:src="@android:drawable/btn_star_big_on" app:tint="#FFFFFF" />
-                </FrameLayout>
-                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Badges" android:textSize="12sp" android:textStyle="bold" android:textColor="#1F2937" android:layout_marginTop="6dp" android:gravity="center" />
-            </LinearLayout>
-
-            <LinearLayout
-                android:id="@+id/btnDailyChallenge"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:orientation="vertical"
-                android:gravity="center"
-                android:clickable="true"
-                android:focusable="true"
-                android:background="?attr/selectableItemBackground"
-                android:padding="4dp">
-                <FrameLayout android:layout_width="64dp" android:layout_height="64dp" android:background="@drawable/bg_blue_grey_circle" android:elevation="3dp">
-                    <ImageView android:layout_width="34dp" android:layout_height="34dp" android:layout_gravity="center" android:src="@android:drawable/ic_menu_today" app:tint="#FFFFFF" />
-                </FrameLayout>
-                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Challenge" android:textSize="12sp" android:textStyle="bold" android:textColor="#1F2937" android:layout_marginTop="6dp" android:gravity="center" />
-            </LinearLayout>
-
-            <LinearLayout
-                android:id="@+id/btnCalculator"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:orientation="vertical"
-                android:gravity="center"
-                android:clickable="true"
-                android:focusable="true"
-                android:background="?attr/selectableItemBackground"
-                android:padding="4dp">
-                <FrameLayout android:layout_width="64dp" android:layout_height="64dp" android:background="@drawable/bg_brown_circle" android:elevation="3dp">
-                    <ImageView android:layout_width="34dp" android:layout_height="34dp" android:layout_gravity="center" android:src="@android:drawable/ic_menu_manage" app:tint="#FFFFFF" />
-                </FrameLayout>
-                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Calculator" android:textSize="12sp" android:textStyle="bold" android:textColor="#1F2937" android:layout_marginTop="6dp" android:gravity="center" />
-            </LinearLayout>
-        </LinearLayout>
-
-        <!-- ==================== ROW 5: Algebra (Violet), Trigonometry (Lime), Calculus (Light Blue) ==================== -->
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:weightSum="3"
-            android:layout_marginBottom="14dp">
-
-            <LinearLayout
-                android:id="@+id/btnAlgebra"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:orientation="vertical"
-                android:gravity="center"
-                android:clickable="true"
-                android:focusable="true"
-                android:background="?attr/selectableItemBackground"
-                android:padding="4dp">
-                <FrameLayout android:layout_width="64dp" android:layout_height="64dp" android:background="@drawable/bg_violet_circle" android:elevation="3dp">
-                    <ImageView android:layout_width="34dp" android:layout_height="34dp" android:layout_gravity="center" android:src="@android:drawable/ic_menu_sort_by_size" app:tint="#FFFFFF" />
-                </FrameLayout>
-                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Algebra" android:textSize="12sp" android:textStyle="bold" android:textColor="#1F2937" android:layout_marginTop="6dp" android:gravity="center" />
-            </LinearLayout>
-
-            <LinearLayout
-                android:id="@+id/btnTrigonometry"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:orientation="vertical"
-                android:gravity="center"
-                android:clickable="true"
-                android:focusable="true"
-                android:background="?attr/selectableItemBackground"
-                android:padding="4dp">
-                <FrameLayout android:layout_width="64dp" android:layout_height="64dp" android:background="@drawable/bg_emerald_circle" android:elevation="3dp">
-                    <ImageView android:layout_width="34dp" android:layout_height="34dp" android:layout_gravity="center" android:src="@android:drawable/ic_menu_gallery" app:tint="#FFFFFF" />
-                </FrameLayout>
-                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Trigonometry" android:textSize="11sp" android:textStyle="bold" android:textColor="#1F2937" android:layout_marginTop="6dp" android:gravity="center" />
-            </LinearLayout>
-
-            <LinearLayout
-                android:id="@+id/btnCalculus"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:orientation="vertical"
-                android:gravity="center"
-                android:clickable="true"
-                android:focusable="true"
-                android:background="?attr/selectableItemBackground"
-                android:padding="4dp">
-                <FrameLayout android:layout_width="64dp" android:layout_height="64dp" android:background="@drawable/bg_lightblue_circle" android:elevation="3dp">
-                    <ImageView android:layout_width="34dp" android:layout_height="34dp" android:layout_gravity="center" android:src="@android:drawable/ic_menu_mapmode" app:tint="#FFFFFF" />
-                </FrameLayout>
-                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Calculus" android:textSize="12sp" android:textStyle="bold" android:textColor="#1F2937" android:layout_marginTop="6dp" android:gravity="center" />
-            </LinearLayout>
-        </LinearLayout>
-
-        <!-- ==================== ROW 6: Tutorials (Dark Red), WhatsApp (Forest Green), Call (Deep Purple) ==================== -->
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:weightSum="3"
-            android:layout_marginBottom="24dp">
-
-            <LinearLayout
-                android:id="@+id/btnVideoTutorials"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:orientation="vertical"
-                android:gravity="center"
-                android:clickable="true"
-                android:focusable="true"
-                android:background="?attr/selectableItemBackground"
-                android:padding="4dp">
-                <FrameLayout android:layout_width="64dp" android:layout_height="64dp" android:background="@drawable/bg_darkred_circle" android:elevation="3dp">
-                    <ImageView android:layout_width="34dp" android:layout_height="34dp" android:layout_gravity="center" android:src="@android:drawable/ic_media_play" app:tint="#FFFFFF" />
-                </FrameLayout>
-                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Tutorials" android:textSize="12sp" android:textStyle="bold" android:textColor="#1F2937" android:layout_marginTop="6dp" android:gravity="center" />
-            </LinearLayout>
-
-            <LinearLayout
-                android:id="@+id/btnWhatsapp"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:orientation="vertical"
-                android:gravity="center"
-                android:clickable="true"
-                android:focusable="true"
-                android:background="?attr/selectableItemBackground"
-                android:padding="4dp">
-                <FrameLayout android:layout_width="64dp" android:layout_height="64dp" android:background="@drawable/bg_whatsapp_circle" android:elevation="3dp">
-                    <ImageView android:layout_width="34dp" android:layout_height="34dp" android:layout_gravity="center" android:src="@android:drawable/stat_notify_chat" app:tint="#FFFFFF" />
-                </FrameLayout>
-                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="WhatsApp" android:textSize="12sp" android:textStyle="bold" android:textColor="#1F2937" android:layout_marginTop="6dp" android:gravity="center" />
-            </LinearLayout>
-
-            <LinearLayout
-                android:id="@+id/btnCall"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:orientation="vertical"
-                android:gravity="center"
-                android:clickable="true"
-                android:focusable="true"
-                android:background="?attr/selectableItemBackground"
-                android:padding="4dp">
-                <FrameLayout android:layout_width="64dp" android:layout_height="64dp" android:background="@drawable/bg_deeppurple_circle" android:elevation="3dp">
-                    <ImageView android:layout_width="34dp" android:layout_height="34dp" android:layout_gravity="center" android:src="@android:drawable/ic_menu_call" app:tint="#FFFFFF" />
-                </FrameLayout>
-                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Call" android:textSize="12sp" android:textStyle="bold" android:textColor="#1F2937" android:layout_marginTop="6dp" android:gravity="center" />
-            </LinearLayout>
-        </LinearLayout>
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:padding="14dp" />
 
     </LinearLayout>
 </ScrollView>
